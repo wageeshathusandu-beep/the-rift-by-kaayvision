@@ -1,58 +1,44 @@
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient effects */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-rift-blue via-rift-dark to-rift-dark"></div>
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-rift-neon/5 rounded-full blur-[120px]"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-rift-neon-purple/5 rounded-full blur-[100px]"></div>
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rift-neon/5 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-rift-neon-purple/5 rounded-full blur-[80px]"></div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-rift-neon/30 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Movie Poster */}
-        <div className="mb-8 flex justify-center">
-          <img src="/download.png" alt="The Rift Official Movie Poster" className="w-full max-w-md rounded-2xl shadow-2xl object-contain" />
-        </div>
-
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center text-center">
         {/* Title */}
-        <h1 className="font-cinematic text-5xl md:text-7xl lg:text-8xl font-black tracking-wider mb-4 animate-slide-up">
+        <h1 className="font-cinematic text-5xl md:text-7xl lg:text-8xl font-black tracking-wider mb-6">
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-neon-purple bg-clip-text text-transparent">
             THE RIFT
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
-          When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
-          Some doors were never meant to be opened.
+        <p className="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
+          When AI tears open the fabric of reality, humanity faces its darkest hour. Some doors were never meant to be opened.
         </p>
 
+        {/* Movie Poster */}
+        <div className="mb-10 flex justify-center">
+          <img
+            src="/download.png"
+            alt="The Rift Official Poster"
+            className="w-full max-w-sm rounded-2xl shadow-2xl object-cover"
+          />
+        </div>
+
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#trailer"
-            className="group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30"
+            className="px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30 flex items-center gap-2"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Watch Trailer
-            </span>
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Watch Trailer
           </a>
           <a
             href="#"
@@ -62,8 +48,8 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Release info */}
-        <p className="mt-12 text-gray-500 text-sm font-cinematic tracking-[0.3em] animate-fade-in" style={{ animationDelay: '0.8s' }}>
+        {/* Release badge */}
+        <p className="mt-10 text-gray-500 text-sm font-cinematic tracking-[0.3em]">
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
