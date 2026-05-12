@@ -241,34 +241,54 @@
   animation: brand-flicker 5s ease-in-out infinite;
 }
 
-/* KAAY text - continuous neon blue glow pulse */
+/* KAAY text - bright white with clean glow */
 .brand-kaay {
   color: #ffffff;
+  font-weight: 900;
   animation: brand-kaay-glow 3s ease-in-out infinite;
 }
 
 @keyframes brand-kaay-glow {
   0%, 100% {
-    text-shadow: 0 0 4px rgba(255,255,255,0.3), 0 0 10px rgba(0,212,255,0.2), 0 0 20px rgba(0,212,255,0.1);
+    text-shadow:
+      0 0 2px rgba(255,255,255,0.9),
+      0 0 8px rgba(255,255,255,0.5),
+      0 0 16px rgba(0,212,255,0.3),
+      0 0 30px rgba(0,212,255,0.15);
   }
   50% {
-    text-shadow: 0 0 6px rgba(255,255,255,0.5), 0 0 16px rgba(0,212,255,0.4), 0 0 32px rgba(0,212,255,0.2), 0 0 48px rgba(0,212,255,0.1);
+    text-shadow:
+      0 0 3px rgba(255,255,255,1),
+      0 0 12px rgba(255,255,255,0.7),
+      0 0 24px rgba(0,212,255,0.5),
+      0 0 45px rgba(0,212,255,0.25),
+      0 0 60px rgba(0,212,255,0.1);
   }
 }
 
-/* VISION text - continuous stronger neon glow */
+/* VISION text - strong neon blue glow */
 .brand-vision {
-  color: #00b4d8;
+  color: #00e5ff;
+  font-weight: 900;
   animation: brand-vision-glow 3s ease-in-out infinite;
   animation-delay: 0.3s;
 }
 
 @keyframes brand-vision-glow {
   0%, 100% {
-    text-shadow: 0 0 5px rgba(0,212,255,0.5), 0 0 12px rgba(0,212,255,0.3), 0 0 28px rgba(0,212,255,0.15);
+    text-shadow:
+      0 0 3px rgba(0,229,255,0.9),
+      0 0 10px rgba(0,212,255,0.7),
+      0 0 22px rgba(0,212,255,0.4),
+      0 0 40px rgba(0,212,255,0.2);
   }
   50% {
-    text-shadow: 0 0 8px rgba(0,212,255,0.8), 0 0 20px rgba(0,212,255,0.5), 0 0 45px rgba(0,212,255,0.25), 0 0 70px rgba(0,212,255,0.1), 0 0 3px rgba(139,0,0,0.2);
+    text-shadow:
+      0 0 5px rgba(0,229,255,1),
+      0 0 15px rgba(0,212,255,0.9),
+      0 0 35px rgba(0,212,255,0.5),
+      0 0 60px rgba(0,212,255,0.3),
+      0 0 80px rgba(0,212,255,0.15);
   }
 }
 
