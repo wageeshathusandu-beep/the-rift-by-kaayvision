@@ -1,3 +1,5 @@
+import BrandLogo from './BrandLogo'
+
 export default function Footer() {
   return (
     <footer className="py-10 relative overflow-hidden" style={{ background: 'linear-gradient(to bottom, #050508, #020203)' }}>
@@ -12,9 +14,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <span className="title-cinematic text-sm text-white animate-flicker">
-              KAAY <span className="text-rift-glow neon-glow">VISION</span>
-            </span>
+            <BrandLogo size="sm" />
             <span className="text-rift-blood/40 text-sm">|</span>
             <span className="text-gray-600 text-sm font-body">The Rift Official</span>
           </div>

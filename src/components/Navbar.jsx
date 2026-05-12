@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import BrandLogo from './BrandLogo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,11 +13,9 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo with horror flicker */}
+          {/* Animated Brand Logo */}
           <a href="#" className="relative group">
-            <span className="title-cinematic text-xl md:text-2xl text-white animate-flicker group-hover:drop-shadow-[0_0_12px_rgba(139,0,0,0.6)] transition-all duration-300">
-              KAAY <span className="text-rift-glow neon-glow-strong">VISION</span>
-            </span>
+            <BrandLogo size="md" />
           </a>
 
           {/* Desktop Nav */}

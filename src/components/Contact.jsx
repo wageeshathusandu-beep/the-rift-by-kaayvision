@@ -62,7 +62,7 @@ export default function Contact() {
               </div>
               <button
                 type="button"
-                className="w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all duration-300"
+                className="btn-horror btn-horror-primary w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 transition-all duration-300"
               >
                 Send Message
               </button>

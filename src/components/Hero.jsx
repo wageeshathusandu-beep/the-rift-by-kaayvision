@@ -1,3 +1,5 @@
+import BrandLogo from './BrandLogo'
+
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -48,11 +50,10 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Brand Name with flicker */}
-        <p className="title-cinematic text-lg md:text-2xl mb-6 animate-fade-in tracking-[0.25em] animate-flicker">
-          <span className="text-white">KAAY</span>{' '}
-          <span className="text-rift-glow neon-glow-strong">VISION</span>
-        </p>
+        {/* Premium Animated Brand */}
+        <div className="mb-8 animate-fade-in">
+          <BrandLogo size="lg" />
+        </div>
 
         {/* Movie Poster with horror border glow */}
         <div className="mb-8 flex justify-center">
