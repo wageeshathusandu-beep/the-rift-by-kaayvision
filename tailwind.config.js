@@ -20,6 +20,7 @@ export default {
       },
       animation: {
         'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+        'text-glow': 'text-glow 3s ease-in-out infinite',
         'fade-in': 'fade-in 1s ease-out forwards',
         'slide-up': 'slide-up 0.8s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
@@ -28,6 +29,10 @@ export default {
         'glow-pulse': {
           '0%, 100%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)' },
           '50%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.6)' },
+        },
+        'text-glow': {
+          '0%, 100%': { opacity: '0.7', textShadow: '0 0 4px rgba(0, 180, 216, 0.3)' },
+          '50%': { opacity: '1', textShadow: '0 0 12px rgba(0, 180, 216, 0.8)' },
         },
         'fade-in': {
           '0%': { opacity: '0' },

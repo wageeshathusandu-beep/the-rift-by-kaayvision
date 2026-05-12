@@ -34,9 +34,9 @@ export default function Hero() {
           <a
             href="#trailer"
             onClick={(e) => { e.preventDefault(); document.getElementById('trailer')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30 flex items-center gap-2"
+            className="group px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] flex items-center gap-2"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
             Watch Trailer
@@ -45,7 +45,7 @@ export default function Hero() {
             href="#"
             className="px-8 py-4 border border-rift-neon/40 text-rift-neon font-semibold rounded-full hover:bg-rift-neon/10 hover:border-rift-neon transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/20"
           >
-            Watch Now
+            Watch Now <span className="animate-text-glow text-rift-glow">(Coming Soon)</span>
           </a>
         </div>
 
