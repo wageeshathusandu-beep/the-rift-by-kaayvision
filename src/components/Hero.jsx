@@ -25,12 +25,16 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Movie Poster */}
         <div className="mb-8 animate-fade-in">
-          <div className="inline-block relative">
-            <div className="w-64 h-96 md:w-72 md:h-[28rem] mx-auto rounded-2xl border border-rift-neon/20 shadow-2xl shadow-rift-neon/10 overflow-hidden animate-glow-pulse">
+          <div className="inline-block relative group">
+            {/* Cinematic glow behind poster */}
+            <div className="absolute -inset-4 bg-gradient-to-b from-rift-neon/20 via-rift-neon-purple/10 to-rift-neon/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-700 animate-glow-pulse"></div>
+            <div className="absolute -inset-2 bg-rift-neon/5 rounded-2xl blur-xl"></div>
+            {/* Poster container - responsive, preserving original proportions */}
+            <div className="relative w-60 sm:w-64 md:w-72 lg:w-80 mx-auto rounded-2xl border border-rift-neon/30 shadow-[0_0_40px_rgba(0,212,255,0.15),0_0_80px_rgba(123,47,247,0.1)] overflow-hidden">
               <img
-                src="/posters/rift-poster.jpg"
+                src="https://drive.google.com/uc?export=view&id=1lMpQljLPvgsvF0H0a3ESED-bk22ywPW3"
                 alt="The Rift - Official Movie Poster"
-                className="w-full h-full object-cover"
+                className="w-full h-auto block"
               />
             </div>
           </div>
