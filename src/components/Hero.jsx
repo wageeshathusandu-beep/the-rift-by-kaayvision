@@ -23,21 +23,13 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Movie Poster Placeholder */}
-        <div className="mb-8 animate-fade-in">
-          <div className="inline-block relative">
-            <div className="w-64 h-96 md:w-72 md:h-[28rem] mx-auto rounded-2xl bg-gradient-to-b from-rift-deep to-rift-dark border border-rift-neon/20 shadow-2xl shadow-rift-neon/10 flex items-center justify-center overflow-hidden animate-glow-pulse">
-              <div className="text-center p-6">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-rift-neon/10 border border-rift-neon/30 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                </div>
-                <p className="text-rift-neon/60 text-sm font-cinematic tracking-widest">MOVIE POSTER</p>
-                <p className="text-gray-500 text-xs mt-2">Coming Soon</p>
-              </div>
-            </div>
-          </div>
+        {/* Movie Poster */}
+        <div className="mb-8 flex justify-center">
+          <img
+            src="/rift-poster.jpg"
+            alt="The Rift Official Poster"
+            className="w-full max-w-md rounded-2xl shadow-2xl"
+          />
         </div>
 
         {/* Title */}
