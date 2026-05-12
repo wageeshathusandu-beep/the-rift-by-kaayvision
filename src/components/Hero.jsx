@@ -23,7 +23,7 @@ export default function Hero() {
         {/* Movie Poster */}
         <div className="mb-10 flex justify-center w-full">
           <img
-            src="https://i.imgur.com/8Qw1F9m.jpeg"
+            src="https://i.imgur.com/162JyPV.jpeg"
             alt="The Rift Official Poster"
             className="w-full max-w-sm rounded-2xl shadow-2xl object-cover"
           />
