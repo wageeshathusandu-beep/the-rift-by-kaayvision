@@ -33,6 +33,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#trailer"
+            onClick={(e) => { e.preventDefault(); document.getElementById('trailer')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30 flex items-center gap-2"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
