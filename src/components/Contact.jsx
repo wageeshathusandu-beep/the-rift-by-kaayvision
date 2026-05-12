@@ -16,12 +16,23 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="py-24 relative" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-rift-dark to-rift-blue/30"></div>
+    <section id="contact" className="py-24 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080810] to-rift-darker"></div>
+
+      {/* Horror ambience */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
+      <div className="absolute top-1/4 right-0 w-[200px] h-[200px] bg-rift-neon/3 rounded-full blur-[80px]"></div>
+
+      {/* Fog */}
+      <div className="fog-layer">
+        <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift-reverse opacity-20"></div>
+      </div>
+
+      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
       <div className={`relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Get In Touch</h2>
-        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Connect with us for press inquiries, partnerships, and updates</p>
+        <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Connect with us for press inquiries, partnerships, and updates</p>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -32,26 +43,26 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-rift-neon/50 focus:outline-none focus:ring-1 focus:ring-rift-neon/30 text-white placeholder-gray-500 transition-all font-body"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 />
               </div>
               <div>
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-rift-neon/50 focus:outline-none focus:ring-1 focus:ring-rift-neon/30 text-white placeholder-gray-500 transition-all font-body"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 />
               </div>
               <div>
                 <textarea
                   rows="4"
                   placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-rift-neon/50 focus:outline-none focus:ring-1 focus:ring-rift-neon/30 text-white placeholder-gray-500 transition-all resize-none font-body"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all resize-none font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 ></textarea>
               </div>
               <button
                 type="button"
-                className="w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 hover:shadow-lg hover:shadow-rift-neon/20 transition-all duration-300"
+                className="w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all duration-300"
               >
                 Send Message
               </button>
@@ -64,35 +75,35 @@ export default function Contact() {
               <h3 className="sub-heading text-white mb-6 text-xl">Follow Us</h3>
               <div className="grid grid-cols-2 gap-4">
                 {/* Twitter/X */}
-                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-rift-neon/30 transition-all group">
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-rift-blood/10 border border-rift-blood/10 hover:border-rift-blood/30 transition-all duration-500 group">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-rift-neon transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
-                  <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Twitter/X</span>
+                  <span className="text-xs text-gray-500 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Twitter/X</span>
                 </a>
 
                 {/* Instagram */}
-                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-rift-neon/30 transition-all group">
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-rift-blood/10 border border-rift-blood/10 hover:border-rift-blood/30 transition-all duration-500 group">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-rift-neon transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                   </svg>
-                  <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Instagram</span>
+                  <span className="text-xs text-gray-500 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Instagram</span>
                 </a>
 
                 {/* YouTube */}
-                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-rift-neon/30 transition-all group">
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-rift-blood/10 border border-rift-blood/10 hover:border-rift-blood/30 transition-all duration-500 group">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-rift-neon transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
-                  <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-nav uppercase tracking-wider">YouTube</span>
+                  <span className="text-xs text-gray-500 group-hover:text-white transition-colors font-nav uppercase tracking-wider">YouTube</span>
                 </a>
 
                 {/* Facebook */}
-                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-rift-neon/30 transition-all group">
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <a href="#" className="flex items-center gap-3 p-3 rounded-lg bg-black/20 hover:bg-rift-blood/10 border border-rift-blood/10 hover:border-rift-blood/30 transition-all duration-500 group">
+                  <svg className="w-5 h-5 text-gray-500 group-hover:text-rift-neon transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
-                  <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Facebook</span>
+                  <span className="text-xs text-gray-500 group-hover:text-white transition-colors font-nav uppercase tracking-wider">Facebook</span>
                 </a>
               </div>
             </div>
@@ -102,13 +113,13 @@ export default function Contact() {
               <h3 className="sub-heading text-white mb-4 text-xl">Contact Info</h3>
               <div className="space-y-3">
                 <p className="flex items-center gap-3 text-gray-400 font-body">
-                  <svg className="w-5 h-5 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                   press@therift-movie.com
                 </p>
                 <p className="flex items-center gap-3 text-gray-400 font-body">
-                  <svg className="w-5 h-5 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                   </svg>

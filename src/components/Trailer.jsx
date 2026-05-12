@@ -16,17 +16,26 @@ export default function Trailer() {
   }, [])
 
   return (
-    <section id="trailer" className="py-24 relative" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-rift-dark via-rift-blue/20 to-rift-dark"></div>
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-rift-neon/5 rounded-full blur-[100px]"></div>
+    <section id="trailer" className="py-24 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080812] to-rift-darker"></div>
+
+      {/* Horror ambient glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
+      <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
+
+      {/* Fog */}
+      <div className="fog-layer">
+        <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-25"></div>
+      </div>
+
+      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
       <div className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Official Trailer</h2>
-        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Experience the terror in high definition</p>
+        <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Experience the terror in high definition</p>
 
-        {/* Video Container - Responsive YouTube Iframe */}
-        <div className="relative rounded-2xl overflow-hidden neon-border shadow-2xl shadow-rift-neon/10">
+        {/* Video Container with horror frame */}
+        <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,0,0,0.2),0_0_100px_rgba(0,0,0,0.5)]" style={{ border: '1px solid rgba(139, 0, 0, 0.3)' }}>
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               className="absolute inset-0 w-full h-full"
@@ -37,15 +46,15 @@ export default function Trailer() {
               allowFullScreen
             ></iframe>
           </div>
-          {/* Decorative film strip borders */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30 z-10"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30 z-10"></div>
+          {/* Horror film strip borders */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-blood/40 via-rift-neon/20 to-rift-blood/40 z-10"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-blood/40 via-rift-neon/20 to-rift-blood/40 z-10"></div>
         </div>
 
         {/* Below trailer info */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-400 font-nav uppercase tracking-wider">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 font-nav uppercase tracking-wider">
           <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             Duration: 2:45
@@ -58,7 +67,7 @@ export default function Trailer() {
             Official Teaser
           </span>
           <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2m0 2v2m0-2H5.5a2.5 2.5 0 00-2.5 2.5v0A2.5 2.5 0 005.5 9H7m0-5h2m0 0V2m0 2v2m0-2h2.5A2.5 2.5 0 0114 6.5v0A2.5 2.5 0 0111.5 9H10" />
             </svg>
             4K Ultra HD

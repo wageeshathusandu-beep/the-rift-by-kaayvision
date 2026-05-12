@@ -6,12 +6,15 @@ export default function Navbar() {
   const links = ['Home', 'About', 'Cast', 'Gallery', 'Trailer', 'Contact']
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-rift-dark/80 backdrop-blur-lg border-b border-white/5">
+    <nav className="fixed top-0 w-full z-50 bg-rift-darker/90 backdrop-blur-xl border-b border-rift-blood/10">
+      {/* Subtle horror red line at top */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/40 to-transparent"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo with horror flicker */}
           <a href="#" className="relative group">
-            <span className="title-cinematic text-xl md:text-2xl text-white group-hover:drop-shadow-[0_0_12px_rgba(0,180,216,0.7)] transition-all duration-300">
+            <span className="title-cinematic text-xl md:text-2xl text-white animate-flicker group-hover:drop-shadow-[0_0_12px_rgba(139,0,0,0.6)] transition-all duration-300">
               KAAY <span className="text-rift-glow neon-glow-strong">VISION</span>
             </span>
           </a>
@@ -22,7 +25,7 @@ export default function Navbar() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="font-ui text-xs text-gray-300 hover:text-rift-neon transition-colors duration-300"
+                className="font-ui text-xs text-gray-400 hover:text-rift-neon transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
               >
                 {link}
               </a>
@@ -32,7 +35,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-300 hover:text-rift-neon transition-colors"
+            className="md:hidden text-gray-400 hover:text-rift-blood-light transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -46,13 +49,13 @@ export default function Navbar() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-white/5 animate-fade-in">
+          <div className="md:hidden py-4 border-t border-rift-blood/10 animate-fade-in bg-rift-darker/95">
             {links.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 font-nav font-medium uppercase tracking-[0.12em] text-gray-300 hover:text-rift-neon transition-colors duration-300"
+                className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-400 hover:text-rift-neon transition-colors duration-300 border-b border-white/3 last:border-0"
               >
                 {link}
               </a>

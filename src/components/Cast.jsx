@@ -31,38 +31,49 @@ export default function Cast() {
   }, [])
 
   return (
-    <section id="cast" className="py-24 relative" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-rift-dark to-rift-blue/20"></div>
+    <section id="cast" className="py-24 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080810] to-rift-darker"></div>
+
+      {/* Horror atmosphere */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
+
+      {/* Fog */}
+      <div className="fog-layer">
+        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift opacity-30"></div>
+      </div>
+
+      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Cast & Crew</h2>
-        <p className="text-center text-gray-400 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
+        <p className="text-center text-gray-500 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 
         {/* Cast */}
         <h3 className="sub-heading text-white mb-8 text-center">
-          <span className="text-rift-neon">&#9670;</span> CAST <span className="text-rift-neon">&#9670;</span>
+          <span className="text-rift-blood-light">&#9670;</span> CAST <span className="text-rift-blood-light">&#9670;</span>
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-20">
           {castMembers.map((member, index) => (
             <div
               key={member.name}
-              className="glass-card p-6 text-center hover:border-rift-neon/30 transition-all duration-300 hover:-translate-y-1 group"
+              className="glass-card p-6 text-center hover:border-rift-blood/30 transition-all duration-500 hover:-translate-y-1 group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Avatar placeholder */}
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-rift-neon/20 to-rift-neon-purple/20 border border-rift-neon/20 flex items-center justify-center group-hover:border-rift-neon/50 transition-colors">
-                <svg className="w-8 h-8 text-rift-neon/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/10 border border-rift-blood/20 flex items-center justify-center group-hover:border-rift-neon/40 group-hover:shadow-[0_0_15px_rgba(139,0,0,0.2)] transition-all duration-500">
+                <svg className="w-8 h-8 text-rift-blood/50 group-hover:text-rift-neon/60 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                 </svg>
               </div>
               <h4 className="font-nav font-semibold text-white text-sm md:text-base uppercase tracking-wider">{member.name}</h4>
-              <p className="text-rift-neon text-xs md:text-sm mt-1 font-body font-medium">{member.role}</p>
-              <p className="text-gray-500 text-xs mt-1 font-body">{member.type}</p>
+              <p className="text-rift-neon/80 text-xs md:text-sm mt-1 font-body font-medium">{member.role}</p>
+              <p className="text-gray-600 text-xs mt-1 font-body">{member.type}</p>
             </div>
           ))}
         </div>
 
-        {/* Crew - Premium Cinematic Cards */}
+        {/* Crew - Premium Horror Cards */}
         <h3 className="sub-heading text-white mb-10 text-center">
           <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
         </h3>
@@ -70,34 +81,38 @@ export default function Cast() {
           {crewMembers.map((member, index) => (
             <div
               key={member.name}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-md border border-rift-neon/20 p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:border-rift-neon/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.15),0_0_60px_rgba(0,212,255,0.05)]"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="group relative overflow-hidden rounded-2xl backdrop-blur-md p-8 text-center transition-all duration-500 hover:-translate-y-2 animate-horror-pulse"
+              style={{
+                animationDelay: `${index * 0.5}s`,
+                background: 'linear-gradient(135deg, rgba(10, 21, 32, 0.7), rgba(5, 5, 8, 0.9))',
+                border: '1px solid rgba(139, 0, 0, 0.25)',
+              }}
             >
-              {/* Background glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-rift-neon/0 to-rift-neon-purple/0 group-hover:from-rift-neon/5 group-hover:to-rift-neon-purple/5 transition-all duration-500 rounded-2xl"></div>
+              {/* Horror glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-rift-blood/0 to-rift-neon/0 group-hover:from-rift-blood/8 group-hover:to-rift-neon/5 transition-all duration-700 rounded-2xl"></div>
 
-              {/* Top accent line */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-gradient-to-r from-transparent via-rift-neon/60 to-transparent group-hover:w-32 transition-all duration-500"></div>
+              {/* Blood drip accent top */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-gradient-to-r from-transparent via-rift-blood-light/60 to-transparent group-hover:w-32 group-hover:via-rift-neon/60 transition-all duration-500"></div>
 
               {/* Icon */}
-              <div className="relative z-10 w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-rift-neon/10 to-rift-neon-purple/10 border border-rift-neon/30 flex items-center justify-center group-hover:border-rift-neon/60 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.2)] transition-all duration-500">
-                <svg className="w-7 h-7 text-rift-neon/70 group-hover:text-rift-neon transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <div className="relative z-10 w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/10 border border-rift-blood/30 flex items-center justify-center group-hover:border-rift-neon/50 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.15),0_0_10px_rgba(139,0,0,0.2)] transition-all duration-500">
+                <svg className="w-7 h-7 text-rift-blood/60 group-hover:text-rift-neon transition-colors duration-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d={member.icon} />
                 </svg>
               </div>
 
               {/* Role Title */}
-              <p className="relative z-10 font-cinematic text-xs font-bold text-rift-neon uppercase tracking-[0.25em] mb-3 group-hover:text-rift-glow transition-colors duration-300" style={{ textShadow: '0 0 8px rgba(0,212,255,0.3)' }}>
+              <p className="relative z-10 font-cinematic text-xs font-bold text-rift-blood-light uppercase tracking-[0.25em] mb-3 group-hover:text-rift-neon transition-colors duration-500" style={{ textShadow: '0 0 8px rgba(139,0,0,0.4)' }}>
                 {member.role}
               </p>
 
               {/* Name */}
-              <h4 className="relative z-10 font-heading text-2xl md:text-3xl text-white uppercase tracking-wider group-hover:text-white transition-colors duration-300">
+              <h4 className="relative z-10 font-heading text-2xl md:text-3xl text-white uppercase tracking-wider">
                 {member.name}
               </h4>
 
               {/* Bottom accent */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-rift-neon-purple/40 to-transparent group-hover:w-24 transition-all duration-500"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/50 to-transparent group-hover:w-24 transition-all duration-500"></div>
             </div>
           ))}
         </div>
