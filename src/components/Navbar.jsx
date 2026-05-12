@@ -10,8 +10,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="font-cinematic text-xl font-bold bg-gradient-to-r from-rift-neon to-rift-neon-purple bg-clip-text text-transparent">
-            FRAMEFLICKS
+          <a href="#" className="relative group">
+            <span className="font-cinematic text-xl md:text-2xl font-black tracking-[0.15em] text-white drop-shadow-[0_0_8px_rgba(0,180,216,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(0,180,216,0.7)] transition-all duration-300">
+              KAAY <span className="text-rift-glow drop-shadow-[0_0_10px_rgba(0,180,216,0.6)]">VISION</span>
+            </span>
           </a>
 
           {/* Desktop Nav */}
