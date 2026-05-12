@@ -24,12 +24,8 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Movie Poster */}
-        <div className="mb-8 flex justify-center animate-fade-in">
-          <img
-            src="/download.png"
-            alt="The Rift Official Poster"
-            className="w-full max-w-md rounded-2xl shadow-2xl"
-          />
+        <div className="mb-8 flex justify-center">
+          <img src="/download.png" alt="The Rift Movie Poster" className="w-full max-w-md rounded-2xl shadow-2xl object-cover" />
         </div>
 
         {/* Title */}
