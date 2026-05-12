@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 
-const castMembers = [
-  { name: 'Alex Rivera', role: 'Dr. Sarah Chen', type: 'Lead Researcher' },
-  { name: 'Marcus Webb', role: 'Commander Drake', type: 'Military Advisor' },
-  { name: 'Elena Voss', role: 'ARIA (AI Voice)', type: 'The AI Entity' },
-  { name: 'James Okafor', role: 'Dr. Marcus Hall', type: 'Quantum Physicist' },
-  { name: 'Sophia Lin', role: 'Agent Torres', type: 'Government Agent' },
-  { name: 'David Chen', role: 'The Witness', type: 'Survivor' },
+const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
+
+const subRoles = [
+  { name: 'Sachith Sahan' },
+  { name: 'Nipun Nethmal' },
+  { name: 'Geeshan Randunu' },
+  { name: 'Inuki Akithra' },
+  { name: 'Suraj Chanuka' },
+]
+
+const otherCasting = [
+  { name: 'Chenuthi Nulinsa' },
+  { name: 'Reshani Thadisha' },
+  { name: 'Yonali Vihangi' },
+  { name: 'Ranuki Akithma' },
 ]
 
 const crewMembers = [
@@ -49,31 +57,117 @@ export default function Cast() {
         <h2 className="section-heading">Cast & Crew</h2>
         <p className="text-center text-gray-500 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 
-        {/* Cast */}
+        {/* ===== MAIN ROLE - Hero Card ===== */}
         <h3 className="sub-heading text-white mb-8 text-center">
-          <span className="text-rift-blood-light">&#9670;</span> CAST <span className="text-rift-blood-light">&#9670;</span>
+          <span className="text-rift-neon">&#9670;</span> MAIN ROLE <span className="text-rift-neon">&#9670;</span>
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-20">
-          {castMembers.map((member, index) => (
+        <div className="flex justify-center mb-16">
+          <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center transition-all duration-500 hover:-translate-y-2" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ boxShadow: '0 0 30px rgba(0,212,255,0.2), 0 0 60px rgba(0,212,255,0.1), inset 0 0 30px rgba(0,212,255,0.05)' }}></div>
+
+            {/* Top accent */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-rift-neon/70 to-transparent group-hover:w-40 transition-all duration-500"></div>
+
+            {/* Avatar */}
+            <div className="relative z-10 w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-rift-neon/20 to-rift-blood/10 border-2 border-rift-neon/40 flex items-center justify-center group-hover:border-rift-neon/70 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.25)] transition-all duration-500">
+              <svg className="w-10 h-10 text-rift-neon/60 group-hover:text-rift-neon transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+              </svg>
+            </div>
+
+            {/* Role label */}
+            <p className="relative z-10 font-cinematic text-xs font-bold text-rift-neon uppercase tracking-[0.3em] mb-3" style={{ textShadow: '0 0 10px rgba(0,212,255,0.5)' }}>
+              {mainRole.role}
+            </p>
+
+            {/* Name */}
+            <h4 className="relative z-10 font-heading text-4xl md:text-5xl text-white uppercase tracking-wider">
+              {mainRole.name}
+            </h4>
+
+            {/* Bottom accent */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-rift-neon/50 to-transparent group-hover:w-32 transition-all duration-500"></div>
+          </div>
+        </div>
+
+        {/* ===== SUB ROLES ===== */}
+        <h3 className="sub-heading text-white mb-8 text-center">
+          <span className="text-rift-blood-light">&#9670;</span> SUB ROLES <span className="text-rift-blood-light">&#9670;</span>
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {subRoles.map((actor, index) => (
             <div
-              key={member.name}
-              className="glass-card p-6 text-center hover:border-rift-blood/30 transition-all duration-500 hover:-translate-y-1 group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={actor.name}
+              className="group relative overflow-hidden rounded-xl p-6 text-center transition-all duration-500 hover:-translate-y-1"
+              style={{
+                background: 'linear-gradient(135deg, rgba(10, 15, 25, 0.7), rgba(5, 5, 8, 0.9))',
+                border: '1px solid rgba(139, 0, 0, 0.2)',
+                animationDelay: `${index * 0.1}s`,
+              }}
             >
-              {/* Avatar placeholder */}
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/10 border border-rift-blood/20 flex items-center justify-center group-hover:border-rift-neon/40 group-hover:shadow-[0_0_15px_rgba(139,0,0,0.2)] transition-all duration-500">
-                <svg className="w-8 h-8 text-rift-blood/50 group-hover:text-rift-neon/60 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ boxShadow: 'inset 0 0 20px rgba(139,0,0,0.1), 0 0 20px rgba(0,212,255,0.1)' }}></div>
+
+              {/* Top line */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-gradient-to-r from-transparent via-rift-blood-light/50 to-transparent group-hover:w-24 group-hover:via-rift-neon/50 transition-all duration-500"></div>
+
+              {/* Avatar */}
+              <div className="relative z-10 w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/8 border border-rift-blood/25 flex items-center justify-center group-hover:border-rift-neon/40 transition-all duration-500">
+                <svg className="w-7 h-7 text-rift-blood/40 group-hover:text-rift-neon/60 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                 </svg>
               </div>
-              <h4 className="font-nav font-semibold text-white text-sm md:text-base uppercase tracking-wider">{member.name}</h4>
-              <p className="text-rift-neon/80 text-xs md:text-sm mt-1 font-body font-medium">{member.role}</p>
-              <p className="text-gray-600 text-xs mt-1 font-body">{member.type}</p>
+
+              {/* Role tag */}
+              <p className="relative z-10 font-cinematic text-[9px] font-bold text-rift-blood-light/70 uppercase tracking-[0.2em] mb-2">
+                Sub Role
+              </p>
+
+              {/* Name */}
+              <h4 className="relative z-10 font-heading text-xl md:text-2xl text-white uppercase tracking-wider">
+                {actor.name}
+              </h4>
+
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/40 to-transparent group-hover:w-20 transition-all duration-500"></div>
             </div>
           ))}
         </div>
 
-        {/* Crew - Premium Horror Cards */}
+        {/* ===== OTHER CASTING ===== */}
+        <h3 className="sub-heading text-white mb-8 text-center">
+          <span className="text-gray-500">&#9670;</span> OTHER CASTING <span className="text-gray-500">&#9670;</span>
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          {otherCasting.map((actor) => (
+            <div
+              key={actor.name}
+              className="group relative overflow-hidden rounded-lg p-4 text-center transition-all duration-400 hover:-translate-y-0.5"
+              style={{
+                background: 'linear-gradient(135deg, rgba(8, 12, 20, 0.6), rgba(5, 5, 8, 0.8))',
+                border: '1px solid rgba(255,255,255,0.05)',
+              }}
+            >
+              {/* Subtle hover border */}
+              <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-rift-blood/20 transition-all duration-400"></div>
+
+              {/* Small avatar */}
+              <div className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-full bg-gradient-to-br from-white/5 to-rift-blood/5 border border-white/10 flex items-center justify-center group-hover:border-rift-neon/20 transition-all duration-400">
+                <svg className="w-5 h-5 text-gray-600 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+                </svg>
+              </div>
+
+              {/* Name */}
+              <h4 className="relative z-10 font-nav font-semibold text-gray-300 text-xs md:text-sm uppercase tracking-wider group-hover:text-white transition-colors duration-400">
+                {actor.name}
+              </h4>
+            </div>
+          ))}
+        </div>
+
+        {/* ===== CREW ===== */}
         <h3 className="sub-heading text-white mb-10 text-center">
           <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
         </h3>
@@ -81,7 +175,7 @@ export default function Cast() {
           {crewMembers.map((member, index) => (
             <div
               key={member.name}
-              className="group relative overflow-hidden rounded-2xl backdrop-blur-md p-8 text-center transition-all duration-500 hover:-translate-y-2 animate-horror-pulse"
+              className="group relative overflow-hidden rounded-2xl backdrop-blur-md p-8 text-center transition-all duration-500 hover:-translate-y-2"
               style={{
                 animationDelay: `${index * 0.5}s`,
                 background: 'linear-gradient(135deg, rgba(10, 21, 32, 0.7), rgba(5, 5, 8, 0.9))',
@@ -91,11 +185,11 @@ export default function Cast() {
               {/* Horror glow on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-rift-blood/0 to-rift-neon/0 group-hover:from-rift-blood/8 group-hover:to-rift-neon/5 transition-all duration-700 rounded-2xl"></div>
 
-              {/* Blood drip accent top */}
+              {/* Top accent */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-gradient-to-r from-transparent via-rift-blood-light/60 to-transparent group-hover:w-32 group-hover:via-rift-neon/60 transition-all duration-500"></div>
 
               {/* Icon */}
-              <div className="relative z-10 w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/10 border border-rift-blood/30 flex items-center justify-center group-hover:border-rift-neon/50 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.15),0_0_10px_rgba(139,0,0,0.2)] transition-all duration-500">
+              <div className="relative z-10 w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-rift-blood/15 to-rift-neon/10 border border-rift-blood/30 flex items-center justify-center group-hover:border-rift-neon/50 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.15)] transition-all duration-500">
                 <svg className="w-7 h-7 text-rift-blood/60 group-hover:text-rift-neon transition-colors duration-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d={member.icon} />
                 </svg>
