@@ -2,6 +2,7 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
   const sizeClasses = {
     sm: 'text-sm md:text-base',
     md: 'text-xl md:text-2xl',
+    nav: 'text-2xl md:text-3xl',
     lg: 'text-2xl md:text-4xl',
   }
 

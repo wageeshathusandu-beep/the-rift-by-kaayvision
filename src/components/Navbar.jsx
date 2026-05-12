@@ -17,18 +17,18 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Animated Brand Logo */}
+          {/* Animated Brand Logo - main visual highlight */}
           <a href="#" className="relative group z-10">
-            <BrandLogo size="md" />
+            <BrandLogo size="nav" />
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav - subdued to let logo dominate */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="font-ui text-xs text-gray-400 hover:text-rift-neon transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
+                className="font-ui text-[10px] text-gray-500 hover:text-rift-neon/90 transition-all duration-300 hover:drop-shadow-[0_0_4px_rgba(0,212,255,0.3)]"
               >
                 {link}
               </a>
