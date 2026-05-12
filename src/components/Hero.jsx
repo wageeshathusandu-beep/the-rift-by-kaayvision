@@ -23,12 +23,18 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Brand Name */}
+        <p className="title-cinematic text-lg md:text-2xl mb-6 animate-fade-in tracking-[0.25em]">
+          <span className="text-white">KAAY</span>{' '}
+          <span className="text-rift-glow neon-glow-strong">VISION</span>
+        </p>
+
         {/* Movie Poster */}
         <div className="mb-8 flex justify-center">
           <img
-            src="/rift-poster.jpg"
+            src="https://i.imgur.com/162JyPV.jpeg"
             alt="The Rift Official Poster"
-            className="w-full max-w-md rounded-2xl shadow-2xl"
+            className="w-full max-w-md rounded-2xl shadow-2xl shadow-rift-neon/10 border border-white/10"
           />
         </div>
 
@@ -47,22 +53,29 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          {/* Watch Trailer Button - blue with glow pulse, play icon pulse, hover scale, light sweep */}
           <a
             href="#trailer"
-            className="group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30"
+            className="btn-watch-trailer group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-rift-neon/50"
           >
+            {/* Light sweep overlay */}
+            <span className="btn-light-sweep absolute inset-0 z-0"></span>
             <span className="relative z-10 flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 animate-play-icon-pulse" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
               Watch Trailer
             </span>
           </a>
+
+          {/* Watch Now (Coming Soon) Button - red glow pulse on "(Coming Soon)" */}
           <a
             href="#"
-            className="px-8 py-4 border border-rift-neon/40 text-rift-neon font-nav font-bold uppercase tracking-[0.15em] rounded-full hover:bg-rift-neon/10 hover:border-rift-neon transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/20"
+            className="btn-watch-now relative px-8 py-4 border border-white/30 text-white font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-white/60"
           >
-            Watch Now
+            <span className="relative z-10 flex items-center gap-2">
+              Watch Now <span className="text-red-500 animate-red-glow-pulse">(Coming Soon)</span>
+            </span>
           </a>
         </div>
 

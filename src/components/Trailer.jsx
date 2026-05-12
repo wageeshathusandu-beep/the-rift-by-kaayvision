@@ -25,27 +25,21 @@ export default function Trailer() {
         <h2 className="section-heading">Official Trailer</h2>
         <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Experience the terror in high definition</p>
 
-        {/* Video Container */}
+        {/* Video Container - Responsive YouTube Iframe */}
         <div className="relative rounded-2xl overflow-hidden neon-border shadow-2xl shadow-rift-neon/10">
-          <div className="aspect-video bg-gradient-to-br from-rift-deep to-rift-dark flex items-center justify-center relative">
-            {/* YouTube placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                {/* Play button */}
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-rift-neon/20 border-2 border-rift-neon/50 flex items-center justify-center hover:bg-rift-neon/30 hover:scale-110 transition-all duration-300 cursor-pointer group">
-                  <svg className="w-8 h-8 text-rift-neon ml-1 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-gray-400 text-sm font-nav uppercase tracking-[0.2em]">YouTube Video Placeholder</p>
-                <p className="text-gray-600 text-xs mt-2 font-body">Replace with your YouTube embed URL</p>
-              </div>
-            </div>
-
-            {/* Decorative film strip borders */}
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30"></div>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/2URGQBTpOf4"
+              title="The Rift - Official Trailer"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
           </div>
+          {/* Decorative film strip borders */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30 z-10"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rift-neon/30 via-rift-neon-purple/30 to-rift-neon/30 z-10"></div>
         </div>
 
         {/* Below trailer info */}

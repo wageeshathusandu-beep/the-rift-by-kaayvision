@@ -71,4 +71,92 @@
   .neon-glow-strong {
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2), 0 0 100px rgba(0, 212, 255, 0.1);
   }
+
+  /* ===== Watch Trailer Button Animations ===== */
+  .btn-watch-trailer {
+    animation: btn-glow-pulse 2.5s ease-in-out infinite;
+  }
+
+  .btn-watch-trailer:hover {
+    animation: none;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Light sweep effect */
+  .btn-light-sweep {
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 60%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: light-sweep 3s ease-in-out infinite;
+  }
+
+  /* ===== Watch Now (Coming Soon) Red Glow ===== */
+  .btn-watch-now {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-watch-now:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* ===== Keyframe Animations ===== */
+
+/* Blue glow pulse for Watch Trailer button */
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* Light sweep across button */
+@keyframes light-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Play icon pulse */
+@keyframes play-icon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Red glow pulse for (Coming Soon) text */
+@keyframes red-glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.8), 0 0 30px rgba(239, 68, 68, 0.4), 0 0 50px rgba(239, 68, 68, 0.2);
+    opacity: 0.85;
+  }
+}
+
+/* Utility animation classes */
+.animate-play-icon-pulse {
+  animation: play-icon-pulse 2s ease-in-out infinite;
+}
+
+.animate-red-glow-pulse {
+  animation: red-glow-pulse 2s ease-in-out infinite;
 }
