@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BrandLogo from './BrandLogo'
+import NavEnergy from './NavEnergy'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,10 +12,13 @@ export default function Navbar() {
       {/* Subtle horror red line at top */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/40 to-transparent"></div>
 
+      {/* Cinematic Energy Effect - right of logo */}
+      <NavEnergy />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Animated Brand Logo */}
-          <a href="#" className="relative group">
+          <a href="#" className="relative group z-10">
             <BrandLogo size="md" />
           </a>
 
