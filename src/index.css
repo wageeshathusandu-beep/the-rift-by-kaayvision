@@ -234,125 +234,89 @@
   animation: red-glow-pulse 2s ease-in-out infinite;
 }
 
-/* ===== BRAND LOGO ANIMATIONS (pure CSS, no extra layers) ===== */
+/* ===== BRAND LOGO — PERFORMANCE OPTIMIZED ===== */
 
-/* Main text - continuous red horror flicker */
-.brand-main-text {
-  animation: brand-flicker 5s ease-in-out infinite;
+/* GPU layer promotion for smooth compositing */
+.brand-text {
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-/* KAAY text - bright white with powerful clean glow + 3D depth */
+/* Main text - subtle horror flicker (opacity only = cheap) */
+.brand-main-text {
+  animation: brand-flicker 5s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* KAAY text - bright white, static glow + animated opacity pulse */
 .brand-kaay {
   color: #ffffff;
   font-weight: 900;
-  -webkit-text-stroke: 0.5px rgba(0, 212, 255, 0.3);
-  animation: brand-kaay-glow 2.5s ease-in-out infinite;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.7),
+    0 0 4px rgba(255,255,255,0.9),
+    0 0 12px rgba(0,212,255,0.5),
+    0 0 25px rgba(0,212,255,0.2);
+  animation: brand-kaay-pulse 3s ease-in-out infinite;
+  will-change: opacity;
 }
 
-@keyframes brand-kaay-glow {
-  0%, 100% {
-    text-shadow:
-      0 1px 0 rgba(0,0,0,0.8),
-      0 2px 4px rgba(0,0,0,0.5),
-      0 0 3px rgba(255,255,255,1),
-      0 0 10px rgba(255,255,255,0.7),
-      0 0 20px rgba(0,212,255,0.4),
-      0 0 35px rgba(0,212,255,0.2);
-  }
-  50% {
-    text-shadow:
-      0 1px 0 rgba(0,0,0,0.8),
-      0 2px 4px rgba(0,0,0,0.5),
-      0 0 5px rgba(255,255,255,1),
-      0 0 15px rgba(255,255,255,0.8),
-      0 0 30px rgba(0,212,255,0.6),
-      0 0 50px rgba(0,212,255,0.35),
-      0 0 70px rgba(0,212,255,0.15);
-  }
+@keyframes brand-kaay-pulse {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 1; }
 }
 
-/* VISION text - intense neon blue with 3D depth */
+/* VISION text - vivid neon, static glow + animated opacity pulse */
 .brand-vision {
   color: #00e5ff;
   font-weight: 900;
-  -webkit-text-stroke: 0.5px rgba(0, 229, 255, 0.4);
-  animation: brand-vision-glow 2.5s ease-in-out infinite;
-  animation-delay: 0.2s;
+  text-shadow:
+    0 1px 0 rgba(0,10,20,0.8),
+    0 0 5px rgba(0,229,255,0.9),
+    0 0 15px rgba(0,212,255,0.6),
+    0 0 35px rgba(0,212,255,0.25);
+  animation: brand-vision-pulse 3s ease-in-out infinite;
+  animation-delay: 0.3s;
+  will-change: opacity;
 }
 
-@keyframes brand-vision-glow {
-  0%, 100% {
-    text-shadow:
-      0 1px 0 rgba(0,20,40,0.9),
-      0 2px 4px rgba(0,0,0,0.6),
-      0 0 4px rgba(0,229,255,1),
-      0 0 12px rgba(0,212,255,0.8),
-      0 0 25px rgba(0,212,255,0.5),
-      0 0 45px rgba(0,212,255,0.25);
-  }
-  50% {
-    text-shadow:
-      0 1px 0 rgba(0,20,40,0.9),
-      0 2px 4px rgba(0,0,0,0.6),
-      0 0 6px rgba(0,229,255,1),
-      0 0 18px rgba(0,212,255,0.9),
-      0 0 40px rgba(0,212,255,0.6),
-      0 0 65px rgba(0,212,255,0.35),
-      0 0 90px rgba(0,212,255,0.15);
-  }
+@keyframes brand-vision-pulse {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
 }
 
-/* Glitch layer - red offset (continuous) */
-.brand-glitch-red {
-  color: rgba(220, 38, 38, 0.25);
-  animation: brand-glitch-r 6s ease-in-out infinite;
+/* Single glitch layer - uses only transform + opacity (GPU) */
+.brand-glitch {
+  color: rgba(0, 212, 255, 0.2);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: brand-glitch 7s ease-in-out infinite;
 }
 
-@keyframes brand-glitch-r {
-  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  5% { clip-path: inset(15% 0 65% 0); transform: translate(-2px, 0); opacity: 1; }
-  7% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  42% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  43% { clip-path: inset(40% 0 35% 0); transform: translate(2px, 0); opacity: 1; }
-  45% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  79% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  80% { clip-path: inset(55% 0 15% 0); transform: translate(-1px, 0); opacity: 1; }
-  82% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
+@keyframes brand-glitch {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  5% { transform: translate(-2px, 0); opacity: 0.4; }
+  6% { transform: translate(0); opacity: 0; }
+  43% { transform: translate(0); opacity: 0; }
+  44% { transform: translate(1.5px, 0); opacity: 0.3; }
+  45% { transform: translate(0); opacity: 0; }
+  80% { transform: translate(0); opacity: 0; }
+  81% { transform: translate(-1px, 0); opacity: 0.35; }
+  82% { transform: translate(0); opacity: 0; }
 }
 
-/* Glitch layer - blue offset (continuous) */
-.brand-glitch-blue {
-  color: rgba(0, 212, 255, 0.25);
-  animation: brand-glitch-b 6s ease-in-out infinite;
-  animation-delay: 0.4s;
-}
-
-@keyframes brand-glitch-b {
-  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  12% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  13% { clip-path: inset(50% 0 20% 0); transform: translate(2px, 0); opacity: 1; }
-  15% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  55% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  56% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); opacity: 1; }
-  58% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  88% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-  89% { clip-path: inset(30% 0 45% 0); transform: translate(1px, 0); opacity: 1; }
-  91% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
-}
-
-/* Scan line - continuous horizontal pass */
+/* Scan line - only uses transform (translateX) = 60fps */
 .brand-scanline {
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,212,255,0.05) 20%, rgba(0,212,255,0.7) 45%, rgba(255,255,255,0.85) 50%, rgba(0,212,255,0.7) 55%, rgba(0,212,255,0.05) 80%, transparent 100%);
-  box-shadow: 0 0 6px rgba(0,212,255,0.4), 0 0 12px rgba(0,212,255,0.2);
-  animation: brand-scan 4s linear infinite;
+  background: linear-gradient(to bottom, transparent 20%, rgba(0,212,255,0.6) 48%, rgba(255,255,255,0.7) 50%, rgba(0,212,255,0.6) 52%, transparent 80%);
+  will-change: transform;
+  animation: brand-scan 5s linear infinite;
 }
 
 @keyframes brand-scan {
-  0% { left: -5%; opacity: 0; }
-  3% { opacity: 0.6; }
-  50% { opacity: 0.4; }
-  97% { opacity: 0.6; }
-  100% { left: 105%; opacity: 0; }
+  0% { transform: translateX(-10px); opacity: 0; }
+  2% { opacity: 0.5; }
+  98% { opacity: 0.5; }
+  100% { transform: translateX(calc(100% + 10px)); opacity: 0; }
 }
 
 /* Horror flicker on the whole text (continuous) */
@@ -426,123 +390,15 @@
 
 
 
-/* ===== NAVBAR ENERGY ANIMATION ===== */
+/* ===== NAVBAR ENERGY — LIGHTWEIGHT ===== */
 
-/* Energy aura pulse */
-@keyframes energy-aura {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.3); }
-}
-@keyframes energy-aura-red {
-  0%, 100% { opacity: 0.2; transform: translate(0, -50%) scale(1); }
-  50% { opacity: 0.5; transform: translate(0, -50%) scale(1.2); }
-}
-.animate-energy-aura {
-  animation: energy-aura 4s ease-in-out infinite;
-}
-.animate-energy-aura-red {
-  animation: energy-aura-red 5s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-/* Scanning energy line - travels left to right */
-@keyframes energy-scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(400%); }
-}
-@keyframes energy-scan-reverse {
-  0% { transform: translateX(400%); }
-  100% { transform: translateX(-100%); }
-}
+/* Single scan line using transform only */
 .nav-energy-scan {
-  animation: energy-scan 3.5s ease-in-out infinite;
-}
-.nav-energy-scan-reverse {
-  animation: energy-scan-reverse 5s ease-in-out infinite;
-  animation-delay: 1.5s;
+  animation: energy-scan 4s linear infinite;
+  will-change: transform;
 }
 
-/* Energy streak SVG animations */
-@keyframes energy-streak-dash {
-  0% { stroke-dashoffset: 300; opacity: 0.4; }
-  50% { stroke-dashoffset: 0; opacity: 0.8; }
-  100% { stroke-dashoffset: -300; opacity: 0.4; }
-}
-@keyframes energy-streak-dash-2 {
-  0% { stroke-dashoffset: -200; opacity: 0.2; }
-  50% { stroke-dashoffset: 0; opacity: 0.5; }
-  100% { stroke-dashoffset: 200; opacity: 0.2; }
-}
-@keyframes energy-glitch-flash {
-  0%, 90%, 100% { opacity: 0; transform: translateX(0); }
-  92% { opacity: 0.8; transform: translateX(20px); }
-  94% { opacity: 0; transform: translateX(40px); }
-  96% { opacity: 0.6; transform: translateX(80px); }
-  98% { opacity: 0; transform: translateX(120px); }
-}
-
-.nav-energy-streak-1 {
-  stroke-dasharray: 60 30;
-  animation: energy-streak-dash 6s linear infinite;
-}
-.nav-energy-streak-2 {
-  stroke-dasharray: 40 50;
-  animation: energy-streak-dash-2 8s linear infinite;
-  animation-delay: 2s;
-}
-.nav-energy-glitch {
-  animation: energy-glitch-flash 7s ease-in-out infinite;
-}
-
-/* Floating neon particles */
-@keyframes energy-particle-float {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(0) translateX(0) scale(0.5);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(-3px) translateX(4px) scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: translateY(-6px) translateX(-3px) scale(1.2);
-  }
-  80% {
-    opacity: 0.4;
-    transform: translateY(-2px) translateX(5px) scale(0.8);
-  }
-}
-.nav-energy-particle {
-  animation: energy-particle-float 4s ease-in-out infinite;
-}
-
-/* Floating embers rising */
-@keyframes energy-ember-rise {
-  0% { opacity: 0; transform: translateY(0) scale(1); }
-  30% { opacity: 0.8; transform: translateY(-8px) scale(1.2); }
-  60% { opacity: 0.4; transform: translateY(-16px) scale(0.8); }
-  100% { opacity: 0; transform: translateY(-24px) scale(0.3); }
-}
-.nav-energy-ember {
-  animation: energy-ember-rise 3.5s ease-out infinite;
-}
-
-/* Smoke trail wisps */
-@keyframes energy-smoke {
-  0%, 100% { opacity: 0; transform: translateX(0) translateY(-50%) scaleX(0.5); }
-  30% { opacity: 0.6; transform: translateX(30px) translateY(-50%) scaleX(1); }
-  70% { opacity: 0.3; transform: translateX(80px) translateY(-50%) scaleX(1.5); }
-}
-@keyframes energy-smoke-2 {
-  0%, 100% { opacity: 0; transform: translateX(0) scaleX(0.5); }
-  40% { opacity: 0.4; transform: translateX(-20px) scaleX(1.2); }
-  80% { opacity: 0; transform: translateX(-50px) scaleX(1.8); }
-}
-.nav-energy-smoke {
-  animation: energy-smoke 6s ease-in-out infinite;
-}
-.nav-energy-smoke-2 {
-  animation: energy-smoke-2 8s ease-in-out infinite;
-  animation-delay: 3s;
+@keyframes energy-scan {
+  0% { transform: translateX(-64px); }
+  100% { transform: translateX(200px); }
 }
