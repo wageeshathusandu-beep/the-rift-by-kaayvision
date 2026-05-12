@@ -23,7 +23,7 @@ export default function Trailer() {
 
       <div className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Official Trailer</h2>
-        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto">Experience the terror in high definition</p>
+        <p className="text-center text-gray-400 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Experience the terror in high definition</p>
 
         {/* Video Container */}
         <div className="relative rounded-2xl overflow-hidden neon-border shadow-2xl shadow-rift-neon/10">
@@ -37,8 +37,8 @@ export default function Trailer() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <p className="text-gray-400 text-sm font-cinematic tracking-wider">YOUTUBE VIDEO PLACEHOLDER</p>
-                <p className="text-gray-600 text-xs mt-2">Replace with your YouTube embed URL</p>
+                <p className="text-gray-400 text-sm font-nav uppercase tracking-[0.2em]">YouTube Video Placeholder</p>
+                <p className="text-gray-600 text-xs mt-2 font-body">Replace with your YouTube embed URL</p>
               </div>
             </div>
 
@@ -49,7 +49,7 @@ export default function Trailer() {
         </div>
 
         {/* Below trailer info */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-400">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-400 font-nav uppercase tracking-wider">
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-rift-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

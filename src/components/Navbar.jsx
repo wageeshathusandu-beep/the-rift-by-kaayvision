@@ -11,8 +11,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="relative group">
-            <span className="font-cinematic text-xl md:text-2xl font-black tracking-[0.15em] text-white drop-shadow-[0_0_8px_rgba(0,180,216,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(0,180,216,0.7)] transition-all duration-300">
-              KAAY <span className="text-rift-glow drop-shadow-[0_0_10px_rgba(0,180,216,0.6)]">VISION</span>
+            <span className="title-cinematic text-xl md:text-2xl text-white group-hover:drop-shadow-[0_0_12px_rgba(0,180,216,0.7)] transition-all duration-300">
+              KAAY <span className="text-rift-glow neon-glow-strong">VISION</span>
             </span>
           </a>
 
@@ -22,7 +22,7 @@ export default function Navbar() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-sm text-gray-300 hover:text-rift-neon transition-colors duration-300 tracking-wide"
+                className="font-ui text-xs text-gray-300 hover:text-rift-neon transition-colors duration-300"
               >
                 {link}
               </a>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-300 hover:text-rift-neon transition-colors duration-300"
+                className="block py-2 font-nav font-medium uppercase tracking-[0.12em] text-gray-300 hover:text-rift-neon transition-colors duration-300"
               >
                 {link}
               </a>

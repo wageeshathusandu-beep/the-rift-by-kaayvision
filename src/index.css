@@ -9,6 +9,7 @@
 
   body {
     @apply bg-rift-dark text-white font-body;
+    font-weight: 400;
   }
 
   ::-webkit-scrollbar {
@@ -29,8 +30,29 @@
 }
 
 @layer components {
+  /* Main title style - bold futuristic sci-fi with neon glow */
+  .title-cinematic {
+    @apply font-cinematic font-black uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1);
+  }
+
+  /* Section headings - wide spaced Hollywood uppercase */
   .section-heading {
-    @apply text-4xl md:text-5xl font-cinematic font-bold text-center mb-4 bg-gradient-to-r from-rift-neon to-rift-neon-purple bg-clip-text text-transparent;
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading text-center mb-4 uppercase bg-gradient-to-r from-rift-neon to-rift-neon-purple bg-clip-text text-transparent;
+    letter-spacing: 0.12em;
+  }
+
+  /* Sub headings with cinematic feel */
+  .sub-heading {
+    @apply font-heading text-2xl md:text-3xl uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Navigation/Button font - sharp futuristic */
+  .font-ui {
+    @apply font-nav font-semibold uppercase;
+    letter-spacing: 0.15em;
   }
 
   .neon-border {
@@ -39,5 +61,14 @@
 
   .glass-card {
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Neon text glow for titles only */
+  .neon-glow {
+    text-shadow: 0 0 7px rgba(0, 212, 255, 0.5), 0 0 20px rgba(0, 212, 255, 0.3), 0 0 42px rgba(0, 212, 255, 0.15);
+  }
+
+  .neon-glow-strong {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2), 0 0 100px rgba(0, 212, 255, 0.1);
   }
 }

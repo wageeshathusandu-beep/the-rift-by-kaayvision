@@ -16,7 +16,9 @@ export default {
       },
       fontFamily: {
         cinematic: ['Orbitron', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Bebas Neue', 'sans-serif'],
+        body: ['Rajdhani', 'sans-serif'],
+        nav: ['Exo 2', 'sans-serif'],
       },
       animation: {
         'glow-pulse': 'glow-pulse 3s ease-in-out infinite',

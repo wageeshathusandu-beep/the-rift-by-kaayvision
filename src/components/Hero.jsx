@@ -33,14 +33,14 @@ export default function Hero() {
         </div>
 
         {/* Title */}
-        <h1 className="font-cinematic text-5xl md:text-7xl lg:text-8xl font-black tracking-wider mb-4 animate-slide-up">
+        <h1 className="title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 animate-slide-up neon-glow-strong">
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-neon-purple bg-clip-text text-transparent">
             THE RIFT
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up font-body font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
           When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
           Some doors were never meant to be opened.
         </p>
@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <a
             href="#trailer"
-            className="group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30"
+            className="group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/30"
           >
             <span className="relative z-10 flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -60,14 +60,14 @@ export default function Hero() {
           </a>
           <a
             href="#"
-            className="px-8 py-4 border border-rift-neon/40 text-rift-neon font-semibold rounded-full hover:bg-rift-neon/10 hover:border-rift-neon transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/20"
+            className="px-8 py-4 border border-rift-neon/40 text-rift-neon font-nav font-bold uppercase tracking-[0.15em] rounded-full hover:bg-rift-neon/10 hover:border-rift-neon transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/20"
           >
             Watch Now
           </a>
         </div>
 
         {/* Release info */}
-        <p className="mt-12 text-gray-500 text-sm font-cinematic tracking-[0.3em] animate-fade-in" style={{ animationDelay: '0.8s' }}>
+        <p className="mt-12 text-gray-500 text-sm font-cinematic tracking-[0.3em] animate-fade-in uppercase" style={{ animationDelay: '0.8s' }}>
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
