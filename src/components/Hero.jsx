@@ -31,21 +31,26 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Watch Trailer Button */}
           <a
             href="#trailer"
             onClick={(e) => { e.preventDefault(); document.getElementById('trailer')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="group px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] flex items-center gap-2"
+            className="group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-semibold rounded-full transition-all duration-500 hover:scale-110 animate-neon-btn-glow hover:shadow-[0_0_40px_rgba(0,212,255,0.5)] flex items-center gap-2 overflow-hidden"
           >
-            <svg className="w-5 h-5 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+            {/* Light sweep overlay */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-light-sweep bg-[length:200%_100%] pointer-events-none"></span>
+            <svg className="w-5 h-5 relative z-10 group-hover:animate-pulse transition-transform duration-300 group-hover:scale-125" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
-            Watch Trailer
+            <span className="relative z-10">Watch Trailer</span>
           </a>
+
+          {/* Watch Now Button */}
           <a
             href="#"
             className="px-8 py-4 border border-rift-neon/40 text-rift-neon font-semibold rounded-full hover:bg-rift-neon/10 hover:border-rift-neon transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rift-neon/20"
           >
-            Watch Now <span className="animate-text-glow text-rift-glow">(Coming Soon)</span>
+            Watch Now <span className="animate-red-flicker text-rift-red font-bold">(Coming Soon)</span>
           </a>
         </div>
 
