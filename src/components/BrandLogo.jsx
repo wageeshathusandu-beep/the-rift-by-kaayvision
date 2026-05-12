@@ -5,15 +5,10 @@ const LETTERS_VISION = ['V', 'I', 'S', 'I', 'O', 'N']
 
 export default function BrandLogo({ size = 'lg', className = '' }) {
   const [revealed, setRevealed] = useState(false)
-  const [introComplete, setIntroComplete] = useState(false)
 
   useEffect(() => {
-    const revealTimer = setTimeout(() => setRevealed(true), 200)
-    const introTimer = setTimeout(() => setIntroComplete(true), 2000)
-    return () => {
-      clearTimeout(revealTimer)
-      clearTimeout(introTimer)
-    }
+    const timer = setTimeout(() => setRevealed(true), 100)
+    return () => clearTimeout(timer)
   }, [])
 
   const sizeClasses = {
@@ -24,20 +19,20 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
 
   return (
     <span className={`brand-logo relative inline-block ${className} ${revealed ? 'brand-loaded' : 'opacity-0'}`}>
-      {/* Particle sparks around letters */}
+      {/* Particle sparks - continuous infinite loop */}
       <span className="brand-particles absolute inset-[-8px] pointer-events-none overflow-visible">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <span
             key={i}
-            className="absolute rounded-full animate-brand-spark"
+            className="absolute rounded-full animate-brand-spark-loop"
             style={{
               width: `${1 + (i % 2)}px`,
               height: `${1 + (i % 2)}px`,
               background: i % 3 === 0 ? '#00d4ff' : i % 3 === 1 ? '#ff1a1a' : '#ffffff',
-              left: `${8 + i * 9}%`,
-              top: `${15 + (i % 5) * 16}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${2 + i * 0.2}s`,
+              left: `${5 + i * 8}%`,
+              top: `${10 + (i % 5) * 18}%`,
+              animationDelay: `${i * 0.4}s`,
+              animationDuration: `${2.5 + (i % 4) * 0.5}s`,
               boxShadow: i % 3 === 0
                 ? '0 0 3px #00d4ff, 0 0 6px #00d4ff'
                 : i % 3 === 1
@@ -51,7 +46,7 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
       {/* Main text container */}
       <span className={`brand-text font-cinematic font-black uppercase tracking-[0.12em] ${sizeClasses[size]} relative inline-block`}>
 
-        {/* Chromatic aberration layer - red (left offset) */}
+        {/* Chromatic aberration layer - red (continuous) */}
         <span className="brand-chromatic-red absolute inset-0 pointer-events-none" aria-hidden="true">
           <span className="inline-flex">
             {LETTERS_KAAY.map((l, i) => (
@@ -66,7 +61,7 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
           </span>
         </span>
 
-        {/* Chromatic aberration layer - blue (right offset) */}
+        {/* Chromatic aberration layer - blue (continuous) */}
         <span className="brand-chromatic-blue absolute inset-0 pointer-events-none" aria-hidden="true">
           <span className="inline-flex">
             {LETTERS_KAAY.map((l, i) => (
@@ -81,19 +76,19 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
           </span>
         </span>
 
-        {/* Glitch layer 1 - red slice */}
+        {/* Glitch layer 1 - red slice (infinite) */}
         <span className="brand-glitch-layer absolute inset-0 animate-brand-glitch-1 pointer-events-none" aria-hidden="true">
           <span className="text-rift-blood-light/25">KAAY </span>
           <span className="text-rift-blood-light/30">VISION</span>
         </span>
 
-        {/* Glitch layer 2 - blue slice */}
+        {/* Glitch layer 2 - blue slice (infinite) */}
         <span className="brand-glitch-layer absolute inset-0 animate-brand-glitch-2 pointer-events-none" aria-hidden="true">
           <span className="text-rift-neon/25">KAAY </span>
           <span className="text-rift-neon/30">VISION</span>
         </span>
 
-        {/* Main visible text - letter-by-letter reveal */}
+        {/* Main visible text with continuous flicker */}
         <span className="relative z-10 animate-brand-flicker">
           <span className="inline-flex brand-text-main">
             {LETTERS_KAAY.map((letter, i) => (
@@ -101,10 +96,9 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
                 key={`k-${i}`}
                 className="inline-block brand-letter"
                 style={{
-                  animationDelay: `${i * 0.1}s`,
                   opacity: revealed ? 1 : 0,
                   transform: revealed ? 'translateY(0) scaleY(1)' : 'translateY(8px) scaleY(0.3)',
-                  transition: `opacity 0.4s ease ${i * 0.1}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s`,
+                  transition: `opacity 0.4s ease ${i * 0.08}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.08}s`,
                 }}
               >
                 {letter}
@@ -118,10 +112,9 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
                 key={`v-${i}`}
                 className="inline-block brand-letter"
                 style={{
-                  animationDelay: `${(i + 4) * 0.1}s`,
                   opacity: revealed ? 1 : 0,
                   transform: revealed ? 'translateY(0) scaleY(1)' : 'translateY(8px) scaleY(0.3)',
-                  transition: `opacity 0.4s ease ${(i + 4) * 0.1}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${(i + 4) * 0.1}s`,
+                  transition: `opacity 0.4s ease ${(i + 4) * 0.08}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${(i + 4) * 0.08}s`,
                 }}
               >
                 {letter}
@@ -130,16 +123,16 @@ export default function BrandLogo({ size = 'lg', className = '' }) {
           </span>
         </span>
 
-        {/* Electric scan line passing through text */}
+        {/* Electric scan line - continuous pass through text */}
         <span className="brand-scan-line absolute inset-0 pointer-events-none overflow-hidden z-20">
           <span className="brand-scan-beam absolute top-0 bottom-0 w-[2px]"></span>
         </span>
       </span>
 
-      {/* Glow pulse background aura */}
+      {/* Glow pulse background aura - continuous */}
       <span className="absolute inset-[-4px] -z-10 rounded-lg blur-xl bg-gradient-to-r from-rift-neon/8 via-transparent to-rift-blood/8 animate-brand-glow-pulse"></span>
 
-      {/* Bottom reflection line */}
+      {/* Bottom reflection line - continuous */}
       <span className="absolute -bottom-[2px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-rift-neon/30 to-transparent animate-brand-glow-pulse"></span>
     </span>
   )
