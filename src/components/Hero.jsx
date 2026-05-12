@@ -32,9 +32,9 @@ export default function Hero() {
             {/* Poster container - responsive, preserving original proportions */}
             <div className="relative w-60 sm:w-64 md:w-72 lg:w-80 mx-auto rounded-2xl border border-rift-neon/30 shadow-[0_0_40px_rgba(0,212,255,0.15),0_0_80px_rgba(123,47,247,0.1)] overflow-hidden">
               <img
-                src="/rift-poster.svg"
+                src="/rift-poster.jpg"
                 alt="The Rift - Official Movie Poster"
-                className="w-full h-auto block"
+                className="w-full h-auto block max-w-full"
               />
             </div>
           </div>
