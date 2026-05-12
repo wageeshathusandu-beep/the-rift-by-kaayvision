@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const galleryItems = [
-  { title: 'Official Poster', description: 'The Rift - Coming 2025', image: 'https://drive.google.com/uc?export=view&id=1lMpQljLPvgsvF0H0a3ESED-bk22ywPW3', featured: true },
+  { title: 'Official Poster', description: 'The Rift - Coming 2025', image: '/rift-poster.jpg', featured: true },
   { title: 'The Lab', description: 'Where it all began', image: null },
   { title: 'First Contact', description: 'The AI awakens', image: null },
   { title: 'The Rift Opens', description: 'Reality fractures', image: null },
