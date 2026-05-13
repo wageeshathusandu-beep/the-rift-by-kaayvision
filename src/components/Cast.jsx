@@ -26,6 +26,7 @@ const crewMembers = [
   { name: 'H.R.W.T. Dahamsara', role: 'Clapper Loader' },
   { name: 'Namina Deemantha', role: 'Boom' },
   { name: 'Widuranga Bandara & Sajith Kumara', role: 'Character Coordinator' },
+  { name: 'W. Thusandu', role: 'FPV Pilot' },
 ]
 
 export default function Cast() {
