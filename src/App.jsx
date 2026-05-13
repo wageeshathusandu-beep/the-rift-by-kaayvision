@@ -11,13 +11,13 @@ import Footer from './components/Footer'
 function GlobalEffects() {
   // Generate particles once with useMemo for performance
   const particles = useMemo(() => {
-    return Array.from({ length: 20 }, (_, i) => ({
+    return Array.from({ length: 28 }, (_, i) => ({
       id: i,
-      size: Math.random() * 3 + 1,
+      size: Math.random() * 3.5 + 1,
       left: Math.random() * 100,
-      delay: Math.random() * 15,
-      duration: 12 + Math.random() * 10,
-      type: i % 3 === 0 ? 'red' : i % 3 === 1 ? 'blue' : 'white',
+      delay: Math.random() * 20,
+      duration: 14 + Math.random() * 12,
+      type: i % 4 === 0 ? 'red' : i % 4 === 1 ? 'blue' : i % 4 === 2 ? 'white' : 'blue',
     }))
   }, [])
 
@@ -48,8 +48,15 @@ function GlobalEffects() {
         ))}
       </div>
 
-      {/* Ambient Light Flicker */}
-      <div className="ambient-flicker" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(139,0,0,0.03), transparent 60%)' }}></div>
+      {/* Ambient Light Flicker - Cinematic */}
+      <div className="ambient-flicker" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(139,0,0,0.04), transparent 55%), radial-gradient(ellipse at 30% 70%, rgba(0,212,255,0.02), transparent 50%)' }}></div>
+
+      {/* Secondary ambient pulse */}
+      <div className="ambient-flicker" style={{ 
+        background: 'radial-gradient(ellipse at 70% 30%, rgba(123,47,247,0.02), transparent 50%)',
+        animationDelay: '4s',
+        animationDuration: '12s'
+      }}></div>
     </>
   )
 }

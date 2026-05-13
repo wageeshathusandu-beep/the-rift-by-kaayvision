@@ -15,44 +15,48 @@ export default function Hero() {
       {/* Deep dark background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#080810] via-rift-dark to-rift-darker"></div>
 
-      {/* Atmospheric fog layers */}
+      {/* Atmospheric fog layers - enhanced */}
       <div className="fog-layer">
         <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/5 via-transparent to-rift-neon/3 animate-fog-drift"></div>
         <div className="absolute inset-0 bg-gradient-to-l from-rift-blood/3 via-transparent to-rift-neon-purple/5 animate-fog-drift-reverse"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rift-blood/2 to-transparent animate-fog-drift" style={{ animationDuration: '30s', animationDelay: '5s' }}></div>
       </div>
 
-      {/* Horror ambient glows */}
+      {/* Horror ambient glows - enhanced */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-rift-blood/5 rounded-full blur-[150px] animate-horror-pulse"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
-      <div className="absolute top-1/3 left-1/5 w-[300px] h-[300px] bg-rift-neon-purple/4 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-rift-neon/3 rounded-full blur-[120px]" style={{ animation: 'horror-pulse 7s ease-in-out infinite', animationDelay: '2s' }}></div>
+      <div className="absolute top-1/3 left-1/5 w-[300px] h-[300px] bg-rift-neon-purple/4 rounded-full blur-[100px]" style={{ animation: 'horror-pulse 6s ease-in-out infinite', animationDelay: '4s' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-rift-blood/3 rounded-full blur-[200px]" style={{ animation: 'horror-pulse 9s ease-in-out infinite', animationDelay: '1s' }}></div>
 
-      {/* Floating horror particles */}
+      {/* Floating horror particles - more cinematic */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(35)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full animate-float ${i % 3 === 0 ? 'w-1 h-1 bg-rift-blood-light/40' : i % 3 === 1 ? 'w-0.5 h-0.5 bg-rift-neon/30' : 'w-1.5 h-1.5 bg-rift-blood/20'}`}
+            className={`absolute rounded-full animate-float ${i % 4 === 0 ? 'w-1 h-1 bg-rift-blood-light/40' : i % 4 === 1 ? 'w-0.5 h-0.5 bg-rift-neon/30' : i % 4 === 2 ? 'w-1.5 h-1.5 bg-rift-blood/20' : 'w-[3px] h-[3px] bg-rift-neon/15'}`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${5 + Math.random() * 7}s`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${5 + Math.random() * 8}s`,
+              filter: i % 5 === 0 ? 'blur(1px)' : 'none',
             }}
           />
         ))}
       </div>
 
-      {/* Rising ember particles */}
+      {/* Rising ember particles - enhanced */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={`ember-${i}`}
             className="absolute w-0.5 h-0.5 bg-rift-blood-glow/50 rounded-full animate-particle-rise"
             style={{
-              left: `${10 + Math.random() * 80}%`,
+              left: `${8 + Math.random() * 84}%`,
               bottom: '-5%',
-              animationDelay: `${i * 1.2}s`,
-              animationDuration: `${6 + Math.random() * 4}s`,
+              animationDelay: `${i * 0.9}s`,
+              animationDuration: `${6 + Math.random() * 5}s`,
+              boxShadow: '0 0 3px rgba(255,26,26,0.4)',
             }}
           />
         ))}
@@ -64,11 +68,14 @@ export default function Hero() {
           <BrandLogo size="lg" />
         </div>
 
-        {/* Movie Poster with float animation and light sweep */}
+        {/* Movie Poster with cinematic float and atmospheric fog */}
         <div className={`mb-8 flex justify-center transition-all duration-1200 ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
           <div className="relative group poster-container">
-            {/* Glowing atmosphere behind poster */}
-            <div className="absolute -inset-4 bg-gradient-to-b from-rift-blood/20 via-rift-neon/5 to-rift-blood/15 rounded-3xl blur-xl poster-glow"></div>
+            {/* Deep atmospheric glow behind poster */}
+            <div className="absolute -inset-8 bg-gradient-to-b from-rift-blood/15 via-rift-neon/4 to-rift-blood/10 rounded-3xl blur-2xl poster-glow"></div>
+            
+            {/* Secondary ethereal glow */}
+            <div className="absolute -inset-12 bg-gradient-to-t from-rift-blood/8 via-transparent to-rift-neon/5 rounded-3xl blur-3xl" style={{ animation: 'poster-glow-pulse 6s ease-in-out infinite', animationDelay: '1.5s' }}></div>
             
             {/* Horror border glow */}
             <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/30 via-rift-neon/10 to-rift-blood/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-700 animate-horror-pulse"></div>
@@ -77,7 +84,7 @@ export default function Hero() {
             <img
               src="https://i.imgur.com/162JyPV.jpeg"
               alt="The Rift Official Poster"
-              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(0,212,255,0.2),0_0_50px_rgba(139,0,0,0.3)]"
+              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3),0_0_100px_rgba(139,0,0,0.1)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(0,212,255,0.2),0_0_50px_rgba(139,0,0,0.3),0_0_120px_rgba(139,0,0,0.15)]"
             />
             
             {/* Moving light sweep over poster */}
@@ -85,9 +92,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Title with cinematic reveal */}
+        {/* Title with cinematic reveal - enhanced */}
         <h1 className={`title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.5s' }}>
-          <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent" style={{ textShadow: 'none' }}>
+          <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent bg-[length:200%_100%]" style={{ textShadow: 'none', animation: 'title-gradient-shift 8s ease-in-out infinite' }}>
             THE RIFT
           </span>
         </h1>
