@@ -21,9 +21,9 @@ export default function Hero() {
   const emberCount = isMobile ? 4 : 8
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Deep dark background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080810] via-rift-dark to-rift-darker"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030308] via-[#080810] to-rift-darker"></div>
 
       {/* Atmospheric fog layers - lightweight */}
       <div className="fog-layer">
@@ -73,16 +73,34 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Premium Animated Brand - cinematic fade in */}
-        <div className={`mb-8 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
+
+        {/* ===== STUDIO INTRO - KAAY VISION PRESENTS ===== */}
+        <div className={`mb-4 transition-all duration-[1.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+          {/* Studio presents text */}
+          <p className="text-gray-600 text-[10px] md:text-xs font-cinematic tracking-[0.5em] uppercase mb-4" style={{ transitionDelay: '0.1s' }}>
+            A Production By
+          </p>
+          {/* Premium Animated Brand Logo */}
           <BrandLogo size="lg" />
+          {/* Studio tagline */}
+          <p className="text-gray-600/60 text-[10px] md:text-xs font-nav tracking-[0.4em] uppercase mt-4">
+            Presents
+          </p>
         </div>
 
+        {/* Cinematic divider between studio and film */}
+        <div className={`flex items-center justify-center gap-4 my-6 md:my-8 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} style={{ transitionDelay: '0.3s' }}>
+          <div className="h-[1px] w-16 md:w-24 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
+          <div className="w-1.5 h-1.5 rounded-full bg-rift-neon/50 shadow-[0_0_6px_rgba(0,212,255,0.5)]"></div>
+          <div className="h-[1px] w-16 md:w-24 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
+        </div>
+
+        {/* ===== MAIN POSTER HERO ===== */}
         {/* Movie Poster with cinematic float */}
-        <div className={`mb-8 flex justify-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
+        <div className={`mb-8 flex justify-center transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'}`} style={{ transitionDelay: '0.5s' }}>
           <div className="relative group poster-container">
             {/* Atmospheric glow behind poster */}
-            <div className="absolute -inset-4 bg-gradient-to-b from-rift-blood/15 via-rift-neon/4 to-rift-blood/10 rounded-3xl blur-xl poster-glow"></div>
+            <div className="absolute -inset-6 bg-gradient-to-b from-rift-blood/15 via-rift-neon/4 to-rift-blood/10 rounded-3xl blur-2xl poster-glow"></div>
             
             {/* Horror border glow */}
             <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/25 via-rift-neon/8 to-rift-blood/15 rounded-2xl blur-sm animate-horror-pulse"></div>
@@ -91,7 +109,7 @@ export default function Hero() {
             <img
               src="https://i.imgur.com/162JyPV.jpeg"
               alt="The Rift Official Poster"
-              className="relative w-full max-w-md rounded-2xl shadow-[0_0_40px_rgba(139,0,0,0.25)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(0,212,255,0.15),0_0_40px_rgba(139,0,0,0.25)]"
+              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-500 group-hover:shadow-[0_0_70px_rgba(0,212,255,0.15),0_0_50px_rgba(139,0,0,0.3)]"
             />
             
             {/* Moving light sweep over poster */}
@@ -100,20 +118,20 @@ export default function Hero() {
         </div>
 
         {/* Title with cinematic reveal */}
-        <h1 className={`title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.5s' }}>
+        <h1 className={`title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.8s' }}>
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent bg-[length:200%_100%]" style={{ textShadow: 'none', animation: 'title-gradient-shift 8s ease-in-out infinite' }}>
             THE RIFT
           </span>
         </h1>
 
         {/* Tagline with staggered reveal */}
-        <p className={`text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-body font-light tracking-wide transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.7s' }}>
+        <p className={`text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-body font-light tracking-wide leading-relaxed transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1s' }}>
           When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
           <span className="text-rift-blood-light/60"> Some doors were never meant to be opened.</span>
         </p>
 
         {/* Buttons with reveal */}
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.9s' }}>
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1.2s' }}>
           {/* Watch Trailer Button */}
           <a
             href="#trailer"
@@ -140,17 +158,27 @@ export default function Hero() {
         </div>
 
         {/* Release info */}
-        <p className={`mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.2s' }}>
+        <p className={`mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.5s' }}>
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
 
-      {/* Bottom horror gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-rift-darker via-rift-dark/80 to-transparent"></div>
+      {/* Bottom horror gradient fade - smoother transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-rift-darker via-rift-dark/80 to-transparent"></div>
 
       {/* Blood-tint top corners */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-rift-blood/8 to-transparent"></div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-rift-blood/8 to-transparent"></div>
+
+      {/* Scroll indicator */}
+      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 ${loaded ? 'opacity-60' : 'opacity-0'}`} style={{ transitionDelay: '2s' }}>
+        <div className="flex flex-col items-center gap-2 animate-bounce">
+          <span className="text-gray-600 text-[9px] font-nav tracking-[0.3em] uppercase">Scroll</span>
+          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </div>
     </section>
   )
 }

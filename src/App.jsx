@@ -74,13 +74,13 @@ function App() {
       {/* Global cinematic effects */}
       <GlobalEffects />
 
-      {/* Main content */}
+      {/* Main content - Hollywood movie website flow */}
       <Navbar />
       <Hero />
+      <Trailer />
       <About />
       <Cast />
       <Gallery />
-      <Trailer />
       <UpcomingProjects />
       <Contact />
       <Footer />

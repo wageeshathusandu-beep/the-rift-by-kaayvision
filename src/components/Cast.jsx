@@ -57,21 +57,31 @@ export default function Cast() {
   }, [])
 
   return (
-    <section id="cast" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="cast" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080810] to-rift-darker"></div>
 
       {/* Horror atmosphere */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/3 rounded-full blur-[130px]"></div>
 
       {/* Fog */}
       <div className="fog-layer">
         <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift opacity-30"></div>
+        <div className="absolute top-0 inset-x-0 h-1/4 bg-gradient-to-b from-rift-neon/2 to-transparent opacity-15"></div>
       </div>
 
-      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
+      {/* Cinematic section entrance */}
+      <div className="absolute top-0 left-0 right-0">
+        <div className="horror-divider"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-rift-blood/20 to-transparent mt-px"></div>
+      </div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Section intro */}
+        <div className="text-center mb-4">
+          <p className="text-rift-neon/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">The Talent</p>
+        </div>
         <h2 className="section-heading">Cast & Crew</h2>
         <p className="text-center text-gray-500 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 

@@ -14,7 +14,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const links = ['Home', 'About', 'Cast', 'Gallery', 'Trailer', 'Contact']
+  const links = ['Home', 'Trailer', 'About', 'Cast', 'Gallery', 'Contact']
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${

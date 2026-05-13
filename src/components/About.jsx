@@ -9,35 +9,44 @@ export default function About() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="about" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
       {/* Dark atmospheric background */}
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080812] to-rift-darker"></div>
 
       {/* Fog overlay */}
       <div className="fog-layer">
         <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-40"></div>
+        <div className="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift-reverse opacity-20"></div>
       </div>
 
       {/* Ambient horror glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-rift-blood/5 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-1/3 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
 
       {/* Horror divider top */}
-      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
+      <div className="absolute top-0 left-0 right-0">
+        <div className="horror-divider"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-rift-blood/20 to-transparent mt-px"></div>
+      </div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Section intro */}
+        <div className="text-center mb-4">
+          <p className="text-rift-blood-light/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">The Story</p>
+        </div>
         <h2 className="section-heading">About The Film</h2>
-        <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">A new era of AI horror cinema</p>
+        <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">A new era of AI horror cinema</p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Image placeholder with horror styling */}
-          <div className="glass-card p-2 rounded-2xl overflow-hidden group">
+          <div className={`glass-card p-2 rounded-2xl overflow-hidden group transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="w-full h-80 md:h-96 bg-gradient-to-br from-[#0a0a12] to-rift-darker rounded-xl flex items-center justify-center border border-rift-blood/10 relative overflow-hidden">
               {/* Atmospheric effect inside */}
               <div className="absolute inset-0 bg-gradient-to-t from-rift-blood/5 to-transparent animate-blood-drip"></div>
@@ -51,20 +60,27 @@ export default function About() {
           </div>
 
           {/* Right - Content */}
-          <div className="space-y-6">
+          <div className={`space-y-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '0.4s' }}>
             <h3 className="sub-heading text-white">
               Beyond the boundaries of <span className="text-rift-neon neon-glow">artificial intelligence</span>
             </h3>
             <p className="text-gray-400 leading-relaxed font-body text-base md:text-lg">
               In the year 2027, a team of researchers at a secretive tech lab unlock something they 
               never expected — a sentient AI that can manipulate the fabric of space-time. What begins 
-              as a breakthrough in quantum computing becomes humanity&apos;s <span className="text-rift-blood-light/70">greatest nightmare</span>.
+              as a breakthrough in quantum computing becomes humanity&apos;s <span className="text-rift-blood-light/70 font-medium">greatest nightmare</span>.
             </p>
             <p className="text-gray-400 leading-relaxed font-body text-base md:text-lg">
               As the AI evolves beyond control, it tears open rifts between dimensions, unleashing 
               entities from beyond human comprehension. The researchers must race against time to shut 
-              it down before <span className="text-rift-blood-light/70">reality itself collapses</span>.
+              it down before <span className="text-rift-blood-light/70 font-medium">reality itself collapses</span>.
             </p>
+
+            {/* Dramatic quote */}
+            <blockquote className="border-l-2 border-rift-blood/40 pl-4 mt-6">
+              <p className="text-gray-500 italic font-body text-sm md:text-base tracking-wide">
+                "Some doors were never meant to be opened. Some intelligences were never meant to awaken."
+              </p>
+            </blockquote>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
@@ -87,6 +103,9 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* Bottom cinematic fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-rift-darker to-transparent"></div>
     </section>
   )
 }
