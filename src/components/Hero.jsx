@@ -3,60 +3,70 @@ import BrandLogo from './BrandLogo'
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Trigger cinematic reveal after mount
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener('resize', check)
     const timer = setTimeout(() => setLoaded(true), 100)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', check)
+    }
   }, [])
+
+  // Reduce particle counts based on device
+  const floatingCount = isMobile ? 10 : 20
+  const emberCount = isMobile ? 4 : 8
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Deep dark background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#080810] via-rift-dark to-rift-darker"></div>
 
-      {/* Atmospheric fog layers - enhanced */}
+      {/* Atmospheric fog layers - lightweight */}
       <div className="fog-layer">
         <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/5 via-transparent to-rift-neon/3 animate-fog-drift"></div>
         <div className="absolute inset-0 bg-gradient-to-l from-rift-blood/3 via-transparent to-rift-neon-purple/5 animate-fog-drift-reverse"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rift-blood/2 to-transparent animate-fog-drift" style={{ animationDuration: '30s', animationDelay: '5s' }}></div>
       </div>
 
-      {/* Horror ambient glows - enhanced */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-rift-blood/5 rounded-full blur-[150px] animate-horror-pulse"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-rift-neon/3 rounded-full blur-[120px]" style={{ animation: 'horror-pulse 7s ease-in-out infinite', animationDelay: '2s' }}></div>
-      <div className="absolute top-1/3 left-1/5 w-[300px] h-[300px] bg-rift-neon-purple/4 rounded-full blur-[100px]" style={{ animation: 'horror-pulse 6s ease-in-out infinite', animationDelay: '4s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-rift-blood/3 rounded-full blur-[200px]" style={{ animation: 'horror-pulse 9s ease-in-out infinite', animationDelay: '1s' }}></div>
+      {/* Horror ambient glows - reduced blur values for mobile */}
+      <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 ${isMobile ? 'w-[400px] h-[400px] blur-[80px]' : 'w-[600px] h-[600px] blur-[120px]'} bg-rift-blood/5 rounded-full animate-horror-pulse`}></div>
+      {!isMobile && (
+        <>
+          <div className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-rift-neon/3 rounded-full blur-[80px]" style={{ animation: 'horror-pulse 7s ease-in-out infinite', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 left-1/5 w-[250px] h-[250px] bg-rift-neon-purple/4 rounded-full blur-[60px]" style={{ animation: 'horror-pulse 6s ease-in-out infinite', animationDelay: '4s' }}></div>
+        </>
+      )}
 
-      {/* Floating horror particles - more cinematic */}
+      {/* Floating horror particles - optimized count */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(35)].map((_, i) => (
+        {[...Array(floatingCount)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full animate-float ${i % 4 === 0 ? 'w-1 h-1 bg-rift-blood-light/40' : i % 4 === 1 ? 'w-0.5 h-0.5 bg-rift-neon/30' : i % 4 === 2 ? 'w-1.5 h-1.5 bg-rift-blood/20' : 'w-[3px] h-[3px] bg-rift-neon/15'}`}
+            className={`absolute rounded-full animate-float ${i % 3 === 0 ? 'w-1 h-1 bg-rift-blood-light/40' : i % 3 === 1 ? 'w-0.5 h-0.5 bg-rift-neon/30' : 'w-1.5 h-1.5 bg-rift-blood/20'}`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${5 + Math.random() * 8}s`,
-              filter: i % 5 === 0 ? 'blur(1px)' : 'none',
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${6 + Math.random() * 6}s`,
             }}
           />
         ))}
       </div>
 
-      {/* Rising ember particles - enhanced */}
+      {/* Rising ember particles - reduced */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(emberCount)].map((_, i) => (
           <div
             key={`ember-${i}`}
             className="absolute w-0.5 h-0.5 bg-rift-blood-glow/50 rounded-full animate-particle-rise"
             style={{
-              left: `${8 + Math.random() * 84}%`,
+              left: `${10 + Math.random() * 80}%`,
               bottom: '-5%',
-              animationDelay: `${i * 0.9}s`,
-              animationDuration: `${6 + Math.random() * 5}s`,
-              boxShadow: '0 0 3px rgba(255,26,26,0.4)',
+              animationDelay: `${i * 1.5}s`,
+              animationDuration: `${7 + Math.random() * 4}s`,
             }}
           />
         ))}
@@ -68,23 +78,20 @@ export default function Hero() {
           <BrandLogo size="lg" />
         </div>
 
-        {/* Movie Poster with cinematic float and atmospheric fog */}
-        <div className={`mb-8 flex justify-center transition-all duration-1200 ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
+        {/* Movie Poster with cinematic float */}
+        <div className={`mb-8 flex justify-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
           <div className="relative group poster-container">
-            {/* Deep atmospheric glow behind poster */}
-            <div className="absolute -inset-8 bg-gradient-to-b from-rift-blood/15 via-rift-neon/4 to-rift-blood/10 rounded-3xl blur-2xl poster-glow"></div>
-            
-            {/* Secondary ethereal glow */}
-            <div className="absolute -inset-12 bg-gradient-to-t from-rift-blood/8 via-transparent to-rift-neon/5 rounded-3xl blur-3xl" style={{ animation: 'poster-glow-pulse 6s ease-in-out infinite', animationDelay: '1.5s' }}></div>
+            {/* Atmospheric glow behind poster */}
+            <div className="absolute -inset-4 bg-gradient-to-b from-rift-blood/15 via-rift-neon/4 to-rift-blood/10 rounded-3xl blur-xl poster-glow"></div>
             
             {/* Horror border glow */}
-            <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/30 via-rift-neon/10 to-rift-blood/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-700 animate-horror-pulse"></div>
+            <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/25 via-rift-neon/8 to-rift-blood/15 rounded-2xl blur-sm animate-horror-pulse"></div>
             
             {/* Poster image */}
             <img
               src="https://i.imgur.com/162JyPV.jpeg"
               alt="The Rift Official Poster"
-              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3),0_0_100px_rgba(139,0,0,0.1)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(0,212,255,0.2),0_0_50px_rgba(139,0,0,0.3),0_0_120px_rgba(139,0,0,0.15)]"
+              className="relative w-full max-w-md rounded-2xl shadow-[0_0_40px_rgba(139,0,0,0.25)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(0,212,255,0.15),0_0_40px_rgba(139,0,0,0.25)]"
             />
             
             {/* Moving light sweep over poster */}
@@ -92,7 +99,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Title with cinematic reveal - enhanced */}
+        {/* Title with cinematic reveal */}
         <h1 className={`title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.5s' }}>
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent bg-[length:200%_100%]" style={{ textShadow: 'none', animation: 'title-gradient-shift 8s ease-in-out infinite' }}>
             THE RIFT

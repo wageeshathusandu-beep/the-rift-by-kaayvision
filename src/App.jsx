@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,28 +9,39 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function GlobalEffects() {
-  // Generate particles once with useMemo for performance
-  const particles = useMemo(() => {
-    return Array.from({ length: 28 }, (_, i) => ({
-      id: i,
-      size: Math.random() * 3.5 + 1,
-      left: Math.random() * 100,
-      delay: Math.random() * 20,
-      duration: 14 + Math.random() * 12,
-      type: i % 4 === 0 ? 'red' : i % 4 === 1 ? 'blue' : i % 4 === 2 ? 'white' : 'blue',
-    }))
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
   }, [])
+
+  // Reduce particles on mobile for 60fps
+  const particleCount = isMobile ? 8 : 18
+  
+  const particles = useMemo(() => {
+    return Array.from({ length: particleCount }, (_, i) => ({
+      id: i,
+      size: Math.random() * 3 + 1,
+      left: Math.random() * 100,
+      delay: Math.random() * 15,
+      duration: 16 + Math.random() * 10,
+      type: i % 3 === 0 ? 'red' : i % 3 === 1 ? 'blue' : 'white',
+    }))
+  }, [particleCount])
 
   return (
     <>
       {/* Global Fog Layers */}
       <div className="global-fog">
         <div className="global-fog-layer-1"></div>
-        <div className="global-fog-layer-2"></div>
+        {!isMobile && <div className="global-fog-layer-2"></div>}
         <div className="global-fog-layer-3"></div>
       </div>
 
-      {/* Global Floating Particles */}
+      {/* Global Floating Particles - reduced count */}
       <div className="global-particles">
         {particles.map((p) => (
           <div
@@ -48,15 +59,10 @@ function GlobalEffects() {
         ))}
       </div>
 
-      {/* Ambient Light Flicker - Cinematic */}
-      <div className="ambient-flicker" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(139,0,0,0.04), transparent 55%), radial-gradient(ellipse at 30% 70%, rgba(0,212,255,0.02), transparent 50%)' }}></div>
-
-      {/* Secondary ambient pulse */}
-      <div className="ambient-flicker" style={{ 
-        background: 'radial-gradient(ellipse at 70% 30%, rgba(123,47,247,0.02), transparent 50%)',
-        animationDelay: '4s',
-        animationDuration: '12s'
-      }}></div>
+      {/* Ambient Light Flicker - only on desktop */}
+      {!isMobile && (
+        <div className="ambient-flicker" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(139,0,0,0.03), transparent 55%)' }}></div>
+      )}
     </>
   )
 }

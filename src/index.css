@@ -7,10 +7,16 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     @apply bg-rift-dark text-white font-body;
     font-weight: 400;
     background-color: #050508;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::-webkit-scrollbar {
@@ -88,7 +94,6 @@
                 radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.04) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(139,0,0,0.02) 0%, transparent 60%);
     animation: global-fog-1 28s ease-in-out infinite;
-    will-change: transform, opacity;
   }
 
   .global-fog-layer-2 {
@@ -98,7 +103,6 @@
                 radial-gradient(ellipse at 30% 30%, rgba(0,212,255,0.03) 0%, transparent 40%),
                 radial-gradient(ellipse at 70% 80%, rgba(123,47,247,0.02) 0%, transparent 35%);
     animation: global-fog-2 35s ease-in-out infinite;
-    will-change: transform, opacity;
   }
 
   .global-fog-layer-3 {
@@ -109,7 +113,6 @@
     height: 50%;
     background: linear-gradient(to top, rgba(5,5,8,0.4), rgba(139,0,0,0.02) 30%, transparent);
     animation: global-fog-3 22s ease-in-out infinite;
-    will-change: opacity;
   }
 
   /* ===== FLOATING PARTICLES SYSTEM - ENHANCED ===== */
@@ -124,23 +127,21 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    will-change: transform, opacity;
-    filter: blur(0.5px);
   }
 
   .particle-red {
-    background: radial-gradient(circle, rgba(220,38,38,0.7), rgba(139,0,0,0.3) 50%, transparent);
-    box-shadow: 0 0 4px rgba(220,38,38,0.4);
+    background: rgba(220,38,38,0.5);
+    box-shadow: 0 0 3px rgba(220,38,38,0.3);
   }
 
   .particle-blue {
-    background: radial-gradient(circle, rgba(0,212,255,0.6), rgba(0,180,216,0.3) 50%, transparent);
-    box-shadow: 0 0 4px rgba(0,212,255,0.3);
+    background: rgba(0,212,255,0.4);
+    box-shadow: 0 0 3px rgba(0,212,255,0.25);
   }
 
   .particle-white {
-    background: radial-gradient(circle, rgba(255,255,255,0.5), rgba(200,200,255,0.2) 50%, transparent);
-    box-shadow: 0 0 3px rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.35);
+    box-shadow: 0 0 2px rgba(255,255,255,0.2);
   }
 
   /* ===== AMBIENT LIGHT FLICKER - CINEMATIC ===== */
@@ -150,7 +151,6 @@
     pointer-events: none;
     z-index: 0;
     animation: ambient-light-flicker 10s steps(1) infinite;
-    will-change: opacity;
   }
 
   /* ===== TYPOGRAPHY STYLES - CINEMATIC ===== */
@@ -163,12 +163,10 @@
 
   @keyframes title-glow-breathe {
     0%, 100% { 
-      text-shadow: 0 0 10px rgba(0, 212, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1);
-      filter: brightness(1);
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.4), 0 0 25px rgba(0, 212, 255, 0.2);
     }
     50% { 
-      text-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 0 0 40px rgba(0, 212, 255, 0.35), 0 0 80px rgba(0, 212, 255, 0.15), 0 0 120px rgba(139, 0, 0, 0.08);
-      filter: brightness(1.05);
+      text-shadow: 0 0 12px rgba(0, 212, 255, 0.55), 0 0 35px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.1);
     }
   }
 
@@ -316,29 +314,29 @@
   .poster-container::before {
     content: '';
     position: absolute;
-    inset: -30px;
+    inset: -20px;
     background: 
-      radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 50%, rgba(0,212,255,0.05) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(0,212,255,0.04) 0%, transparent 50%);
     border-radius: 2rem;
-    animation: poster-fog-swirl 8s ease-in-out infinite;
+    animation: poster-fog-swirl 10s ease-in-out infinite;
     pointer-events: none;
     z-index: -1;
-    filter: blur(10px);
+    opacity: 0.7;
   }
 
   .poster-container::after {
     content: '';
     position: absolute;
-    inset: -20px;
+    inset: -15px;
     background: 
-      radial-gradient(ellipse at 70% 30%, rgba(139,0,0,0.06) 0%, transparent 40%),
-      radial-gradient(ellipse at 30% 70%, rgba(0,212,255,0.04) 0%, transparent 40%);
+      radial-gradient(ellipse at 70% 30%, rgba(139,0,0,0.05) 0%, transparent 40%),
+      radial-gradient(ellipse at 30% 70%, rgba(0,212,255,0.03) 0%, transparent 40%);
     border-radius: 2rem;
-    animation: poster-fog-swirl 10s ease-in-out infinite reverse;
+    animation: poster-fog-swirl 12s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: -1;
-    filter: blur(8px);
+    opacity: 0.6;
   }
 
   /* ===== CAST CARD ANIMATIONS ===== */
@@ -561,10 +559,8 @@
 }
 
 @keyframes poster-glow-pulse {
-  0%, 100% { opacity: 0.4; box-shadow: 0 0 30px rgba(139,0,0,0.3), 0 0 60px rgba(0,212,255,0.08); }
-  30% { opacity: 0.6; box-shadow: 0 0 40px rgba(139,0,0,0.4), 0 0 80px rgba(0,212,255,0.12); }
-  50% { opacity: 0.85; box-shadow: 0 0 60px rgba(139,0,0,0.5), 0 0 120px rgba(0,212,255,0.2), 0 0 150px rgba(139,0,0,0.1); }
-  70% { opacity: 0.6; box-shadow: 0 0 45px rgba(139,0,0,0.35), 0 0 90px rgba(0,212,255,0.1); }
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
 }
 
 @keyframes poster-light-sweep {
@@ -587,8 +583,8 @@
 
 /* ===== TRAILER ===== */
 @keyframes trailer-border-glow {
-  0%, 100% { opacity: 0.4; filter: brightness(1); }
-  50% { opacity: 0.8; filter: brightness(1.3); }
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
 /* ===== SOCIAL ICONS ===== */
@@ -617,7 +613,6 @@
 /* ===== BRAND LOGO ANIMATIONS - PREMIUM CINEMATIC ===== */
 
 .brand-text {
-  will-change: transform;
   transform: translateZ(0);
   transition: filter 0.4s ease;
   position: relative;
@@ -629,7 +624,6 @@
 
 .brand-main-text {
   animation: brand-breathe 3.5s ease-in-out infinite, brand-flicker 7s steps(1) infinite;
-  will-change: opacity, text-shadow;
 }
 
 @keyframes brand-breathe {
@@ -665,7 +659,6 @@
     0 0 25px rgba(0,212,255,0.4),
     0 0 50px rgba(0,212,255,0.15);
   animation: brand-kaay-energy 3s ease-in-out infinite;
-  will-change: opacity, text-shadow;
 }
 
 @keyframes brand-kaay-energy {
@@ -703,7 +696,6 @@
     0 0 90px rgba(0,212,255,0.08);
   animation: brand-vision-energy 3s ease-in-out infinite;
   animation-delay: 0.5s;
-  will-change: opacity, text-shadow;
 }
 
 @keyframes brand-vision-energy {
@@ -760,7 +752,6 @@
 .brand-glitch-cyan {
   color: rgba(0, 212, 255, 0.22);
   opacity: 0;
-  will-change: transform, opacity;
   animation: glitch-cyan 6s ease-in-out infinite;
 }
 
@@ -782,7 +773,6 @@
 .brand-glitch-red {
   color: rgba(220, 38, 38, 0.18);
   opacity: 0;
-  will-change: transform, opacity;
   animation: glitch-red 6s ease-in-out infinite;
   animation-delay: 0.15s;
 }
@@ -806,7 +796,6 @@
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.06) 44%, rgba(0,212,255,0.15) 50%, rgba(255,255,255,0.06) 56%, transparent 65%);
   background-size: 300% 100%;
   animation: brand-light-sweep 5s ease-in-out infinite;
-  will-change: background-position;
 }
 
 @keyframes brand-light-sweep {
@@ -816,7 +805,6 @@
 
 .brand-scanline {
   background: linear-gradient(to bottom, transparent 10%, rgba(0,212,255,0.4) 40%, rgba(255,255,255,0.7) 50%, rgba(0,212,255,0.4) 60%, transparent 90%);
-  will-change: transform;
   animation: brand-scan 3.8s linear infinite;
   box-shadow: 0 0 8px rgba(0,212,255,0.5), 0 0 15px rgba(0,212,255,0.2);
 }
@@ -834,7 +822,6 @@
   border-radius: 50%;
   background: #00e5ff;
   box-shadow: 0 0 4px #00e5ff, 0 0 8px rgba(0,212,255,0.5);
-  will-change: transform, opacity;
 }
 
 .brand-spark-1 { top: 15%; left: 20%; animation: spark-float-1 3s ease-in-out infinite; }
@@ -931,7 +918,6 @@
 /* ===== NAVBAR ENERGY ===== */
 .nav-energy-scan {
   animation: energy-scan 4s linear infinite;
-  will-change: transform;
 }
 
 @keyframes energy-scan {
@@ -974,6 +960,221 @@
     width: 50px;
     height: 50px;
   }
+}
+
+/* ===== MOBILE PERFORMANCE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  /* Disable heavy pseudo-element fog on poster */
+  .poster-container::before,
+  .poster-container::after {
+    display: none;
+  }
+
+  /* Simplify poster float - no 3D rotation on mobile */
+  .poster-container {
+    animation: poster-float-mobile 6s ease-in-out infinite;
+    perspective: none;
+    transform-style: flat;
+  }
+
+  /* Remove brand logo container glow pseudo */
+  .brand-logo::before {
+    display: none;
+  }
+
+  /* Simplify brand animations - keep only energy flow */
+  .brand-main-text {
+    animation: brand-breathe 4s ease-in-out infinite;
+  }
+
+  .brand-scanline {
+    display: none;
+  }
+
+  .brand-spark {
+    display: none;
+  }
+
+  .brand-glitch-cyan,
+  .brand-glitch-red {
+    display: none;
+  }
+
+  /* Simplify fog layers */
+  .global-fog-layer-2 {
+    display: none;
+  }
+
+  .global-fog-layer-1 {
+    animation: global-fog-mobile 30s ease-in-out infinite;
+  }
+
+  /* Remove ambient flicker on mobile */
+  .ambient-flicker {
+    display: none;
+  }
+
+  /* Simplify particles - remove box-shadow and blur */
+  .particle {
+    filter: none;
+    box-shadow: none;
+  }
+
+  .particle-red {
+    background: rgba(220,38,38,0.5);
+    box-shadow: none;
+  }
+
+  .particle-blue {
+    background: rgba(0,212,255,0.4);
+    box-shadow: none;
+  }
+
+  .particle-white {
+    background: rgba(255,255,255,0.35);
+    box-shadow: none;
+  }
+
+  /* Simplify title animation */
+  .title-cinematic {
+    animation: none;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.4), 0 0 20px rgba(0, 212, 255, 0.15);
+  }
+
+  /* Simplify poster glow - static on mobile */
+  .poster-glow {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  /* Reduce poster sweep complexity */
+  .poster-sweep {
+    animation-duration: 8s;
+  }
+
+  /* Simplify vignette - no animation */
+  .horror-vignette::after {
+    animation: none;
+    opacity: 0.9;
+  }
+
+  /* Disable horror grain SVG filter on mobile */
+  .horror-grain::before {
+    display: none;
+  }
+
+  /* Simplify glass card - remove backdrop-blur */
+  .glass-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Simplify social icon animations */
+  .social-icon-btn {
+    animation: none;
+  }
+
+  /* Simplify trailer frame */
+  .trailer-frame::before {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  /* Reduce cast card float */
+  .cast-card-float {
+    animation: none;
+  }
+
+  /* Simplify footer ambient */
+  .footer-ambient {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  /* Remove will-change on mobile to free GPU memory */
+  .global-fog-layer-1,
+  .global-fog-layer-3,
+  .brand-text,
+  .brand-main-text,
+  .brand-kaay,
+  .brand-vision,
+  .brand-glitch-cyan,
+  .brand-glitch-red,
+  .brand-sweep,
+  .brand-scanline,
+  .brand-spark,
+  .nav-energy-scan {
+    will-change: auto;
+  }
+
+  /* Simplify button animations */
+  .btn-watch-trailer {
+    animation: none;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  }
+
+  .btn-horror::before {
+    animation: none;
+  }
+
+  .btn-horror-primary {
+    animation: none;
+  }
+
+  .btn-light-sweep {
+    animation: none;
+  }
+
+  /* Simplify nav energy */
+  .nav-energy-scan {
+    animation: none;
+  }
+}
+
+/* Larger phones / small tablets - moderate optimization */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .poster-container::before {
+    filter: blur(6px);
+    animation-duration: 12s;
+  }
+
+  .poster-container::after {
+    display: none;
+  }
+
+  .brand-scanline {
+    animation-duration: 5s;
+  }
+
+  .global-fog-layer-2 {
+    animation-duration: 45s;
+  }
+
+  .particle {
+    filter: none;
+  }
+
+  .particle-red,
+  .particle-blue,
+  .particle-white {
+    box-shadow: none;
+  }
+
+  .horror-grain::before {
+    opacity: 0.02;
+  }
+}
+
+/* Simple mobile poster float */
+@keyframes poster-float-mobile {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Simple mobile fog */
+@keyframes global-fog-mobile {
+  0%, 100% { opacity: 0.4; transform: translateX(0); }
+  50% { opacity: 0.65; transform: translateX(15px); }
 }
 
 /* Reduce motion for accessibility */
