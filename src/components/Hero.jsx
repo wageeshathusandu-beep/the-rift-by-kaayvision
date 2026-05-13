@@ -83,7 +83,7 @@ export default function Hero() {
           {/* Premium Animated Brand Logo */}
           <BrandLogo size="lg" />
           {/* Studio tagline */}
-          <p className="text-gray-600/60 text-[10px] md:text-xs font-nav tracking-[0.4em] uppercase mt-4">
+          <p className="text-gray-300 text-xs md:text-sm font-cinematic tracking-[0.35em] uppercase mt-2" style={{ textShadow: '0 0 8px rgba(0,212,255,0.4), 0 0 20px rgba(0,212,255,0.15)' }}>
             Presents
           </p>
         </div>
