@@ -5,6 +5,7 @@ import About from './components/About'
 import Cast from './components/Cast'
 import Gallery from './components/Gallery'
 import Trailer from './components/Trailer'
+import UpcomingProjects from './components/UpcomingProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -80,6 +81,7 @@ function App() {
       <Cast />
       <Gallery />
       <Trailer />
+      <UpcomingProjects />
       <Contact />
       <Footer />
     </div>
