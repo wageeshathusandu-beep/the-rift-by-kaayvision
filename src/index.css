@@ -917,13 +917,87 @@
 }
 
 /* ===== NAVBAR ENERGY ===== */
-.nav-energy-scan {
-  animation: energy-scan 4s linear infinite;
+
+/* Continuous neon sweep across top line */
+.nav-energy-sweep {
+  animation: nav-sweep 4s linear infinite;
 }
 
-@keyframes energy-scan {
-  0% { transform: translateX(-64px); }
-  100% { transform: translateX(200px); }
+@keyframes nav-sweep {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+/* Reverse red sweep on bottom line */
+.nav-energy-sweep-reverse {
+  animation: nav-sweep-reverse 6s linear infinite;
+}
+
+@keyframes nav-sweep-reverse {
+  0% { transform: translateX(100px); }
+  100% { transform: translateX(calc(-100vw - 100px)); }
+}
+
+/* Background pulse behind nav items */
+.nav-bg-pulse {
+  animation: nav-bg-breathe 4s ease-in-out infinite;
+}
+
+@keyframes nav-bg-breathe {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Active section dot pulse */
+.nav-active-dot {
+  animation: nav-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes nav-dot-pulse {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.4); }
+}
+
+/* Nav item cinematic hover effects */
+.nav-item-cinematic {
+  position: relative;
+  overflow: visible;
+}
+
+/* Glitch flicker on hover */
+.nav-item-cinematic:hover .nav-text-glitch {
+  animation: nav-glitch-flicker 0.3s steps(1) 1;
+}
+
+@keyframes nav-glitch-flicker {
+  0% { opacity: 1; }
+  10% { opacity: 0.7; transform: translateX(1px); }
+  20% { opacity: 1; transform: translateX(0); }
+  30% { opacity: 0.85; transform: translateX(-1px); }
+  40% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Nav item light sweep on hover */
+.nav-item-cinematic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.08), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.nav-item-cinematic:hover::before {
+  left: 100%;
+}
+
+/* Active nav item glow */
+.nav-item-cinematic.text-rift-neon {
+  text-shadow: 0 0 6px rgba(0,212,255,0.4), 0 0 12px rgba(0,212,255,0.15);
 }
 
 /* ===== SCROLL REVEAL UTILITY ===== */
@@ -1104,7 +1178,7 @@
   .brand-sweep,
   .brand-scanline,
   .brand-spark,
-  .nav-energy-scan {
+  .nav-energy-sweep {
     will-change: auto;
   }
 
@@ -1127,8 +1201,14 @@
   }
 
   /* Simplify nav energy */
-  .nav-energy-scan {
+  .nav-energy-sweep,
+  .nav-energy-sweep-reverse,
+  .nav-bg-pulse {
     animation: none;
+  }
+
+  .nav-item-cinematic::before {
+    display: none;
   }
 }
 
