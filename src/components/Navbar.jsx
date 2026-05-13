@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BrandLogo from './BrandLogo'
 import NavEnergy from './NavEnergy'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   const links = ['Home', 'About', 'Cast', 'Gallery', 'Trailer', 'Contact']
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-rift-darker/90 backdrop-blur-xl border-b border-rift-blood/10">
+    <nav className={`fixed top-0 w-full z-50 navbar-cinematic ${scrolled ? 'scrolled' : ''}`}>
       {/* Subtle horror red line at top */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/40 to-transparent"></div>
 
@@ -22,13 +31,13 @@ export default function Navbar() {
             <BrandLogo size="nav" />
           </a>
 
-          {/* Desktop Nav - subdued to let logo dominate */}
+          {/* Desktop Nav - with neon underline animation */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="font-ui text-[10px] text-gray-500 hover:text-rift-neon/90 transition-all duration-300 hover:drop-shadow-[0_0_4px_rgba(0,212,255,0.3)]"
+                className="nav-link-cinematic font-ui text-[10px] text-gray-500 hover:text-rift-neon/90 transition-all duration-300"
               >
                 {link}
               </a>
@@ -52,7 +61,7 @@ export default function Navbar() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-rift-blood/10 animate-fade-in bg-rift-darker/95">
+          <div className="md:hidden py-4 border-t border-rift-blood/10 animate-fade-in bg-rift-darker/95 backdrop-blur-xl">
             {links.map((link) => (
               <a
                 key={link}

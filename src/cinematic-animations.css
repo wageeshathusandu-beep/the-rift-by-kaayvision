@@ -1,0 +1,496 @@
+/* ===================================================================
+   CINEMATIC HORROR SCI-FI ANIMATIONS — THE RIFT
+   Premium Hollywood-style motion design system
+   60fps optimized, GPU-accelerated
+   =================================================================== */
+
+/* ===== GLOBAL PERFORMANCE OPTIMIZATION ===== */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ===== 1. BACKGROUND — FOG, SMOKE, PARTICLES, VIGNETTE ===== */
+
+/* Animated vignette breathing effect */
+.vignette-breathe::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  animation: vignette-pulse 8s ease-in-out infinite;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(5,5,8,0.5) 65%, rgba(5,5,8,0.85) 100%);
+}
+
+@keyframes vignette-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Ambient light flicker overlay */
+.ambient-flicker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9996;
+  background: radial-gradient(ellipse at 30% 20%, rgba(139,0,0,0.02) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(0,212,255,0.01) 0%, transparent 50%);
+  animation: ambient-light-flicker 6s ease-in-out infinite;
+}
+
+@keyframes ambient-light-flicker {
+  0%, 100% { opacity: 0.4; }
+  25% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+  75% { opacity: 0.6; }
+}
+
+/* Cinematic smoke layers */
+.smoke-layer-1 {
+  position: fixed;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 40%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(5,5,8,0.3) 0%, transparent 100%);
+  filter: blur(30px);
+  animation: smoke-drift-1 25s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes smoke-drift-1 {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.3; }
+  25% { transform: translateX(3%) scaleX(1.05); opacity: 0.4; }
+  50% { transform: translateX(-2%) scaleX(1.02); opacity: 0.25; }
+  75% { transform: translateX(1%) scaleX(0.98); opacity: 0.35; }
+}
+
+.smoke-layer-2 {
+  position: fixed;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  height: 30%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(139,0,0,0.05) 0%, transparent 100%);
+  filter: blur(40px);
+  animation: smoke-drift-2 30s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+@keyframes smoke-drift-2 {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.2; }
+  33% { transform: translateX(-4%) scaleX(1.03); opacity: 0.3; }
+  66% { transform: translateX(3%) scaleX(0.97); opacity: 0.15; }
+}
+
+/* ===== 2. NAVBAR — GLASSMORPHISM + NEON UNDERLINE ===== */
+
+.navbar-cinematic {
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: linear-gradient(180deg, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.85) 100%);
+  border-bottom: 1px solid rgba(139,0,0,0.15);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navbar-cinematic.scrolled {
+  background: linear-gradient(180deg, rgba(2,2,3,0.97) 0%, rgba(5,5,8,0.95) 100%);
+  border-bottom-color: rgba(0,212,255,0.1);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 15px rgba(139,0,0,0.05);
+}
+
+/* Animated neon underline on nav links */
+.nav-link-cinematic {
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link-cinematic::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(0,212,255,0.4);
+}
+
+.nav-link-cinematic:hover::after {
+  width: 100%;
+}
+
+.nav-link-cinematic:hover {
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0,212,255,0.4);
+}
+
+/* ===== 3. HERO — POSTER FLOAT + LIGHT SWEEP ===== */
+
+/* Poster cinematic float */
+.poster-cinematic {
+  animation: poster-float 6s ease-in-out infinite;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.poster-cinematic:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 60px rgba(139,0,0,0.4), 0 0 120px rgba(0,212,255,0.1);
+}
+
+@keyframes poster-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Light sweep over poster */
+.poster-light-sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 45%, rgba(0,212,255,0.08) 50%, rgba(255,255,255,0.05) 55%, transparent 60%);
+  animation: poster-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: 1rem;
+}
+
+@keyframes poster-sweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Glowing atmosphere behind poster */
+.poster-glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(139,0,0,0.15) 0%, rgba(0,212,255,0.05) 40%, transparent 70%);
+  animation: poster-bg-pulse 4s ease-in-out infinite;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+@keyframes poster-bg-pulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Cinematic text reveal */
+.text-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: text-reveal-up 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.text-reveal-delay-1 { animation-delay: 0.2s; }
+.text-reveal-delay-2 { animation-delay: 0.4s; }
+.text-reveal-delay-3 { animation-delay: 0.6s; }
+.text-reveal-delay-4 { animation-delay: 0.8s; }
+
+@keyframes text-reveal-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 4. BUTTONS — ENHANCED CINEMATIC ===== */
+
+.btn-cinematic {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: btn-neon-pulse 3s ease-in-out infinite;
+}
+
+.btn-cinematic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%, transparent 100%);
+  animation: btn-light-sweep-move 4s ease-in-out infinite;
+}
+
+.btn-cinematic:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 0 30px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2), 0 5px 30px rgba(0,0,0,0.4);
+}
+
+.btn-cinematic:active {
+  transform: scale(0.95);
+  transition-duration: 0.1s;
+}
+
+@keyframes btn-neon-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,212,255,0.2), 0 0 20px rgba(0,212,255,0.1); }
+  50% { box-shadow: 0 0 20px rgba(0,212,255,0.4), 0 0 40px rgba(0,212,255,0.2); }
+}
+
+@keyframes btn-light-sweep-move {
+  0% { left: -100%; }
+  50%, 100% { left: 200%; }
+}
+
+/* Red variant for horror buttons */
+.btn-cinematic-red {
+  animation: btn-red-pulse 3s ease-in-out infinite;
+}
+
+.btn-cinematic-red:hover {
+  box-shadow: 0 0 25px rgba(139,0,0,0.4), 0 0 50px rgba(139,0,0,0.2), 0 5px 30px rgba(0,0,0,0.4);
+}
+
+@keyframes btn-red-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(139,0,0,0.2), 0 0 15px rgba(139,0,0,0.1); }
+  50% { box-shadow: 0 0 15px rgba(139,0,0,0.4), 0 0 30px rgba(139,0,0,0.2); }
+}
+
+/* ===== 5. CAST & CREW CARDS — SCROLL REVEAL ===== */
+
+.card-cinematic {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-cinematic.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.card-cinematic:hover {
+  box-shadow: 0 0 25px rgba(0,212,255,0.15), 0 0 50px rgba(139,0,0,0.1), 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Subtle floating effect on cards */
+.card-float {
+  animation: card-float-subtle 5s ease-in-out infinite;
+}
+
+.card-float:nth-child(2n) { animation-delay: 1s; }
+.card-float:nth-child(3n) { animation-delay: 2s; }
+
+@keyframes card-float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ===== 6. TRAILER — GLOWING FRAME ===== */
+
+.trailer-frame {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.trailer-frame::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(0,212,255,0.3), rgba(139,0,0,0.4));
+  background-size: 300% 300%;
+  animation: trailer-border-glow 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.trailer-frame:hover::before {
+  animation: trailer-border-glow-fast 3s ease-in-out infinite;
+  opacity: 1;
+}
+
+.trailer-frame:hover {
+  box-shadow: 0 0 40px rgba(139,0,0,0.3), 0 0 80px rgba(0,212,255,0.1);
+  transform: scale(1.01);
+}
+
+@keyframes trailer-border-glow {
+  0%, 100% { background-position: 0% 50%; opacity: 0.6; }
+  50% { background-position: 100% 50%; opacity: 0.9; }
+}
+
+@keyframes trailer-border-glow-fast {
+  0%, 100% { background-position: 0% 50%; opacity: 0.8; }
+  50% { background-position: 100% 50%; opacity: 1; }
+}
+
+/* ===== 7. SOCIAL ICONS — ENHANCED ===== */
+
+.social-icon-cinematic {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon-cinematic:hover {
+  transform: scale(1.2) translateY(-3px);
+  box-shadow: 0 0 20px rgba(0,212,255,0.4), 0 0 40px rgba(0,212,255,0.2);
+  border-color: rgba(0,212,255,0.6);
+}
+
+.social-icon-cinematic:hover svg {
+  animation: icon-bounce 0.6s ease;
+  filter: drop-shadow(0 0 6px rgba(0,212,255,0.6));
+}
+
+@keyframes icon-bounce {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  60% { transform: scale(0.9); }
+  80% { transform: scale(1.05); }
+}
+
+/* ===== 8. FOOTER — AMBIENT GLOW ===== */
+
+.footer-cinematic {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cinematic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,0,0,0.4), rgba(0,212,255,0.3), rgba(139,0,0,0.4), transparent);
+  animation: footer-line-glow 4s ease-in-out infinite;
+}
+
+.footer-cinematic::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center bottom, rgba(139,0,0,0.04) 0%, transparent 60%);
+  animation: footer-ambient 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes footer-line-glow {
+  0%, 100% { opacity: 0.5; width: 50%; }
+  50% { opacity: 1; width: 70%; }
+}
+
+@keyframes footer-ambient {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ===== 9. SECTION TRANSITIONS — SCROLL REVEAL ===== */
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 10. HEADING ANIMATIONS ===== */
+
+.heading-cinematic {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-cinematic::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, #8b0000, transparent);
+  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.heading-cinematic.visible::after {
+  width: 80%;
+}
+
+/* ===== 11. CURSOR GLOW EFFECT (desktop only) ===== */
+@media (min-width: 768px) and (hover: hover) {
+  .cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9995;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    mix-blend-mode: screen;
+  }
+}
+
+/* ===== 12. LOADING TRANSITION ===== */
+.page-enter {
+  animation: page-fade-in 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes page-fade-in {
+  0% { opacity: 0; filter: brightness(0.3) blur(4px); }
+  100% { opacity: 1; filter: brightness(1) blur(0); }
+}
+
+/* ===== RESPONSIVE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  .smoke-layer-1,
+  .smoke-layer-2 {
+    display: none;
+  }
+  
+  .ambient-flicker {
+    opacity: 0.3;
+  }
+
+  .poster-cinematic {
+    animation-duration: 8s;
+  }
+
+  .card-float {
+    animation: none;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

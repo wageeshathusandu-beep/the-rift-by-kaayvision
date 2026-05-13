@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useStaggerReveal } from '../hooks/useScrollReveal'
 
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
 
@@ -31,6 +32,8 @@ const crewMembers = [
 export default function Cast() {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
+  const [subRolesRef, visibleSubRoles] = useStaggerReveal(subRoles.length, { staggerDelay: 120 })
+  const [crewRef, visibleCrew] = useStaggerReveal(crewMembers.length, { staggerDelay: 100 })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,7 +70,7 @@ export default function Cast() {
           <span className="text-rift-neon">&#9670;</span> MAIN ROLE <span className="text-rift-neon">&#9670;</span>
         </h3>
         <div className="flex justify-center mb-16">
-          <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center transition-all duration-500 hover:-translate-y-2" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
+          <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center transition-all duration-500 hover:-translate-y-2 card-float" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
             {/* Animated border glow */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ boxShadow: '0 0 30px rgba(0,212,255,0.2), 0 0 60px rgba(0,212,255,0.1), inset 0 0 30px rgba(0,212,255,0.05)' }}></div>
 
@@ -100,15 +103,14 @@ export default function Cast() {
         <h3 className="sub-heading text-white mb-8 text-center">
           <span className="text-rift-blood-light">&#9670;</span> SUB ROLES <span className="text-rift-blood-light">&#9670;</span>
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div ref={subRolesRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {subRoles.map((actor, index) => (
             <div
               key={actor.name}
-              className="group relative overflow-hidden rounded-xl p-6 text-center transition-all duration-500 hover:-translate-y-1"
+              className={`group relative overflow-hidden rounded-xl p-6 text-center transition-all duration-500 hover:-translate-y-1 card-cinematic card-float ${visibleSubRoles.has(index) ? 'revealed' : ''}`}
               style={{
                 background: 'linear-gradient(135deg, rgba(10, 15, 25, 0.7), rgba(5, 5, 8, 0.9))',
                 border: '1px solid rgba(139, 0, 0, 0.2)',
-                animationDelay: `${index * 0.1}s`,
               }}
             >
               {/* Hover glow */}
@@ -176,11 +178,11 @@ export default function Cast() {
         <h3 className="sub-heading text-white mb-10 text-center">
           <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={crewRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {crewMembers.map((member, index) => (
             <div
               key={member.name}
-              className={`group relative overflow-hidden rounded-2xl p-7 text-center transition-all duration-500 hover:-translate-y-2 ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''}`}
+              className={`group relative overflow-hidden rounded-2xl p-7 text-center transition-all duration-500 hover:-translate-y-2 card-cinematic card-float ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''} ${visibleCrew.has(index) ? 'revealed' : ''}`}
               style={{
                 background: member.highlighted
                   ? 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))'
@@ -188,11 +190,10 @@ export default function Cast() {
                 border: member.highlighted
                   ? '1px solid rgba(0, 212, 255, 0.35)'
                   : '1px solid rgba(139, 0, 0, 0.2)',
-                transitionDelay: `${index * 50}ms`,
               }}
             >
               {/* Hover glow */}
-              <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${member.highlighted ? '' : ''}`} style={{ boxShadow: member.highlighted ? '0 0 30px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,212,255,0.05)' : '0 0 20px rgba(139,0,0,0.1), inset 0 0 15px rgba(0,0,0,0.2)' }}></div>
+              <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`} style={{ boxShadow: member.highlighted ? '0 0 30px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,212,255,0.05)' : '0 0 20px rgba(139,0,0,0.1), inset 0 0 15px rgba(0,0,0,0.2)' }}></div>
 
               {/* Top accent line */}
               <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-gradient-to-r from-transparent ${member.highlighted ? 'via-rift-neon/70' : 'via-rift-blood-light/50'} to-transparent group-hover:w-28 transition-all duration-500`}></div>

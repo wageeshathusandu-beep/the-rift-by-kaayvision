@@ -23,6 +23,11 @@ export default function Trailer() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
       <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
 
+      {/* Animated background for section */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-gradient-radial from-rift-blood/3 to-transparent rounded-full blur-[100px]" style={{ animation: 'poster-bg-pulse 6s ease-in-out infinite' }}></div>
+      </div>
+
       {/* Fog */}
       <div className="fog-layer">
         <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-25"></div>
@@ -34,8 +39,8 @@ export default function Trailer() {
         <h2 className="section-heading">Official Trailer</h2>
         <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Experience the terror in high definition</p>
 
-        {/* Video Container with horror frame */}
-        <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,0,0,0.2),0_0_100px_rgba(0,0,0,0.5)]" style={{ border: '1px solid rgba(139, 0, 0, 0.3)' }}>
+        {/* Video Container with cinematic glowing frame */}
+        <div className="trailer-frame relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,0,0,0.2),0_0_100px_rgba(0,0,0,0.5)]">
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               className="absolute inset-0 w-full h-full"

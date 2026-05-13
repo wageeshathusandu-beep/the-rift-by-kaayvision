@@ -2,9 +2,8 @@ import BrandLogo from './BrandLogo'
 
 export default function Footer() {
   return (
-    <footer className="py-10 relative overflow-hidden" style={{ background: 'linear-gradient(to bottom, #050508, #020203)' }}>
-      {/* Horror top divider */}
-      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
+    <footer className="footer-cinematic py-10 relative overflow-hidden" style={{ background: 'linear-gradient(to bottom, #050508, #020203)' }}>
+      {/* Horror top divider - handled by footer-cinematic::before */}
 
       {/* Subtle fog */}
       <div className="absolute inset-0 pointer-events-none">
@@ -20,9 +19,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6 text-xs font-nav uppercase tracking-[0.12em] text-gray-600">
-            <a href="#" className="hover:text-rift-blood-light transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-rift-blood-light transition-colors duration-300">Terms</a>
-            <a href="#" className="hover:text-rift-neon transition-colors duration-300">Press Kit</a>
+            <a href="#" className="hover:text-rift-blood-light transition-colors duration-300 hover:drop-shadow-[0_0_4px_rgba(139,0,0,0.4)]">Privacy Policy</a>
+            <a href="#" className="hover:text-rift-blood-light transition-colors duration-300 hover:drop-shadow-[0_0_4px_rgba(139,0,0,0.4)]">Terms</a>
+            <a href="#" className="hover:text-rift-neon transition-colors duration-300 hover:drop-shadow-[0_0_4px_rgba(0,212,255,0.4)]">Press Kit</a>
           </div>
 
           <p className="text-gray-700 text-xs font-body">

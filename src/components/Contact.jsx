@@ -62,7 +62,7 @@ export default function Contact() {
               </div>
               <button
                 type="button"
-                className="btn-horror btn-horror-primary w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 transition-all duration-300"
+                className="btn-cinematic btn-horror btn-horror-primary w-full py-3 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.12em] rounded-lg hover:opacity-90 transition-all duration-300"
               >
                 Send Message
               </button>
@@ -79,7 +79,7 @@ export default function Contact() {
                   href="https://www.tiktok.com/@theriftofficial0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon-btn group"
+                  className="social-icon-btn social-icon-cinematic group"
                   aria-label="TikTok"
                 >
                   <svg className="w-6 h-6 text-gray-400 group-hover:text-[#00d4ff] transition-colors duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function Contact() {
                   href="https://www.youtube.com/@theriftsrilankanscifimovie"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon-btn group"
+                  className="social-icon-btn social-icon-cinematic group"
                   aria-label="YouTube"
                 >
                   <svg className="w-6 h-6 text-gray-400 group-hover:text-[#00d4ff] transition-colors duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export default function Contact() {
                   href="https://web.facebook.com/profile.php?id=61587753503015"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon-btn group"
+                  className="social-icon-btn social-icon-cinematic group"
                   aria-label="Facebook"
                 >
                   <svg className="w-6 h-6 text-gray-400 group-hover:text-[#00d4ff] transition-colors duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ export default function Contact() {
                   href="https://www.instagram.com/the_rift_official0/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon-btn group"
+                  className="social-icon-btn social-icon-cinematic group"
                   aria-label="Instagram"
                 >
                   <svg className="w-6 h-6 text-gray-400 group-hover:text-[#00d4ff] transition-colors duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">

@@ -51,41 +51,49 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Premium Animated Brand */}
-        <div className="mb-8 animate-fade-in">
+        <div className="mb-8 text-reveal">
           <BrandLogo size="lg" />
         </div>
 
-        {/* Movie Poster with horror border glow */}
-        <div className="mb-8 flex justify-center">
-          <div className="relative group">
+        {/* Movie Poster with cinematic float + light sweep */}
+        <div className="mb-8 flex justify-center text-reveal text-reveal-delay-1">
+          <div className="relative group poster-cinematic">
+            {/* Glowing atmosphere behind poster */}
+            <div className="poster-glow-bg"></div>
+            
+            {/* Horror border glow */}
             <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/30 via-rift-neon/10 to-rift-blood/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-700 animate-horror-pulse"></div>
+            
             <img
               src="https://i.imgur.com/162JyPV.jpeg"
               alt="The Rift Official Poster"
               className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3)] border border-rift-blood/30"
             />
+            
+            {/* Light sweep over poster */}
+            <div className="poster-light-sweep"></div>
           </div>
         </div>
 
         {/* Title with horror glow */}
-        <h1 className="title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 animate-slide-up">
+        <h1 className="title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 text-reveal text-reveal-delay-2">
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent" style={{ textShadow: 'none' }}>
             THE RIFT
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up font-body font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 text-reveal text-reveal-delay-3 font-body font-light tracking-wide">
           When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
           <span className="text-rift-blood-light/60"> Some doors were never meant to be opened.</span>
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        {/* Buttons with cinematic effects */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-reveal text-reveal-delay-4">
           {/* Watch Trailer Button */}
           <a
             href="#trailer"
-            className="btn-watch-trailer group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-rift-neon/50"
+            className="btn-cinematic btn-watch-trailer group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-rift-neon/50"
           >
             <span className="btn-light-sweep absolute inset-0 z-0"></span>
             <span className="relative z-10 flex items-center gap-2">
@@ -99,7 +107,7 @@ export default function Hero() {
           {/* Watch Now (Coming Soon) Button - horror styled */}
           <a
             href="#"
-            className="btn-watch-now relative px-8 py-4 border border-rift-blood/40 text-white font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-rift-blood-light/60 hover:shadow-[0_0_20px_rgba(139,0,0,0.3)]"
+            className="btn-cinematic btn-cinematic-red btn-watch-now relative px-8 py-4 border border-rift-blood/40 text-white font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-rift-blood-light/60 hover:shadow-[0_0_20px_rgba(139,0,0,0.3)]"
           >
             <span className="relative z-10 flex items-center gap-2">
               Watch Now <span className="text-red-500 animate-red-glow-pulse">(Coming Soon)</span>
@@ -108,7 +116,7 @@ export default function Hero() {
         </div>
 
         {/* Release info */}
-        <p className="mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] animate-fade-in uppercase" style={{ animationDelay: '0.8s' }}>
+        <p className="mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] text-reveal text-reveal-delay-4 uppercase" style={{ animationDelay: '1s' }}>
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
