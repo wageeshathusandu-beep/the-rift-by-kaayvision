@@ -30,7 +30,9 @@ const crewMembers = [
 
 export default function Cast() {
   const [isVisible, setIsVisible] = useState(false)
+  const [crewVisible, setCrewVisible] = useState(false)
   const ref = useRef(null)
+  const crewRef = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,6 +42,17 @@ export default function Cast() {
       { threshold: 0.1 }
     )
     if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setCrewVisible(true)
+      },
+      { threshold: 0.1 }
+    )
+    if (crewRef.current) observer.observe(crewRef.current)
     return () => observer.disconnect()
   }, [])
 
@@ -66,8 +79,8 @@ export default function Cast() {
         <h3 className="sub-heading text-white mb-8 text-center">
           <span className="text-rift-neon">&#9670;</span> MAIN ROLE <span className="text-rift-neon">&#9670;</span>
         </h3>
-        <div className="flex justify-center mb-16">
-          <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center transition-all duration-500 hover:-translate-y-2" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
+        <div className={`flex justify-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
+          <div className="cast-card cast-card-float group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
             {/* Animated border glow */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ boxShadow: '0 0 30px rgba(0,212,255,0.2), 0 0 60px rgba(0,212,255,0.1), inset 0 0 30px rgba(0,212,255,0.05)' }}></div>
 
@@ -100,15 +113,14 @@ export default function Cast() {
         <h3 className="sub-heading text-white mb-8 text-center">
           <span className="text-rift-blood-light">&#9670;</span> SUB ROLES <span className="text-rift-blood-light">&#9670;</span>
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 stagger-children ${isVisible ? 'revealed' : ''}`}>
           {subRoles.map((actor, index) => (
             <div
               key={actor.name}
-              className="group relative overflow-hidden rounded-xl p-6 text-center transition-all duration-500 hover:-translate-y-1"
+              className="cast-card group relative overflow-hidden rounded-xl p-6 text-center"
               style={{
                 background: 'linear-gradient(135deg, rgba(10, 15, 25, 0.7), rgba(5, 5, 8, 0.9))',
                 border: '1px solid rgba(139, 0, 0, 0.2)',
-                animationDelay: `${index * 0.1}s`,
               }}
             >
               {/* Hover glow */}
@@ -144,27 +156,24 @@ export default function Cast() {
         <h3 className="sub-heading text-white mb-8 text-center">
           <span className="text-gray-500">&#9670;</span> OTHER CASTING <span className="text-gray-500">&#9670;</span>
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 stagger-children ${isVisible ? 'revealed' : ''}`}>
           {otherCasting.map((actor) => (
             <div
               key={actor.name}
-              className="group relative overflow-hidden rounded-lg p-4 text-center transition-all duration-400 hover:-translate-y-0.5"
+              className="cast-card group relative overflow-hidden rounded-lg p-4 text-center"
               style={{
                 background: 'linear-gradient(135deg, rgba(8, 12, 20, 0.6), rgba(5, 5, 8, 0.8))',
                 border: '1px solid rgba(255,255,255,0.05)',
               }}
             >
-              {/* Subtle hover border */}
               <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-rift-blood/20 transition-all duration-400"></div>
 
-              {/* Small avatar */}
               <div className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-full bg-gradient-to-br from-white/5 to-rift-blood/5 border border-white/10 flex items-center justify-center group-hover:border-rift-neon/20 transition-all duration-400">
                 <svg className="w-5 h-5 text-gray-600 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                 </svg>
               </div>
 
-              {/* Name */}
               <h4 className="relative z-10 font-nav font-semibold text-gray-300 text-xs md:text-sm uppercase tracking-wider group-hover:text-white transition-colors duration-400">
                 {actor.name}
               </h4>
@@ -173,51 +182,53 @@ export default function Cast() {
         </div>
 
         {/* ===== CREW ===== */}
-        <h3 className="sub-heading text-white mb-10 text-center">
-          <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {crewMembers.map((member, index) => (
-            <div
-              key={member.name}
-              className={`group relative overflow-hidden rounded-2xl p-7 text-center transition-all duration-500 hover:-translate-y-2 ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''}`}
-              style={{
-                background: member.highlighted
-                  ? 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))'
-                  : 'linear-gradient(135deg, rgba(10, 21, 32, 0.7), rgba(5, 5, 8, 0.9))',
-                border: member.highlighted
-                  ? '1px solid rgba(0, 212, 255, 0.35)'
-                  : '1px solid rgba(139, 0, 0, 0.2)',
-                transitionDelay: `${index * 50}ms`,
-              }}
-            >
-              {/* Hover glow */}
-              <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${member.highlighted ? '' : ''}`} style={{ boxShadow: member.highlighted ? '0 0 30px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,212,255,0.05)' : '0 0 20px rgba(139,0,0,0.1), inset 0 0 15px rgba(0,0,0,0.2)' }}></div>
+        <div ref={crewRef}>
+          <h3 className="sub-heading text-white mb-10 text-center">
+            <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
+          </h3>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${crewVisible ? 'revealed' : ''}`}>
+            {crewMembers.map((member, index) => (
+              <div
+                key={member.name}
+                className={`cast-card cast-card-float group relative overflow-hidden rounded-2xl p-7 text-center ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''}`}
+                style={{
+                  background: member.highlighted
+                    ? 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))'
+                    : 'linear-gradient(135deg, rgba(10, 21, 32, 0.7), rgba(5, 5, 8, 0.9))',
+                  border: member.highlighted
+                    ? '1px solid rgba(0, 212, 255, 0.35)'
+                    : '1px solid rgba(139, 0, 0, 0.2)',
+                  animationDelay: `${index * 0.3}s`,
+                }}
+              >
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ boxShadow: member.highlighted ? '0 0 30px rgba(0,212,255,0.15), inset 0 0 20px rgba(0,212,255,0.05)' : '0 0 20px rgba(139,0,0,0.1), inset 0 0 15px rgba(0,0,0,0.2)' }}></div>
 
-              {/* Top accent line */}
-              <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-gradient-to-r from-transparent ${member.highlighted ? 'via-rift-neon/70' : 'via-rift-blood-light/50'} to-transparent group-hover:w-28 transition-all duration-500`}></div>
+                {/* Top accent line */}
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-gradient-to-r from-transparent ${member.highlighted ? 'via-rift-neon/70' : 'via-rift-blood-light/50'} to-transparent group-hover:w-28 transition-all duration-500`}></div>
 
-              {/* Icon circle */}
-              <div className={`relative z-10 w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-500 ${member.highlighted ? 'bg-gradient-to-br from-rift-neon/15 to-rift-neon/5 border-2 border-rift-neon/40 group-hover:border-rift-neon/70 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]' : 'bg-gradient-to-br from-rift-blood/12 to-rift-neon/5 border border-rift-blood/25 group-hover:border-rift-neon/40'}`}>
-                <svg className={`w-6 h-6 transition-colors duration-500 ${member.highlighted ? 'text-rift-neon/70 group-hover:text-rift-neon' : 'text-rift-blood/50 group-hover:text-rift-neon/70'}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
-                </svg>
+                {/* Icon circle */}
+                <div className={`relative z-10 w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-500 ${member.highlighted ? 'bg-gradient-to-br from-rift-neon/15 to-rift-neon/5 border-2 border-rift-neon/40 group-hover:border-rift-neon/70 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]' : 'bg-gradient-to-br from-rift-blood/12 to-rift-neon/5 border border-rift-blood/25 group-hover:border-rift-neon/40'}`}>
+                  <svg className={`w-6 h-6 transition-colors duration-500 ${member.highlighted ? 'text-rift-neon/70 group-hover:text-rift-neon' : 'text-rift-blood/50 group-hover:text-rift-neon/70'}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+                  </svg>
+                </div>
+
+                {/* Role Title */}
+                <p className={`relative z-10 font-cinematic text-[10px] font-bold uppercase tracking-[0.25em] mb-2 transition-colors duration-500 ${member.highlighted ? 'text-rift-neon group-hover:text-rift-neon' : 'text-rift-blood-light/70 group-hover:text-rift-neon'}`} style={{ textShadow: member.highlighted ? '0 0 10px rgba(0,212,255,0.4)' : '0 0 6px rgba(139,0,0,0.3)' }}>
+                  {member.role}
+                </p>
+
+                {/* Name */}
+                <h4 className={`relative z-10 font-heading text-white uppercase tracking-wider ${member.highlighted ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
+                  {member.name}
+                </h4>
+
+                {/* Bottom accent */}
+                <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent ${member.highlighted ? 'via-rift-neon/50' : 'via-rift-blood/40'} to-transparent group-hover:w-24 transition-all duration-500`}></div>
               </div>
-
-              {/* Role Title */}
-              <p className={`relative z-10 font-cinematic text-[10px] font-bold uppercase tracking-[0.25em] mb-2 transition-colors duration-500 ${member.highlighted ? 'text-rift-neon group-hover:text-rift-neon' : 'text-rift-blood-light/70 group-hover:text-rift-neon'}`} style={{ textShadow: member.highlighted ? '0 0 10px rgba(0,212,255,0.4)' : '0 0 6px rgba(139,0,0,0.3)' }}>
-                {member.role}
-              </p>
-
-              {/* Name */}
-              <h4 className={`relative z-10 font-heading text-white uppercase tracking-wider ${member.highlighted ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>
-                {member.name}
-              </h4>
-
-              {/* Bottom accent */}
-              <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent ${member.highlighted ? 'via-rift-neon/50' : 'via-rift-blood/40'} to-transparent group-hover:w-24 transition-all duration-500`}></div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

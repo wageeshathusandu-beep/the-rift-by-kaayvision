@@ -33,7 +33,6 @@
 @layer components {
   /* ===== CINEMATIC HORROR OVERLAYS ===== */
 
-  /* Film grain texture overlay */
   .horror-grain {
     position: relative;
   }
@@ -50,7 +49,6 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 
-  /* Cinematic vignette */
   .horror-vignette {
     position: relative;
   }
@@ -64,9 +62,9 @@
     pointer-events: none;
     z-index: 9998;
     background: radial-gradient(ellipse at center, transparent 40%, rgba(5,5,8,0.4) 70%, rgba(5,5,8,0.8) 100%);
+    animation: vignette-breathe 8s ease-in-out infinite;
   }
 
-  /* Fog layer */
   .fog-layer {
     position: absolute;
     inset: 0;
@@ -74,14 +72,88 @@
     overflow: hidden;
   }
 
-  /* Main title style - bold futuristic sci-fi with neon glow */
+  /* ===== GLOBAL BACKGROUND FOG & SMOKE ===== */
+  .global-fog {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .global-fog-layer-1 {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(139,0,0,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.03) 0%, transparent 50%);
+    animation: global-fog-1 25s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .global-fog-layer-2 {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 60%, rgba(139,0,0,0.03) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 30%, rgba(0,212,255,0.02) 0%, transparent 40%);
+    animation: global-fog-2 30s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .global-fog-layer-3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(5,5,8,0.3), transparent);
+    animation: global-fog-3 20s ease-in-out infinite;
+    will-change: opacity;
+  }
+
+  /* ===== FLOATING PARTICLES SYSTEM ===== */
+  .global-particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, opacity;
+  }
+
+  .particle-red {
+    background: radial-gradient(circle, rgba(220,38,38,0.6), transparent);
+  }
+
+  .particle-blue {
+    background: radial-gradient(circle, rgba(0,212,255,0.5), transparent);
+  }
+
+  .particle-white {
+    background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
+  }
+
+  /* ===== AMBIENT LIGHT FLICKER ===== */
+  .ambient-flicker {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    animation: ambient-light-flicker 8s steps(1) infinite;
+    will-change: opacity;
+  }
+
+  /* ===== TYPOGRAPHY STYLES ===== */
   .title-cinematic {
     @apply font-cinematic font-black uppercase;
     letter-spacing: 0.08em;
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1);
   }
 
-  /* Section headings - wide spaced Hollywood uppercase */
   .section-heading {
     @apply text-4xl md:text-5xl lg:text-6xl font-heading text-center mb-4 uppercase;
     letter-spacing: 0.12em;
@@ -91,18 +163,17 @@
     background-clip: text;
   }
 
-  /* Sub headings with cinematic feel */
   .sub-heading {
     @apply font-heading text-2xl md:text-3xl uppercase;
     letter-spacing: 0.1em;
   }
 
-  /* Navigation/Button font - sharp futuristic */
   .font-ui {
     @apply font-nav font-semibold uppercase;
     letter-spacing: 0.15em;
   }
 
+  /* ===== CARD & BORDER STYLES ===== */
   .neon-border {
     @apply border border-rift-neon/20 hover:border-rift-blood-light/50 transition-all duration-500;
     box-shadow: 0 0 10px rgba(139, 0, 0, 0.1);
@@ -117,14 +188,16 @@
     background: linear-gradient(135deg, rgba(10, 21, 32, 0.6), rgba(5, 5, 8, 0.8));
     border: 1px solid rgba(139, 0, 0, 0.15);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .glass-card:hover {
-    border-color: rgba(0, 212, 255, 0.2);
-    box-shadow: 0 0 25px rgba(139, 0, 0, 0.2), 0 0 10px rgba(0, 212, 255, 0.1), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 212, 255, 0.25);
+    box-shadow: 0 0 25px rgba(139, 0, 0, 0.2), 0 0 15px rgba(0, 212, 255, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
   }
 
-  /* Neon text glow for titles only */
+  /* ===== GLOW EFFECTS ===== */
   .neon-glow {
     text-shadow: 0 0 7px rgba(0, 212, 255, 0.5), 0 0 20px rgba(0, 212, 255, 0.3), 0 0 42px rgba(0, 212, 255, 0.15);
   }
@@ -133,12 +206,11 @@
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2), 0 0 100px rgba(0, 212, 255, 0.1);
   }
 
-  /* Horror red glow */
   .horror-glow {
     text-shadow: 0 0 7px rgba(139, 0, 0, 0.5), 0 0 20px rgba(139, 0, 0, 0.3), 0 0 42px rgba(139, 0, 0, 0.15);
   }
 
-  /* ===== Watch Trailer Button Animations ===== */
+  /* ===== BUTTON STYLES ===== */
   .btn-watch-trailer {
     animation: btn-glow-pulse 2.5s ease-in-out infinite;
   }
@@ -148,21 +220,12 @@
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.3);
   }
 
-  /* Light sweep effect */
   .btn-light-sweep {
-    background: linear-gradient(
-      120deg,
-      transparent 0%,
-      transparent 40%,
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent 60%,
-      transparent 100%
-    );
+    background: linear-gradient(120deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%, transparent 100%);
     background-size: 200% 100%;
     animation: light-sweep 3s ease-in-out infinite;
   }
 
-  /* ===== Watch Now (Coming Soon) Red Glow ===== */
   .btn-watch-now {
     border-color: rgba(139, 0, 0, 0.4);
   }
@@ -172,83 +235,314 @@
     box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
   }
 
-  /* Horror section separator */
   .horror-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.4), rgba(0, 212, 255, 0.2), rgba(139, 0, 0, 0.4), transparent);
   }
+
+  /* ===== NAVBAR STYLES ===== */
+  .nav-link {
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    transition: width 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: none;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 8px rgba(0,212,255,0.4), 0 2px 12px rgba(0,212,255,0.2);
+  }
+
+  .nav-link:hover {
+    text-shadow: 0 0 8px rgba(0,212,255,0.3);
+  }
+
+  /* ===== HERO POSTER ANIMATIONS ===== */
+  .poster-container {
+    animation: poster-float 6s ease-in-out infinite;
+  }
+
+  .poster-glow {
+    animation: poster-glow-pulse 4s ease-in-out infinite;
+  }
+
+  .poster-sweep {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 48%, rgba(0,212,255,0.08) 50%, rgba(255,255,255,0.05) 52%, transparent 60%);
+    background-size: 300% 100%;
+    animation: poster-light-sweep 5s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 1rem;
+  }
+
+  /* ===== CAST CARD ANIMATIONS ===== */
+  .cast-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .cast-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 30px rgba(0,212,255,0.15), 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .cast-card-float {
+    animation: cast-subtle-float 5s ease-in-out infinite;
+  }
+
+  /* ===== TRAILER SECTION ===== */
+  .trailer-frame {
+    position: relative;
+    transition: all 0.6s ease;
+  }
+
+  .trailer-frame::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(0,212,255,0.2), rgba(139,0,0,0.4));
+    z-index: -1;
+    animation: trailer-border-glow 4s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .trailer-frame:hover::before {
+    opacity: 1;
+    animation: trailer-border-glow 2s ease-in-out infinite;
+  }
+
+  .trailer-frame:hover {
+    box-shadow: 0 0 60px rgba(139,0,0,0.3), 0 0 100px rgba(0,0,0,0.5);
+    transform: scale(1.01);
+  }
+
+  /* ===== SOCIAL ICON BUTTONS ===== */
+  .social-icon-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(10, 15, 25, 0.9), rgba(5, 5, 8, 0.95));
+    border: 1.5px solid rgba(139, 0, 0, 0.25);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: social-horror-flicker 5s steps(1) infinite, social-icon-pulse 3s ease-in-out infinite;
+    overflow: hidden;
+  }
+
+  .social-icon-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0) 0%, rgba(0, 212, 255, 0) 100%);
+    transition: background 0.4s ease;
+  }
+
+  .social-icon-btn:hover {
+    transform: scale(1.2) translateY(-3px);
+    border-color: rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1), inset 0 0 15px rgba(0, 212, 255, 0.1);
+    animation: none;
+  }
+
+  .social-icon-btn:hover::before {
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .social-icon-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* ===== FOOTER STYLES ===== */
+  .footer-ambient {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(139,0,0,0.06) 0%, transparent 70%);
+    animation: footer-glow 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .footer-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .footer-link:hover {
+    text-shadow: 0 0 8px currentColor;
+  }
 }
 
-/* ===== Keyframe Animations ===== */
 
-/* Blue glow pulse for Watch Trailer button */
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+/* Vignette breathing */
+@keyframes vignette-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* Global fog layers */
+@keyframes global-fog-1 {
+  0% { transform: translateX(0) translateY(0) scale(1); opacity: 0.6; }
+  33% { transform: translateX(30px) translateY(-15px) scale(1.05); opacity: 0.8; }
+  66% { transform: translateX(-20px) translateY(10px) scale(1.02); opacity: 0.5; }
+  100% { transform: translateX(0) translateY(0) scale(1); opacity: 0.6; }
+}
+
+@keyframes global-fog-2 {
+  0% { transform: translateX(0) translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateX(-40px) translateY(20px) scale(1.08); opacity: 0.7; }
+  100% { transform: translateX(0) translateY(0) scale(1); opacity: 0.4; }
+}
+
+@keyframes global-fog-3 {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+/* Ambient light flicker */
+@keyframes ambient-light-flicker {
+  0%, 100% { opacity: 0; }
+  15% { opacity: 0; }
+  16% { opacity: 0.02; }
+  17% { opacity: 0; }
+  45% { opacity: 0; }
+  46% { opacity: 0.015; }
+  47% { opacity: 0; }
+  78% { opacity: 0; }
+  79% { opacity: 0.025; }
+  80% { opacity: 0.01; }
+  81% { opacity: 0; }
+}
+
+/* Particle floating */
+@keyframes particle-float-up {
+  0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+  10% { opacity: 0.6; transform: translateY(90vh) translateX(5px) scale(1); }
+  50% { opacity: 0.4; transform: translateY(50vh) translateX(-10px) scale(0.8); }
+  90% { opacity: 0.1; transform: translateY(10vh) translateX(8px) scale(0.5); }
+  100% { transform: translateY(-5vh) translateX(0) scale(0); opacity: 0; }
+}
+
+@keyframes particle-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  25% { transform: translate(10px, -15px) scale(1.1); opacity: 0.5; }
+  50% { transform: translate(-5px, -25px) scale(0.9); opacity: 0.4; }
+  75% { transform: translate(8px, -10px) scale(1.05); opacity: 0.35; }
+}
+
+/* Button glow pulse */
 @keyframes btn-glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.3);
-  }
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.3), 0 0 20px rgba(0, 212, 255, 0.1); }
+  50% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.3); }
 }
 
-/* Light sweep across button */
+/* Light sweep */
 @keyframes light-sweep {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Play icon pulse */
 @keyframes play-icon-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
-/* Red glow pulse for (Coming Soon) text */
+/* Red glow pulse */
 @keyframes red-glow-pulse {
-  0%, 100% {
-    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2);
-    opacity: 1;
-  }
-  50% {
-    text-shadow: 0 0 15px rgba(239, 68, 68, 0.8), 0 0 30px rgba(239, 68, 68, 0.4), 0 0 50px rgba(239, 68, 68, 0.2);
-    opacity: 0.85;
-  }
+  0%, 100% { text-shadow: 0 0 5px rgba(239, 68, 68, 0.4), 0 0 15px rgba(239, 68, 68, 0.2); opacity: 1; }
+  50% { text-shadow: 0 0 15px rgba(239, 68, 68, 0.8), 0 0 30px rgba(239, 68, 68, 0.4), 0 0 50px rgba(239, 68, 68, 0.2); opacity: 0.85; }
 }
 
-/* Utility animation classes */
-.animate-play-icon-pulse {
-  animation: play-icon-pulse 2s ease-in-out infinite;
+.animate-play-icon-pulse { animation: play-icon-pulse 2s ease-in-out infinite; }
+.animate-red-glow-pulse { animation: red-glow-pulse 2s ease-in-out infinite; }
+
+/* ===== POSTER ANIMATIONS ===== */
+@keyframes poster-float {
+  0%, 100% { transform: translateY(0) rotateX(0); }
+  25% { transform: translateY(-6px) rotateX(0.5deg); }
+  50% { transform: translateY(-12px) rotateX(0); }
+  75% { transform: translateY(-6px) rotateX(-0.5deg); }
 }
 
-.animate-red-glow-pulse {
-  animation: red-glow-pulse 2s ease-in-out infinite;
+@keyframes poster-glow-pulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 30px rgba(139,0,0,0.3), 0 0 60px rgba(0,212,255,0.1); }
+  50% { opacity: 0.8; box-shadow: 0 0 50px rgba(139,0,0,0.5), 0 0 100px rgba(0,212,255,0.2); }
 }
 
-/* ===== BRAND LOGO — PREMIUM CINEMATIC ANIMATION ===== */
+@keyframes poster-light-sweep {
+  0% { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
 
-/* Container - GPU promoted */
+/* ===== CAST CARD ===== */
+@keyframes cast-subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ===== TRAILER ===== */
+@keyframes trailer-border-glow {
+  0%, 100% { opacity: 0.4; filter: brightness(1); }
+  50% { opacity: 0.8; filter: brightness(1.3); }
+}
+
+/* ===== SOCIAL ICONS ===== */
+@keyframes social-horror-flicker {
+  0%, 100% { border-color: rgba(139, 0, 0, 0.25); }
+  32% { border-color: rgba(139, 0, 0, 0.25); }
+  33% { border-color: rgba(220, 38, 38, 0.5); }
+  35% { border-color: rgba(139, 0, 0, 0.25); }
+  67% { border-color: rgba(139, 0, 0, 0.25); }
+  68% { border-color: rgba(220, 38, 38, 0.4); }
+  70% { border-color: rgba(139, 0, 0, 0.25); }
+}
+
+@keyframes social-icon-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(139, 0, 0, 0.15), inset 0 0 12px rgba(0, 0, 0, 0.4); }
+}
+
+/* ===== FOOTER ===== */
+@keyframes footer-glow {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+}
+
+
+/* ===== BRAND LOGO ANIMATIONS ===== */
+
 .brand-text {
   will-change: transform;
   transform: translateZ(0);
   transition: filter 0.4s ease;
 }
 
-/* Hover energy boost */
 .brand-logo:hover .brand-text {
   filter: brightness(1.25) saturate(1.1);
 }
 
-/* --- MAIN TEXT: Cinematic breathing glow + horror flicker --- */
 .brand-main-text {
   animation: brand-breathe 4s ease-in-out infinite, brand-flicker 6s steps(1) infinite;
   will-change: opacity;
@@ -270,15 +564,10 @@
   80% { opacity: 1; }
 }
 
-/* --- KAAY: Clean white with blue energy glow --- */
 .brand-kaay {
   color: #ffffff;
   font-weight: 900;
-  text-shadow:
-    0 1px 0 rgba(0,0,0,0.7),
-    0 0 3px rgba(255,255,255,1),
-    0 0 8px rgba(0,212,255,0.6),
-    0 0 20px rgba(0,212,255,0.3);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.7), 0 0 3px rgba(255,255,255,1), 0 0 8px rgba(0,212,255,0.6), 0 0 20px rgba(0,212,255,0.3);
   animation: brand-kaay-energy 3s ease-in-out infinite;
   will-change: opacity;
 }
@@ -290,16 +579,10 @@
   75% { opacity: 0.96; }
 }
 
-/* --- VISION: Strong neon blue cinematic energy --- */
 .brand-vision {
   color: #00e5ff;
   font-weight: 900;
-  text-shadow:
-    0 1px 0 rgba(0,10,20,0.8),
-    0 0 4px rgba(0,229,255,1),
-    0 0 12px rgba(0,212,255,0.8),
-    0 0 28px rgba(0,212,255,0.4),
-    0 0 50px rgba(0,212,255,0.15);
+  text-shadow: 0 1px 0 rgba(0,10,20,0.8), 0 0 4px rgba(0,229,255,1), 0 0 12px rgba(0,212,255,0.8), 0 0 28px rgba(0,212,255,0.4), 0 0 50px rgba(0,212,255,0.15);
   animation: brand-vision-energy 3s ease-in-out infinite;
   animation-delay: 0.5s;
   will-change: opacity;
@@ -310,7 +593,6 @@
   50% { opacity: 1; }
 }
 
-/* --- GLITCH: Chromatic aberration - cyan layer --- */
 .brand-glitch-cyan {
   color: rgba(0, 212, 255, 0.18);
   opacity: 0;
@@ -330,7 +612,6 @@
   84% { transform: translate(0); opacity: 0; }
 }
 
-/* --- GLITCH: Chromatic aberration - red layer --- */
 .brand-glitch-red {
   color: rgba(220, 38, 38, 0.15);
   opacity: 0;
@@ -351,7 +632,6 @@
   84% { transform: translate(0); opacity: 0; }
 }
 
-/* --- LIGHT SWEEP: Moving highlight across text --- */
 .brand-sweep {
   background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 48%, rgba(0,212,255,0.12) 50%, rgba(255,255,255,0.08) 52%, transparent 60%);
   background-size: 300% 100%;
@@ -364,7 +644,6 @@
   100% { background-position: -50% 0; }
 }
 
-/* --- SCAN LINE: Electric beam passing through --- */
 .brand-scanline {
   background: linear-gradient(to bottom, transparent 15%, rgba(0,212,255,0.5) 45%, rgba(255,255,255,0.6) 50%, rgba(0,212,255,0.5) 55%, transparent 85%);
   will-change: transform;
@@ -378,7 +657,6 @@
   100% { transform: translateX(calc(100% + 8px)); opacity: 0; }
 }
 
-/* --- MICRO SPARKS: 3 tiny floating dots (transform only) --- */
 .brand-spark {
   width: 2px;
   height: 2px;
@@ -387,26 +665,9 @@
   will-change: transform, opacity;
 }
 
-.brand-spark-1 {
-  top: 15%;
-  left: 20%;
-  animation: spark-float-1 3.5s ease-in-out infinite;
-}
-
-.brand-spark-2 {
-  top: 70%;
-  left: 55%;
-  animation: spark-float-2 4s ease-in-out infinite;
-  animation-delay: 1.2s;
-  background: #ff4444;
-}
-
-.brand-spark-3 {
-  top: 30%;
-  left: 85%;
-  animation: spark-float-3 3s ease-in-out infinite;
-  animation-delay: 2.5s;
-}
+.brand-spark-1 { top: 15%; left: 20%; animation: spark-float-1 3.5s ease-in-out infinite; }
+.brand-spark-2 { top: 70%; left: 55%; animation: spark-float-2 4s ease-in-out infinite; animation-delay: 1.2s; background: #ff4444; }
+.brand-spark-3 { top: 30%; left: 85%; animation: spark-float-3 3s ease-in-out infinite; animation-delay: 2.5s; }
 
 @keyframes spark-float-1 {
   0%, 100% { transform: translate(0, 0) scale(0); opacity: 0; }
@@ -429,7 +690,6 @@
   55% { opacity: 0; transform: translate(1px, -10px) scale(0); }
 }
 
-
 /* ===== GLOBAL BUTTON ANIMATIONS ===== */
 .btn-horror {
   position: relative;
@@ -441,14 +701,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(255, 255, 255, 0.15) 50%,
-    transparent 65%,
-    transparent 100%
-  );
+  background: linear-gradient(120deg, transparent 0%, transparent 35%, rgba(255, 255, 255, 0.15) 50%, transparent 65%, transparent 100%);
   background-size: 250% 100%;
   animation: btn-sweep 4s ease-in-out infinite;
 }
@@ -469,7 +722,6 @@
   100% { background-position: -200% 0; }
 }
 
-/* Send Message button specific */
 .btn-horror-primary {
   animation: btn-horror-glow 3s ease-in-out infinite;
 }
@@ -484,77 +736,7 @@
   50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2); }
 }
 
-
-
-/* ===== SOCIAL ICON BUTTONS — CINEMATIC HORROR SCI-FI ===== */
-
-.social-icon-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(10, 15, 25, 0.9), rgba(5, 5, 8, 0.95));
-  border: 1.5px solid rgba(139, 0, 0, 0.25);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation: social-horror-flicker 5s steps(1) infinite;
-  overflow: hidden;
-}
-
-.social-icon-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(0, 212, 255, 0) 0%, rgba(0, 212, 255, 0) 100%);
-  transition: background 0.4s ease;
-}
-
-.social-icon-btn:hover {
-  transform: scale(1.18);
-  border-color: rgba(0, 212, 255, 0.6);
-  box-shadow:
-    0 0 15px rgba(0, 212, 255, 0.4),
-    0 0 30px rgba(0, 212, 255, 0.2),
-    0 0 60px rgba(0, 212, 255, 0.1),
-    inset 0 0 15px rgba(0, 212, 255, 0.1);
-  animation: none;
-}
-
-.social-icon-btn:hover::before {
-  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
-}
-
-.social-icon-btn:active {
-  transform: scale(0.95);
-}
-
-/* Red horror flicker animation */
-@keyframes social-horror-flicker {
-  0%, 100% { border-color: rgba(139, 0, 0, 0.25); box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-  32% { border-color: rgba(139, 0, 0, 0.25); }
-  33% { border-color: rgba(220, 38, 38, 0.5); box-shadow: 0 0 12px rgba(220, 38, 38, 0.2), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-  35% { border-color: rgba(139, 0, 0, 0.25); box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-  67% { border-color: rgba(139, 0, 0, 0.25); }
-  68% { border-color: rgba(220, 38, 38, 0.4); box-shadow: 0 0 10px rgba(220, 38, 38, 0.15), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-  69% { border-color: rgba(139, 0, 0, 0.15); box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-  70% { border-color: rgba(139, 0, 0, 0.25); box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.4); }
-}
-
-/* Responsive sizing for mobile */
-@media (max-width: 640px) {
-  .social-icon-btn {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* ===== NAVBAR ENERGY — LIGHTWEIGHT ===== */
-
-/* Single scan line using transform only */
+/* ===== NAVBAR ENERGY ===== */
 .nav-energy-scan {
   animation: energy-scan 4s linear infinite;
   will-change: transform;
@@ -563,4 +745,50 @@
 @keyframes energy-scan {
   0% { transform: translateX(-64px); }
   100% { transform: translateX(200px); }
+}
+
+/* ===== SCROLL REVEAL UTILITY ===== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-children.revealed > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(n+9) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .social-icon-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

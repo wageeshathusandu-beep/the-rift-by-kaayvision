@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react'
 import BrandLogo from './BrandLogo'
 
 export default function Hero() {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    // Trigger cinematic reveal after mount
+    const timer = setTimeout(() => setLoaded(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Deep dark background */}
@@ -17,7 +26,7 @@ export default function Hero() {
       <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
       <div className="absolute top-1/3 left-1/5 w-[300px] h-[300px] bg-rift-neon-purple/4 rounded-full blur-[100px]"></div>
 
-      {/* Floating horror particles - mixed red and blue */}
+      {/* Floating horror particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
@@ -50,38 +59,47 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Premium Animated Brand */}
-        <div className="mb-8 animate-fade-in">
+        {/* Premium Animated Brand - cinematic fade in */}
+        <div className={`mb-8 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
           <BrandLogo size="lg" />
         </div>
 
-        {/* Movie Poster with horror border glow */}
-        <div className="mb-8 flex justify-center">
-          <div className="relative group">
+        {/* Movie Poster with float animation and light sweep */}
+        <div className={`mb-8 flex justify-center transition-all duration-1200 ease-out ${loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
+          <div className="relative group poster-container">
+            {/* Glowing atmosphere behind poster */}
+            <div className="absolute -inset-4 bg-gradient-to-b from-rift-blood/20 via-rift-neon/5 to-rift-blood/15 rounded-3xl blur-xl poster-glow"></div>
+            
+            {/* Horror border glow */}
             <div className="absolute -inset-1 bg-gradient-to-b from-rift-blood/30 via-rift-neon/10 to-rift-blood/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-700 animate-horror-pulse"></div>
+            
+            {/* Poster image */}
             <img
               src="https://i.imgur.com/162JyPV.jpeg"
               alt="The Rift Official Poster"
-              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3)] border border-rift-blood/30"
+              className="relative w-full max-w-md rounded-2xl shadow-[0_0_50px_rgba(139,0,0,0.3)] border border-rift-blood/30 group-hover:border-rift-neon/30 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(0,212,255,0.2),0_0_50px_rgba(139,0,0,0.3)]"
             />
+            
+            {/* Moving light sweep over poster */}
+            <div className="poster-sweep"></div>
           </div>
         </div>
 
-        {/* Title with horror glow */}
-        <h1 className="title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 animate-slide-up">
+        {/* Title with cinematic reveal */}
+        <h1 className={`title-cinematic text-5xl md:text-7xl lg:text-8xl mb-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.5s' }}>
           <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent" style={{ textShadow: 'none' }}>
             THE RIFT
           </span>
         </h1>
 
-        {/* Tagline */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up font-body font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
+        {/* Tagline with staggered reveal */}
+        <p className={`text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-body font-light tracking-wide transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.7s' }}>
           When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
           <span className="text-rift-blood-light/60"> Some doors were never meant to be opened.</span>
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        {/* Buttons with reveal */}
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.9s' }}>
           {/* Watch Trailer Button */}
           <a
             href="#trailer"
@@ -96,7 +114,7 @@ export default function Hero() {
             </span>
           </a>
 
-          {/* Watch Now (Coming Soon) Button - horror styled */}
+          {/* Watch Now (Coming Soon) Button */}
           <a
             href="#"
             className="btn-watch-now relative px-8 py-4 border border-rift-blood/40 text-white font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-rift-blood-light/60 hover:shadow-[0_0_20px_rgba(139,0,0,0.3)]"
@@ -108,7 +126,7 @@ export default function Hero() {
         </div>
 
         {/* Release info */}
-        <p className="mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] animate-fade-in uppercase" style={{ animationDelay: '0.8s' }}>
+        <p className={`mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.2s' }}>
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
