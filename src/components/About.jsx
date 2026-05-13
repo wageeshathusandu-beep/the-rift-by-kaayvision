@@ -37,6 +37,23 @@ export default function About() {
       </div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Cinematic Director Credit */}
+        <div className={`text-center mb-10 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="h-[1px] w-12 md:w-20 bg-gradient-to-r from-transparent to-rift-blood/50"></div>
+            <div className="w-1 h-1 rounded-full bg-rift-blood/60"></div>
+            <div className="h-[1px] w-12 md:w-20 bg-gradient-to-l from-transparent to-rift-blood/50"></div>
+          </div>
+          <h3 className="font-cinematic font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.2em] text-white/90" style={{ textShadow: '0 0 10px rgba(139,0,0,0.5), 0 0 30px rgba(139,0,0,0.2), 0 0 60px rgba(0,212,255,0.1)' }}>
+            A Sisara Sanal Film
+          </h3>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <div className="h-[1px] w-12 md:w-20 bg-gradient-to-r from-transparent to-rift-neon/30"></div>
+            <div className="w-1 h-1 rounded-full bg-rift-neon/50"></div>
+            <div className="h-[1px] w-12 md:w-20 bg-gradient-to-l from-transparent to-rift-neon/30"></div>
+          </div>
+        </div>
+
         {/* Section intro */}
         <div className="text-center mb-4">
           <p className="text-rift-blood-light/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">The Story</p>

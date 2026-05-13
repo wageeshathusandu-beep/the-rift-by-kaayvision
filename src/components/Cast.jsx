@@ -86,9 +86,21 @@ export default function Cast() {
         <p className="text-center text-gray-500 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 
         {/* ===== MAIN ROLE - Hero Card ===== */}
-        <h3 className="sub-heading text-white mb-8 text-center">
-          <span className="text-rift-neon">&#9670;</span> MAIN ROLE <span className="text-rift-neon">&#9670;</span>
-        </h3>
+        <div className={`text-center mb-10 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.15s' }}>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-rift-neon/50 shadow-[0_0_6px_rgba(0,212,255,0.4)]"></div>
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
+          </div>
+          <h3 className="font-cinematic font-black text-xl md:text-2xl lg:text-3xl uppercase tracking-[0.2em] text-white/90" style={{ textShadow: '0 0 8px rgba(0,212,255,0.5), 0 0 25px rgba(0,212,255,0.2)' }}>
+            Main Role
+          </h3>
+          <div className="flex items-center justify-center gap-3 mt-3">
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-rift-neon/50 shadow-[0_0_6px_rgba(0,212,255,0.4)]"></div>
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
+          </div>
+        </div>
         <div className={`flex justify-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
           <div className="cast-card cast-card-float group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
             {/* Animated border glow */}
@@ -120,9 +132,21 @@ export default function Cast() {
         </div>
 
         {/* ===== SUB ROLES ===== */}
-        <h3 className="sub-heading text-white mb-8 text-center">
-          <span className="text-rift-blood-light">&#9670;</span> SUB ROLES <span className="text-rift-blood-light">&#9670;</span>
-        </h3>
+        <div className={`text-center mb-10 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.3s' }}>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-blood/50"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-rift-blood-light/50 shadow-[0_0_6px_rgba(139,0,0,0.4)]"></div>
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-blood/50"></div>
+          </div>
+          <h3 className="font-cinematic font-black text-xl md:text-2xl lg:text-3xl uppercase tracking-[0.2em] text-white/90" style={{ textShadow: '0 0 8px rgba(139,0,0,0.5), 0 0 25px rgba(139,0,0,0.2)' }}>
+            Sub Roles
+          </h3>
+          <div className="flex items-center justify-center gap-3 mt-3">
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-blood/50"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-rift-blood-light/50 shadow-[0_0_6px_rgba(139,0,0,0.4)]"></div>
+            <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-blood/50"></div>
+          </div>
+        </div>
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 stagger-children ${isVisible ? 'revealed' : ''}`}>
           {subRoles.map((actor, index) => (
             <div
@@ -163,9 +187,11 @@ export default function Cast() {
         </div>
 
         {/* ===== OTHER CASTING ===== */}
-        <h3 className="sub-heading text-white mb-8 text-center">
-          <span className="text-gray-500">&#9670;</span> OTHER CASTING <span className="text-gray-500">&#9670;</span>
-        </h3>
+        <div className={`text-center mb-8 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
+          <h3 className="font-cinematic font-bold text-base md:text-lg uppercase tracking-[0.25em] text-gray-400" style={{ textShadow: '0 0 6px rgba(255,255,255,0.1)' }}>
+            Other Casting
+          </h3>
+        </div>
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 stagger-children ${isVisible ? 'revealed' : ''}`}>
           {otherCasting.map((actor) => (
             <div
@@ -191,11 +217,23 @@ export default function Cast() {
           ))}
         </div>
 
-        {/* ===== CREW ===== */}
+        {/* ===== PRODUCTION CREW ===== */}
         <div ref={crewRef}>
-          <h3 className="sub-heading text-white mb-10 text-center">
-            <span className="text-rift-neon">&#9670;</span> CREW <span className="text-rift-neon">&#9670;</span>
-          </h3>
+          <div className={`text-center mb-10 transition-all duration-[1.2s] ${crewVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-rift-neon/50 shadow-[0_0_6px_rgba(0,212,255,0.4)]"></div>
+              <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
+            </div>
+            <h3 className="font-cinematic font-black text-xl md:text-2xl lg:text-3xl uppercase tracking-[0.2em] text-white/90" style={{ textShadow: '0 0 8px rgba(0,212,255,0.5), 0 0 25px rgba(0,212,255,0.2)' }}>
+              Production Crew
+            </h3>
+            <div className="flex items-center justify-center gap-3 mt-3">
+              <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-rift-neon/50 shadow-[0_0_6px_rgba(0,212,255,0.4)]"></div>
+              <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
+            </div>
+          </div>
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${crewVisible ? 'revealed' : ''}`}>
             {crewMembers.map((member, index) => (
               <div
