@@ -852,6 +852,7 @@
 /* Brand logo container glow */
 .brand-logo {
   position: relative;
+  overflow: visible;
 }
 
 .brand-logo::before {

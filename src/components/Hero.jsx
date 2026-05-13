@@ -21,7 +21,7 @@ export default function Hero() {
   const emberCount = isMobile ? 4 : 8
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-x-hidden overflow-y-visible pt-20">
       {/* Deep dark background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030308] via-[#080810] to-rift-darker"></div>
 
@@ -75,13 +75,15 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         {/* ===== STUDIO INTRO - KAAY VISION PRESENTS ===== */}
-        <div className={`mb-4 transition-all duration-[1.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+        <div className={`mb-4 pt-4 overflow-visible transition-all duration-[1.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
           {/* Studio presents text */}
-          <p className="text-gray-600 text-[10px] md:text-xs font-cinematic tracking-[0.5em] uppercase mb-4" style={{ transitionDelay: '0.1s' }}>
+          <p className="text-gray-600 text-[10px] md:text-xs font-cinematic tracking-[0.5em] uppercase mb-3" style={{ transitionDelay: '0.1s' }}>
             A Production By
           </p>
           {/* Premium Animated Brand Logo */}
-          <BrandLogo size="lg" />
+          <div className="overflow-visible py-2">
+            <BrandLogo size="lg" />
+          </div>
           {/* Studio tagline */}
           <p className="text-gray-300 text-xs md:text-sm font-cinematic tracking-[0.35em] uppercase mt-2" style={{ textShadow: '0 0 8px rgba(0,212,255,0.4), 0 0 20px rgba(0,212,255,0.15)' }}>
             Presents
