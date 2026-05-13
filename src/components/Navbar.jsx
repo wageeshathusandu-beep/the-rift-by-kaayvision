@@ -14,7 +14,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const links = ['Home', 'Trailer', 'About', 'Cast', 'Gallery', 'Contact']
+  const links = ['Home', 'Trailer', 'About', 'Cast', 'Gallery', 'Upcoming Projects', 'Contact']
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
@@ -40,7 +40,7 @@ export default function Navbar() {
             {links.map((link) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`#${link === 'Upcoming Projects' ? 'upcoming' : link.toLowerCase()}`}
                 className="nav-link font-ui text-[10px] text-gray-500 hover:text-rift-neon/90 transition-all duration-300"
               >
                 {link}
@@ -69,7 +69,7 @@ export default function Navbar() {
             {links.map((link, index) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`#${link === 'Upcoming Projects' ? 'upcoming' : link.toLowerCase()}`}
                 onClick={() => setIsOpen(false)}
                 className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-400 hover:text-rift-neon transition-all duration-300 border-b border-white/3 last:border-0 hover:pl-2 hover:border-rift-neon/20"
                 style={{ animationDelay: `${index * 0.05}s` }}
