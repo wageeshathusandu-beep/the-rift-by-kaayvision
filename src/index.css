@@ -1202,9 +1202,58 @@
   animation: card-scan 2s linear;
 }
 
-/* Contact button glow animation */
-.upcoming-contact-btn {
-  animation: upcoming-btn-glow 3s ease-in-out infinite;
+/* Contact Produce button - premium cinematic glow */
+.contact-produce-btn {
+  /* Base state already has glow via child spans */
+}
+
+.contact-produce-glow {
+  animation: contact-produce-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes contact-produce-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+/* Electric border animation */
+.contact-produce-border {
+  border: 1.5px solid transparent;
+  background: linear-gradient(90deg, rgba(139,0,0,0.8), rgba(0,212,255,0.8), rgba(139,0,0,0.8)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: contact-border-rotate 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes contact-border-rotate {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Moving light sweep */
+.contact-produce-sweep {
+  background: linear-gradient(105deg, transparent 0%, transparent 35%, rgba(255, 255, 255, 0.25) 45%, rgba(0, 212, 255, 0.15) 50%, rgba(255, 255, 255, 0.25) 55%, transparent 65%, transparent 100%);
+  background-size: 300% 100%;
+  animation: contact-sweep-move 3.5s ease-in-out infinite;
+}
+
+@keyframes contact-sweep-move {
+  0% { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.contact-produce-btn:hover .contact-produce-glow {
+  animation: none;
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 @keyframes upcoming-btn-glow {
@@ -1216,36 +1265,22 @@
   }
 }
 
-.upcoming-contact-btn:hover {
-  animation: none;
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(139, 0, 0, 0.3), 0 0 90px rgba(0, 212, 255, 0.15);
-}
-
-/* Button light sweep */
-.upcoming-btn-sweep {
-  background: linear-gradient(120deg, transparent 0%, transparent 35%, rgba(255, 255, 255, 0.15) 50%, transparent 65%, transparent 100%);
-  background-size: 250% 100%;
-  animation: upcoming-sweep 4s ease-in-out infinite;
-}
-
-@keyframes upcoming-sweep {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
 /* Mobile optimizations for upcoming section */
 @media (max-width: 768px) {
   .upcoming-project-card:hover {
     transform: translateY(-4px) scale(1.01);
   }
 
-  .upcoming-contact-btn {
-    animation: none;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+  .contact-produce-btn:hover .contact-produce-glow {
+    transform: none;
   }
 
-  .upcoming-btn-sweep {
-    animation: none;
+  .contact-produce-glow {
+    animation: contact-produce-pulse 3s ease-in-out infinite;
+  }
+
+  .contact-produce-sweep {
+    animation-duration: 5s;
   }
 }
 

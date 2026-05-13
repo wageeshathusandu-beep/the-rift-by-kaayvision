@@ -162,28 +162,31 @@ export default function UpcomingProjects() {
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.9s' }}>
           <button
             onClick={handleContactClick}
-            className="upcoming-contact-btn group relative inline-flex items-center gap-3 px-10 py-4 md:px-12 md:py-5 rounded-full font-nav font-bold uppercase tracking-[0.18em] text-sm md:text-base transition-all duration-500 hover:scale-110 overflow-hidden"
+            className="contact-produce-btn group relative inline-flex items-center gap-3 px-10 py-4 md:px-14 md:py-5 rounded-full font-nav font-black uppercase tracking-[0.2em] text-sm md:text-base transition-all duration-500 hover:scale-[1.12] active:scale-95 overflow-visible"
           >
+            {/* Animated outer glow pulse */}
+            <span className="absolute -inset-2 rounded-full blur-lg bg-gradient-to-r from-rift-blood/50 via-rift-neon/30 to-rift-blood/50 contact-produce-glow"></span>
+
+            {/* Second glow layer */}
+            <span className="absolute -inset-1 rounded-full blur-md bg-gradient-to-r from-red-600/40 via-cyan-500/20 to-red-600/40 opacity-60 group-hover:opacity-100 transition-opacity duration-500"></span>
+
             {/* Button background */}
-            <span className="absolute inset-0 bg-gradient-to-r from-rift-blood via-red-800 to-rift-blood rounded-full"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-[#8b0000] via-[#a01010] to-[#8b0000] rounded-full"></span>
 
-            {/* Glowing border */}
-            <span className="absolute inset-0 rounded-full border border-rift-blood-light/50 group-hover:border-rift-neon/60 transition-colors duration-500"></span>
-
-            {/* Outer glow */}
-            <span className="absolute -inset-1 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md bg-gradient-to-r from-rift-blood/40 via-red-600/30 to-rift-blood/40"></span>
+            {/* Electric border animation */}
+            <span className="absolute inset-0 rounded-full contact-produce-border"></span>
 
             {/* Light sweep */}
-            <span className="absolute inset-0 rounded-full upcoming-btn-sweep"></span>
+            <span className="absolute inset-0 rounded-full contact-produce-sweep"></span>
 
             {/* Button text */}
-            <span className="relative z-10 text-white group-hover:text-white">
+            <span className="relative z-10 text-white font-black drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
               Contact For Producing
             </span>
 
             {/* Arrow icon */}
-            <svg className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg className="relative z-10 w-5 h-5 text-white group-hover:translate-x-1.5 transition-transform duration-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
         </div>
