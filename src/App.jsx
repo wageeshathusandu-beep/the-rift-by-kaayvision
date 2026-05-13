@@ -8,6 +8,7 @@ import Trailer from './components/Trailer'
 import UpcomingProjects from './components/UpcomingProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import InteractiveBackground from './components/InteractiveBackground'
 
 function GlobalEffects() {
   const [isMobile, setIsMobile] = useState(false)
@@ -73,6 +74,7 @@ function App() {
     <div className="min-h-screen bg-rift-darker overflow-x-hidden horror-grain horror-vignette">
       {/* Global cinematic effects */}
       <GlobalEffects />
+      <InteractiveBackground />
 
       {/* Main content - Hollywood movie website flow */}
       <Navbar />
