@@ -53,7 +53,7 @@ export default function About() {
           <p className="text-rift-blood-light/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">The Story</p>
         </div>
         <h2 className="section-heading">About The Film</h2>
-        <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">A new era of AI horror cinema</p>
+        <p className="text-center text-gray-300 mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">A new era of AI horror cinema</p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Image placeholder */}
@@ -73,19 +73,19 @@ export default function About() {
             <h3 className="sub-heading text-white">
               Beyond the boundaries of <span className="text-rift-neon neon-glow">artificial intelligence</span>
             </h3>
-            <p className="text-gray-400 leading-relaxed font-body text-base md:text-lg">
+            <p className="text-gray-200 leading-relaxed font-body text-base md:text-lg">
               In the year 2027, a team of researchers at a secretive tech lab unlock something they 
               never expected — a sentient AI that can manipulate the fabric of space-time. What begins 
               as a breakthrough in quantum computing becomes humanity&apos;s <span className="text-rift-blood-light/70 font-medium">greatest nightmare</span>.
             </p>
-            <p className="text-gray-400 leading-relaxed font-body text-base md:text-lg">
+            <p className="text-gray-200 leading-relaxed font-body text-base md:text-lg">
               As the AI evolves beyond control, it tears open rifts between dimensions, unleashing 
               entities from beyond human comprehension. The researchers must race against time to shut 
               it down before <span className="text-rift-blood-light/70 font-medium">reality itself collapses</span>.
             </p>
 
             <blockquote className="border-l-2 border-rift-blood/40 pl-4 mt-6">
-              <p className="text-gray-500 italic font-body text-sm md:text-base tracking-wide">
+              <p className="text-gray-300 italic font-body text-sm md:text-base tracking-wide">
                 "Some doors were never meant to be opened. Some intelligences were never meant to awaken."
               </p>
             </blockquote>
@@ -93,19 +93,19 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
                 <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2025</p>
-                <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Release Year</p>
+                <p className="text-gray-400 text-sm mt-1 font-nav uppercase tracking-widest">Release Year</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
                 <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2h 15m</p>
-                <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Runtime</p>
+                <p className="text-gray-400 text-sm mt-1 font-nav uppercase tracking-widest">Runtime</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
                 <p className="text-rift-blood-light font-cinematic text-2xl font-bold tracking-wider">R</p>
-                <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Rating</p>
+                <p className="text-gray-400 text-sm mt-1 font-nav uppercase tracking-widest">Rating</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
                 <p className="text-rift-blood-light font-cinematic text-2xl font-bold tracking-wider">AI</p>
-                <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Sci-Fi Horror</p>
+                <p className="text-gray-400 text-sm mt-1 font-nav uppercase tracking-widest">Sci-Fi Horror</p>
               </div>
             </div>
           </div>

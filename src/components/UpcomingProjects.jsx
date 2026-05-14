@@ -67,7 +67,7 @@ export default function UpcomingProjects() {
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="section-heading mb-4">Upcoming Projects</h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto font-body tracking-wide leading-relaxed">
+          <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto font-body tracking-wide leading-relaxed">
             Interested in producing or collaborating with our upcoming films?{' '}
             <span className="text-rift-neon/80 font-semibold">Contact KAAY VISION.</span>
           </p>
@@ -138,7 +138,7 @@ export default function UpcomingProjects() {
 
         {/* Collaboration text */}
         <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.7s' }}>
-          <p className="text-gray-500 text-base md:text-lg font-body tracking-wide max-w-2xl mx-auto italic">
+          <p className="text-gray-300 text-base md:text-lg font-body tracking-wide max-w-2xl mx-auto italic">
             "We are open for film collaborations, production partnerships, and creative projects."
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function UpcomingProjects() {
 
         {/* More Films Coming Soon */}
         <div className={`text-center mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.1s' }}>
-          <p className="text-gray-700 text-xs font-cinematic tracking-[0.4em] uppercase">
+          <p className="text-gray-400 text-xs font-cinematic tracking-[0.4em] uppercase">
             More Films Coming Soon
           </p>
         </div>

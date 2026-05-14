@@ -34,7 +34,7 @@ export default function Trailer() {
         <div className="text-center mb-14">
           <p className="text-rift-blood-light/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">Experience The Terror</p>
           <h2 className="section-heading">Official Trailer</h2>
-          <p className="text-gray-500 mt-4 max-w-xl mx-auto font-body text-lg tracking-wide">Watch the first look in stunning high definition</p>
+          <p className="text-gray-300 mt-4 max-w-xl mx-auto font-body text-lg tracking-wide">Watch the first look in stunning high definition</p>
         </div>
 
         {/* Video Container */}
@@ -62,7 +62,7 @@ export default function Trailer() {
         </div>
 
         {/* Below trailer info */}
-        <div className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 font-nav uppercase tracking-wider transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0.6s' }}>
+        <div className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-300 font-nav uppercase tracking-wider transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0.6s' }}>
           <span className="flex items-center gap-2 hover:text-rift-blood-light transition-colors duration-300">
             <svg className="w-4 h-4 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

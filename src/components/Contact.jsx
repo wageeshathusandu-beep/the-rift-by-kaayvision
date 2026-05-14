@@ -27,7 +27,7 @@ export default function Contact() {
 
       <div className={`relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Get In Touch</h2>
-        <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Connect with us for press inquiries, partnerships, and updates</p>
+        <p className="text-center text-gray-300 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Connect with us for press inquiries, partnerships, and updates</p>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -38,21 +38,21 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-400 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 />
               </div>
               <div>
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-400 transition-all font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 />
               </div>
               <div>
                 <textarea
                   rows="4"
                   placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-600 transition-all resize-none font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
+                  className="w-full px-4 py-3 bg-black/30 border border-rift-blood/15 rounded-lg focus:border-rift-neon/40 focus:outline-none focus:ring-1 focus:ring-rift-neon/20 text-white placeholder-gray-400 transition-all resize-none font-body focus:shadow-[0_0_10px_rgba(0,212,255,0.1)]"
                 ></textarea>
               </div>
               <button
@@ -95,13 +95,13 @@ export default function Contact() {
             <div className="glass-card p-8">
               <h3 className="sub-heading text-white mb-4 text-xl">Contact Info</h3>
               <div className="space-y-3">
-                <p className="flex items-center gap-3 text-gray-400 font-body hover:text-rift-neon/80 transition-colors duration-300">
+                <p className="flex items-center gap-3 text-gray-200 font-body hover:text-rift-neon/80 transition-colors duration-300">
                   <svg className="w-5 h-5 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                   press@therift-movie.com
                 </p>
-                <p className="flex items-center gap-3 text-gray-400 font-body hover:text-rift-neon/80 transition-colors duration-300">
+                <p className="flex items-center gap-3 text-gray-200 font-body hover:text-rift-neon/80 transition-colors duration-300">
                   <svg className="w-5 h-5 text-rift-blood-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />

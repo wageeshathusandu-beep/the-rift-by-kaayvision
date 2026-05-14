@@ -26,16 +26,16 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <BrandLogo size="sm" />
             <span className="text-rift-blood/40 text-sm">|</span>
-            <span className="text-gray-600 text-sm font-body">The Rift Official</span>
+            <span className="text-gray-400 text-sm font-body">The Rift Official</span>
           </div>
 
-          <div className="flex items-center gap-6 text-xs font-nav uppercase tracking-[0.12em] text-gray-600">
+          <div className="flex items-center gap-6 text-xs font-nav uppercase tracking-[0.12em] text-gray-400">
             <a href="#" className="footer-link hover:text-rift-blood-light transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="footer-link hover:text-rift-blood-light transition-colors duration-300">Terms</a>
             <a href="#" className="footer-link hover:text-rift-neon transition-colors duration-300">Press Kit</a>
           </div>
 
-          <p className="text-gray-700 text-xs font-body">
+          <p className="text-gray-400 text-xs font-body">
             &copy; 2025 KAAY VISION Productions. All rights reserved.
           </p>
         </div>

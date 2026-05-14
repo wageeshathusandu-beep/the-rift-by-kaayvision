@@ -78,7 +78,7 @@ export default function Cast() {
           <p className="text-rift-neon/60 text-[10px] font-cinematic tracking-[0.4em] uppercase mb-3">The Talent</p>
         </div>
         <h2 className="section-heading">Cast & Crew</h2>
-        <p className="text-center text-gray-500 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
+        <p className="text-center text-gray-300 mb-16 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 
         {/* ===== MAIN ROLE - Hero Card ===== */}
         <div className={`text-center mb-10 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.15s' }}>
@@ -200,7 +200,7 @@ export default function Cast() {
               <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-rift-blood/20 transition-all duration-400"></div>
 
               <div className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-full bg-gradient-to-br from-white/5 to-rift-blood/5 border border-white/10 flex items-center justify-center group-hover:border-rift-neon/20 transition-all duration-400">
-                <svg className="w-5 h-5 text-gray-600 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                 </svg>
               </div>

@@ -23,7 +23,7 @@ export default function Hero() {
         {/* ===== STUDIO INTRO - KAAY VISION PRESENTS ===== */}
         <div className={`mb-4 pt-4 overflow-visible transition-all duration-[1.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
           {/* Studio presents text */}
-          <p className="text-gray-600 text-[10px] md:text-xs font-cinematic tracking-[0.5em] uppercase mb-3" style={{ transitionDelay: '0.1s' }}>
+          <p className="text-gray-400 text-[10px] md:text-xs font-cinematic tracking-[0.5em] uppercase mb-3" style={{ transitionDelay: '0.1s' }}>
             A Production By
           </p>
           {/* Premium Animated Brand Logo */}
@@ -69,9 +69,9 @@ export default function Hero() {
         </h1>
 
         {/* Tagline */}
-        <p className={`text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-body font-light tracking-wide leading-relaxed transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1s' }}>
+        <p className={`text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-8 font-body font-light tracking-wide leading-relaxed transition-all duration-[1.2s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1s' }}>
           When artificial intelligence tears open the fabric of reality, humanity faces its darkest hour.
-          <span className="text-rift-blood-light/60"> Some doors were never meant to be opened.</span>
+          <span className="text-rift-blood-light/80"> Some doors were never meant to be opened.</span>
         </p>
 
         {/* Buttons */}
@@ -80,9 +80,9 @@ export default function Hero() {
             href="#trailer"
             className="btn-watch-trailer group relative px-8 py-4 bg-gradient-to-r from-rift-neon to-rift-glow text-black font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-rift-neon/50"
           >
-            <span className="btn-light-sweep absolute inset-0 z-0"></span>
+            
             <span className="relative z-10 flex items-center gap-2">
-              <svg className="w-5 h-5 animate-play-icon-pulse" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
               Watch Trailer
@@ -94,13 +94,13 @@ export default function Hero() {
             className="btn-watch-now relative px-8 py-4 border border-rift-blood/40 text-white font-nav font-bold uppercase tracking-[0.15em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-rift-blood-light/60 hover:shadow-[0_0_20px_rgba(139,0,0,0.3)]"
           >
             <span className="relative z-10 flex items-center gap-2">
-              Watch Now <span className="text-red-500 animate-red-glow-pulse">(Coming Soon)</span>
+              Watch Now <span className="text-red-400">(Coming Soon)</span>
             </span>
           </a>
         </div>
 
         {/* Release info */}
-        <p className={`mt-12 text-gray-600 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.5s' }}>
+        <p className={`mt-12 text-gray-400 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.5s' }}>
           AI SCI-FI HORROR &bull; 2025
         </p>
       </div>
@@ -114,9 +114,9 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 ${loaded ? 'opacity-60' : 'opacity-0'}`} style={{ transitionDelay: '2s' }}>
-        <div className="flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-gray-600 text-[9px] font-nav tracking-[0.3em] uppercase">Scroll</span>
-          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-gray-400 text-[9px] font-nav tracking-[0.3em] uppercase">Scroll</span>
+          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>

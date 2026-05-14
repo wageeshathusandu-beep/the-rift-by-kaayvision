@@ -38,7 +38,7 @@ export default function Gallery() {
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">Gallery</h2>
-        <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
+        <p className="text-center text-gray-300 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryItems.map((item) => (

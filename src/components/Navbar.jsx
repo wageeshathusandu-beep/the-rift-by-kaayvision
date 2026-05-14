@@ -19,8 +19,8 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
       scrolled 
-        ? 'bg-rift-darker/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(139,0,0,0.1)]' 
-        : 'bg-rift-darker/70 backdrop-blur-xl'
+        ? 'bg-rift-darker/98 shadow-[0_4px_20px_rgba(0,0,0,0.5)]' 
+        : 'bg-rift-darker/90'
     } border-b border-rift-blood/10`}>
       {/* Animated top accent line */}
       <div className={`absolute top-0 left-0 right-0 h-[1px] transition-opacity duration-700 ${scrolled ? 'opacity-100' : 'opacity-60'}`} style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(139,0,0,0.4) 30%, rgba(0,212,255,0.3) 50%, rgba(139,0,0,0.4) 70%, transparent 95%)' }}></div>
@@ -41,7 +41,7 @@ export default function Navbar() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="nav-link font-ui text-[10px] text-gray-500 hover:text-rift-neon/90 transition-all duration-300"
+                className="nav-link font-ui text-[10px] text-gray-300 hover:text-white transition-all duration-300"
               >
                 {link}
               </a>
@@ -65,13 +65,13 @@ export default function Navbar() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-rift-blood/10 animate-fade-in bg-rift-darker/95 backdrop-blur-2xl">
+          <div className="md:hidden py-4 border-t border-rift-blood/10 bg-rift-darker/98">
             {links.map((link, index) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 onClick={() => setIsOpen(false)}
-                className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-400 hover:text-rift-neon transition-all duration-300 border-b border-white/3 last:border-0 hover:pl-2 hover:border-rift-neon/20"
+                className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-300 hover:text-white transition-all duration-300 border-b border-white/5 last:border-0 hover:pl-2"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {link}
