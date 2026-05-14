@@ -55,16 +55,10 @@ export default function UpcomingProjects() {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#060610] to-rift-darker"></div>
 
-      {/* Suspense lighting - ambient glows */}
-      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-rift-blood/4 rounded-full blur-[120px] animate-horror-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]" style={{ animation: 'horror-pulse 7s ease-in-out infinite', animationDelay: '2s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/3 rounded-full blur-[130px]" style={{ animation: 'horror-pulse 9s ease-in-out infinite', animationDelay: '4s' }}></div>
-
-      {/* Subtle fog layers */}
-      <div className="fog-layer">
-        <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-30"></div>
-        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-rift-blood/4 to-transparent animate-fog-drift-reverse opacity-20"></div>
-      </div>
+      {/* Static ambient glows */}
+      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-rift-blood/4 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/3 rounded-full blur-[130px]"></div>
 
       {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 horror-divider"></div>
@@ -84,22 +78,17 @@ export default function UpcomingProjects() {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`upcoming-project-card group relative rounded-2xl border ${project.borderColor} backdrop-blur-md overflow-hidden transition-all duration-700`}
+              className={`upcoming-project-card group relative rounded-2xl border ${project.borderColor} overflow-hidden transition-all duration-700`}
               style={{
                 transitionDelay: `${0.4 + index * 0.15}s`,
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 background: 'linear-gradient(135deg, rgba(10, 15, 25, 0.7), rgba(5, 5, 8, 0.9))',
-                boxShadow: `0 0 15px rgba(0,0,0,0.5), inset 0 0 30px rgba(0,0,0,0.3)`,
+                boxShadow: '0 0 15px rgba(0,0,0,0.5), inset 0 0 30px rgba(0,0,0,0.3)',
               }}
             >
-              {/* Glowing border animation */}
+              {/* Glowing border on hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ boxShadow: `0 0 25px ${project.glowColor}, inset 0 0 20px rgba(0,0,0,0.3)` }}></div>
-
-              {/* Card scan line */}
-              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-card-scan transition-opacity duration-500"></div>
-              </div>
 
               <div className="relative z-10 p-8 md:p-10 text-center">
                 {/* Project number */}
@@ -120,7 +109,7 @@ export default function UpcomingProjects() {
                   </span>
                 </div>
 
-                {/* Classified overlay for Project 01 */}
+                {/* Icons */}
                 {project.id === '01' && (
                   <div className="mt-6 flex justify-center">
                     <svg className="w-8 h-8 text-rift-blood/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,8 +117,6 @@ export default function UpcomingProjects() {
                     </svg>
                   </div>
                 )}
-
-                {/* Film reel icon for Project 02 */}
                 {project.id === '02' && (
                   <div className="mt-6 flex justify-center">
                     <svg className="w-8 h-8 text-rift-neon/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,8 +124,6 @@ export default function UpcomingProjects() {
                     </svg>
                   </div>
                 )}
-
-                {/* Clock icon for Project 03 */}
                 {project.id === '03' && (
                   <div className="mt-6 flex justify-center">
                     <svg className="w-8 h-8 text-purple-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,31 +149,19 @@ export default function UpcomingProjects() {
             onClick={handleContactClick}
             className="upcoming-contact-btn group relative inline-flex items-center gap-3 px-10 py-4 md:px-12 md:py-5 rounded-full font-nav font-bold uppercase tracking-[0.18em] text-sm md:text-base transition-all duration-500 hover:scale-110 overflow-hidden"
           >
-            {/* Button background */}
             <span className="absolute inset-0 bg-gradient-to-r from-rift-blood via-red-800 to-rift-blood rounded-full"></span>
-
-            {/* Glowing border */}
             <span className="absolute inset-0 rounded-full border border-rift-blood-light/50 group-hover:border-rift-neon/60 transition-colors duration-500"></span>
-
-            {/* Outer glow */}
-            <span className="absolute -inset-1 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md bg-gradient-to-r from-rift-blood/40 via-red-600/30 to-rift-blood/40"></span>
-
-            {/* Light sweep */}
             <span className="absolute inset-0 rounded-full upcoming-btn-sweep"></span>
-
-            {/* Button text */}
             <span className="relative z-10 text-white group-hover:text-white">
               Contact For Producing
             </span>
-
-            {/* Arrow icon */}
             <svg className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
         </div>
 
-        {/* "More Films Coming Soon" atmosphere text */}
+        {/* More Films Coming Soon */}
         <div className={`text-center mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.1s' }}>
           <p className="text-gray-700 text-xs font-cinematic tracking-[0.4em] uppercase">
             More Films Coming Soon

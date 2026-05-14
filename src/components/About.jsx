@@ -17,16 +17,10 @@ export default function About() {
 
   return (
     <section id="about" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
-      {/* Dark atmospheric background */}
+      {/* Dark atmospheric background - static */}
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080812] to-rift-darker"></div>
 
-      {/* Fog overlay */}
-      <div className="fog-layer">
-        <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-40"></div>
-        <div className="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift-reverse opacity-20"></div>
-      </div>
-
-      {/* Ambient horror glow */}
+      {/* Static ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-rift-blood/5 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-1/3 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
 
@@ -62,11 +56,9 @@ export default function About() {
         <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">A new era of AI horror cinema</p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Image placeholder with horror styling */}
+          {/* Left - Image placeholder */}
           <div className={`glass-card p-2 rounded-2xl overflow-hidden group transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="w-full h-80 md:h-96 bg-gradient-to-br from-[#0a0a12] to-rift-darker rounded-xl flex items-center justify-center border border-rift-blood/10 relative overflow-hidden">
-              {/* Atmospheric effect inside */}
-              <div className="absolute inset-0 bg-gradient-to-t from-rift-blood/5 to-transparent animate-blood-drip"></div>
               <div className="text-center relative z-10">
                 <svg className="w-16 h-16 mx-auto text-rift-blood/40 mb-3 group-hover:text-rift-neon/50 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
@@ -92,7 +84,6 @@ export default function About() {
               it down before <span className="text-rift-blood-light/70 font-medium">reality itself collapses</span>.
             </p>
 
-            {/* Dramatic quote */}
             <blockquote className="border-l-2 border-rift-blood/40 pl-4 mt-6">
               <p className="text-gray-500 italic font-body text-sm md:text-base tracking-wide">
                 "Some doors were never meant to be opened. Some intelligences were never meant to awaken."
@@ -101,11 +92,11 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
-                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider group-hover/stat:animate-flicker">2025</p>
+                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2025</p>
                 <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Release Year</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
-                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider group-hover/stat:animate-flicker">2h 15m</p>
+                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2h 15m</p>
                 <p className="text-gray-600 text-sm mt-1 font-nav uppercase tracking-widest">Runtime</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">

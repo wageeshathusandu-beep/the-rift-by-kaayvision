@@ -21,14 +21,6 @@ export default function Footer() {
       {/* Horror top divider */}
       <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
-      {/* Animated ambient glow */}
-      <div className="footer-ambient"></div>
-
-      {/* Subtle fog */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-rift-blood/3 to-transparent opacity-20 animate-fog-drift"></div>
-      </div>
-
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">

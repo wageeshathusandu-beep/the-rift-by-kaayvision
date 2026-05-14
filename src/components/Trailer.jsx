@@ -19,16 +19,9 @@ export default function Trailer() {
     <section id="trailer" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#050510] to-rift-darker"></div>
 
-      {/* Horror ambient glows - immersive theater feel */}
+      {/* Static ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-rift-blood/4 rounded-full blur-[180px]"></div>
       <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[100px]"></div>
-      <div className="absolute bottom-1/4 left-0 w-[250px] h-[250px] bg-purple-900/3 rounded-full blur-[100px]"></div>
-
-      {/* Fog layers */}
-      <div className="fog-layer">
-        <div className="absolute inset-0 bg-gradient-to-r from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift opacity-25"></div>
-        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-rift-blood/4 to-transparent opacity-20"></div>
-      </div>
 
       {/* Cinematic section entrance divider */}
       <div className="absolute top-0 left-0 right-0">
@@ -44,7 +37,7 @@ export default function Trailer() {
           <p className="text-gray-500 mt-4 max-w-xl mx-auto font-body text-lg tracking-wide">Watch the first look in stunning high definition</p>
         </div>
 
-        {/* Video Container with animated glowing frame */}
+        {/* Video Container */}
         <div className={`transition-all duration-[1.2s] ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.3s' }}>
           <div className="trailer-frame relative rounded-2xl overflow-hidden">
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>

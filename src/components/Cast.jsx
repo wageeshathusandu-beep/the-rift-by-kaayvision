@@ -61,16 +61,10 @@ export default function Cast() {
     <section id="cast" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#080810] to-rift-darker"></div>
 
-      {/* Horror atmosphere */}
+      {/* Static horror atmosphere */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/3 rounded-full blur-[130px]"></div>
-
-      {/* Fog */}
-      <div className="fog-layer">
-        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-rift-blood/3 to-transparent animate-fog-drift opacity-30"></div>
-        <div className="absolute top-0 inset-x-0 h-1/4 bg-gradient-to-b from-rift-neon/2 to-transparent opacity-15"></div>
-      </div>
 
       {/* Cinematic section entrance */}
       <div className="absolute top-0 left-0 right-0">
@@ -103,7 +97,7 @@ export default function Cast() {
           </div>
         </div>
         <div className={`flex justify-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.2s' }}>
-          <div className="cast-card cast-card-float group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
+          <div className="cast-card group relative w-full max-w-sm overflow-hidden rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))', border: '1px solid rgba(0, 212, 255, 0.3)' }}>
             {/* Animated border glow */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ boxShadow: '0 0 30px rgba(0,212,255,0.2), 0 0 60px rgba(0,212,255,0.1), inset 0 0 30px rgba(0,212,255,0.05)' }}></div>
 
@@ -239,7 +233,7 @@ export default function Cast() {
             {crewMembers.map((member, index) => (
               <div
                 key={member.name}
-                className={`cast-card cast-card-float group relative overflow-hidden rounded-2xl p-7 text-center ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''}`}
+                className={`cast-card group relative overflow-hidden rounded-2xl p-7 text-center ${member.highlighted ? 'sm:col-span-2 lg:col-span-1' : ''}`}
                 style={{
                   background: member.highlighted
                     ? 'linear-gradient(135deg, rgba(0, 21, 40, 0.8), rgba(5, 5, 8, 0.95))'

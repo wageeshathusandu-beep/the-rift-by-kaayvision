@@ -30,14 +30,9 @@ export default function Gallery() {
     <section id="gallery" className="py-24 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#060610] to-rift-darker"></div>
 
-      {/* Horror ambient */}
+      {/* Static ambient */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
-
-      {/* Fog */}
-      <div className="fog-layer">
-        <div className="absolute inset-0 bg-gradient-to-l from-rift-blood/3 via-transparent to-rift-neon/2 animate-fog-drift-reverse opacity-30"></div>
-      </div>
 
       <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
@@ -46,11 +41,10 @@ export default function Gallery() {
         <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, index) => (
+          {galleryItems.map((item) => (
             <div
               key={item.title}
               className={`group relative overflow-hidden rounded-2xl cursor-pointer border border-rift-blood/15 hover:border-rift-blood-light/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(139,0,0,0.2)] ${item.featured ? 'sm:col-span-2 lg:col-span-1 ring-1 ring-rift-blood/20' : ''}`}
-              style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="aspect-[4/3] bg-gradient-to-br from-[#0a0a12] to-rift-darker flex items-center justify-center relative overflow-hidden">
                 <img
