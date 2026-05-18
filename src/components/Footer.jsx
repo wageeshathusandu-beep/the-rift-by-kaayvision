@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import BrandLogo from './BrandLogo'
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false)
@@ -24,9 +23,11 @@ export default function Footer() {
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <BrandLogo size="sm" />
+            <span className="font-cinematic font-black uppercase tracking-[0.12em] text-sm md:text-base">
+              <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent">THE RIFT</span>
+            </span>
             <span className="text-rift-blood/40 text-sm">|</span>
-            <span className="text-gray-400 text-sm font-body">The Rift Official</span>
+            <span className="text-gray-400 text-sm font-body">A KAAY VISION Film</span>
           </div>
 
           <div className="flex items-center gap-6 text-xs font-nav uppercase tracking-[0.12em] text-gray-400">

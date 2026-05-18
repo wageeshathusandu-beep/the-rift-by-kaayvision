@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import BrandLogo from './BrandLogo'
 import NavEnergy from './NavEnergy'
 
 export default function Navbar() {
@@ -32,7 +31,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Animated Brand Logo */}
           <a href="#" className="relative group z-10">
-            <BrandLogo size="nav" />
+            <span className="font-cinematic font-black uppercase tracking-[0.12em] text-2xl md:text-3xl">
+              <span className="bg-gradient-to-r from-white via-rift-neon to-rift-blood-light bg-clip-text text-transparent">THE RIFT</span>
+            </span>
           </a>
 
           {/* Desktop Nav with animated underlines */}
