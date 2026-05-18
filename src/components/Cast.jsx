@@ -221,7 +221,7 @@ export default function Cast() {
               <div className="h-[1px] w-8 md:w-14 bg-gradient-to-l from-transparent to-rift-neon/40"></div>
             </div>
             <h3 className="font-cinematic font-black text-xl md:text-2xl lg:text-3xl uppercase tracking-[0.2em] text-white/90" style={{ textShadow: '0 0 8px rgba(0,212,255,0.5), 0 0 25px rgba(0,212,255,0.2)' }}>
-              Production Crew
+              Film Crew
             </h3>
             <div className="flex items-center justify-center gap-3 mt-3">
               <div className="h-[1px] w-8 md:w-14 bg-gradient-to-r from-transparent to-rift-neon/40"></div>
