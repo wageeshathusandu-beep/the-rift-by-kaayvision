@@ -182,8 +182,23 @@ export default function Cast() {
         </div>
 
         {/* ===== OTHER CASTING ===== */}
-        <div className={`text-center mb-8 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
-          <h3 className="font-cinematic font-bold text-base md:text-lg uppercase tracking-[0.25em] text-gray-400" style={{ textShadow: '0 0 6px rgba(255,255,255,0.1)' }}>
+        <div className={`text-center mb-12 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
+          {/* Decorative gold glowing line */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="w-48 md:w-64 h-[2px] rounded-full"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 20%, rgba(255, 215, 0, 0.85) 50%, rgba(212, 175, 55, 0.3) 80%, transparent 100%)',
+                boxShadow: '0 0 8px rgba(255, 215, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.2)',
+              }}
+            ></div>
+          </div>
+
+          {/* OTHER CASTING title */}
+          <h3
+            className="font-cinematic font-black text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] text-white/90"
+            style={{ textShadow: '0 0 8px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.15)' }}
+          >
             Other Casting
           </h3>
         </div>
