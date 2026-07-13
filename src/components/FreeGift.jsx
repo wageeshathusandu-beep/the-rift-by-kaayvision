@@ -56,7 +56,7 @@ export default function FreeGift() {
               {/* 9:16 aspect ratio */}
               <div className="aspect-[9/16] bg-gradient-to-br from-[#0a0a12] to-rift-darker relative overflow-hidden">
                 <img
-                  src="/free-gift/mobile-wallpaper-preview.jpg"
+                  src="/free-gift/mobile-wallpaper-preview.png"
                   alt="The Rift mobile wallpaper preview"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
