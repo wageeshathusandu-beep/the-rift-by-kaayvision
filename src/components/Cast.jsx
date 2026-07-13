@@ -8,9 +8,6 @@ const subRoles = [
   { name: 'Geeshan Randunu' },
   { name: 'Inuki Akithra' },
   { name: 'Suraj Chanuka' },
-]
-
-const otherCasting = [
   { name: 'Chenuthi Nulinsa' },
   { name: 'Reshani Thadisha' },
   { name: 'Yonali Vihangi' },
@@ -177,52 +174,6 @@ export default function Cast() {
 
               {/* Bottom accent */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-rift-blood/40 to-transparent group-hover:w-20 transition-all duration-500"></div>
-            </div>
-          ))}
-        </div>
-
-        {/* ===== OTHER CASTING ===== */}
-        <div className={`text-center mb-12 transition-all duration-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
-          {/* Decorative gold glowing line */}
-          <div className="flex justify-center mb-6">
-            <div
-              className="w-48 md:w-64 h-[2px] rounded-full"
-              style={{
-                background: 'linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 20%, rgba(255, 215, 0, 0.85) 50%, rgba(212, 175, 55, 0.3) 80%, transparent 100%)',
-                boxShadow: '0 0 8px rgba(255, 215, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.2)',
-              }}
-            ></div>
-          </div>
-
-          {/* OTHER CASTING title */}
-          <h3
-            className="font-cinematic font-black text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] text-white/90"
-            style={{ textShadow: '0 0 8px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.15)' }}
-          >
-            Other Casting
-          </h3>
-        </div>
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 stagger-children ${isVisible ? 'revealed' : ''}`}>
-          {otherCasting.map((actor) => (
-            <div
-              key={actor.name}
-              className="cast-card group relative overflow-hidden rounded-lg p-4 text-center"
-              style={{
-                background: 'linear-gradient(135deg, rgba(8, 12, 20, 0.6), rgba(5, 5, 8, 0.8))',
-                border: '1px solid rgba(255,255,255,0.05)',
-              }}
-            >
-              <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-rift-blood/20 transition-all duration-400"></div>
-
-              <div className="relative z-10 w-10 h-10 mx-auto mb-3 rounded-full bg-gradient-to-br from-white/5 to-rift-blood/5 border border-white/10 flex items-center justify-center group-hover:border-rift-neon/20 transition-all duration-400">
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
-                </svg>
-              </div>
-
-              <h4 className="relative z-10 font-nav font-semibold text-gray-300 text-xs md:text-sm uppercase tracking-wider group-hover:text-white transition-colors duration-400">
-                {actor.name}
-              </h4>
             </div>
           ))}
         </div>
