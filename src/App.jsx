@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Cast from './components/Cast'
-import Gallery from './components/Gallery'
 import FreeGift from './components/FreeGift'
 import Trailer from './components/Trailer'
 import UpcomingProjects from './components/UpcomingProjects'
@@ -18,7 +17,6 @@ function App() {
       <Trailer />
       <About />
       <Cast />
-      <Gallery />
       <FreeGift />
       <UpcomingProjects />
       <Contact />

@@ -18,7 +18,6 @@ export default function Navbar() {
     { label: 'Trailer', href: '#trailer' },
     { label: 'About', href: '#about' },
     { label: 'Cast', href: '#cast' },
-    { label: 'Gallery', href: '#gallery' },
     { label: 'Free Gift', href: '#free-gift' },
     { label: 'Contact', href: '#contact' },
   ]
