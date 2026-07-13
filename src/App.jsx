@@ -4,6 +4,7 @@ import About from './components/About'
 import Cast from './components/Cast'
 import Gallery from './components/Gallery'
 import Trailer from './components/Trailer'
+import FreeGift from './components/FreeGift'
 import UpcomingProjects from './components/UpcomingProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Cast />
       <Gallery />
+      <FreeGift />
       <UpcomingProjects />
       <Contact />
       <Footer />
