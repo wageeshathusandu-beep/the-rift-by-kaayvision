@@ -13,7 +13,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const links = ['Home', 'Trailer', 'About', 'Cast', 'Gallery', 'Contact']
+  const links = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Cast', href: '#cast' },
+    { label: 'Gallery', href: '#gallery' },
+    { label: 'Free Gift', href: '#free-gift' },
+    { label: 'Trailer', href: '#trailer' },
+    { label: 'Contact', href: '#contact' },
+  ]
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
@@ -40,11 +48,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.label}
+                href={link.href}
                 className="nav-link font-ui text-[10px] text-gray-300 hover:text-white transition-all duration-300"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
@@ -69,13 +77,13 @@ export default function Navbar() {
           <div className="md:hidden py-4 border-t border-rift-blood/10 bg-rift-darker/98">
             {links.map((link, index) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.label}
+                href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-300 hover:text-white transition-all duration-300 border-b border-white/5 last:border-0 hover:pl-2"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
