@@ -13,7 +13,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const links = ['Home', 'Trailer', 'About', 'Cast', 'Gallery', 'Contact']
+  const links = ['Home', 'About', 'Cast', 'Gallery', 'Free Gift', 'Trailer', 'Contact']
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
@@ -41,7 +41,7 @@ export default function Navbar() {
             {links.map((link) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
                 className="nav-link font-ui text-[10px] text-gray-300 hover:text-white transition-all duration-300"
               >
                 {link}
@@ -70,7 +70,7 @@ export default function Navbar() {
             {links.map((link, index) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
                 onClick={() => setIsOpen(false)}
                 className="block py-3 font-nav font-medium uppercase tracking-[0.12em] text-gray-300 hover:text-white transition-all duration-300 border-b border-white/5 last:border-0 hover:pl-2"
                 style={{ animationDelay: `${index * 0.05}s` }}
