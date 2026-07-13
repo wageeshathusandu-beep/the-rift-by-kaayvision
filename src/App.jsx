@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Cast from './components/Cast'
 import Gallery from './components/Gallery'
+import FreeGift from './components/FreeGift'
 import Trailer from './components/Trailer'
 import UpcomingProjects from './components/UpcomingProjects'
 import Contact from './components/Contact'
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Cast />
       <Gallery />
+      <FreeGift />
       <UpcomingProjects />
       <Contact />
       <Footer />
