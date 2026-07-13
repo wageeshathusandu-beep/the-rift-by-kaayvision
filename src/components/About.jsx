@@ -92,7 +92,7 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">
-                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2025</p>
+                <p className="text-rift-neon font-cinematic text-2xl font-bold tracking-wider">2026</p>
                 <p className="text-gray-400 text-sm mt-1 font-nav uppercase tracking-widest">Release Year</p>
               </div>
               <div className="glass-card p-4 text-center group/stat hover:border-rift-blood/30 transition-all duration-500">

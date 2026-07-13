@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 const POSTER_URL = 'https://i.imgur.com/162JyPV.jpeg'
 
 const galleryItems = [
-  { title: 'Official Poster', description: 'The Rift - Coming 2025', image: POSTER_URL, featured: true },
+  { title: 'Official Poster', description: 'The Rift - Coming 2026', image: POSTER_URL, featured: true },
   { title: 'The Lab', description: 'Where it all began', image: POSTER_URL },
   { title: 'First Contact', description: 'The AI awakens', image: POSTER_URL },
   { title: 'The Rift Opens', description: 'Reality fractures', image: POSTER_URL },

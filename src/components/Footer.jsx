@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-400 text-xs font-body">
-            &copy; 2025 KAAY VISION Productions. All rights reserved.
+            &copy; 2026 KAAY VISION Productions. All rights reserved.
           </p>
         </div>
 

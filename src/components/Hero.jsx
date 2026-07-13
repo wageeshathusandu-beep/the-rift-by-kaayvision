@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Release info */}
         <p className={`mt-12 text-gray-400 text-sm font-cinematic tracking-[0.3em] uppercase transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.5s' }}>
-          AI SCI-FI HORROR &bull; 2025
+          AI SCI-FI HORROR &bull; 2026
         </p>
       </div>
 
