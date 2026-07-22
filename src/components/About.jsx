@@ -12,14 +12,13 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030108] via-[#060610] to-[#030108]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#060610] to-[#050507]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
 
       {/* Ambient glows */}
       <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-rift-red/5 rounded-full blur-[100px]"></div>
 
-      {/* Decorative */}
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 003 // SYNOPSIS</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label">CLASSIFIED</span>
 

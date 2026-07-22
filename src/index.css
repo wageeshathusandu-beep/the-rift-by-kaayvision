@@ -14,7 +14,7 @@
   }
 
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #030108; }
+  ::-webkit-scrollbar-track { background: #050507; }
   ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: #00f0ff; }
 }
@@ -30,7 +30,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 9998;
-    background: radial-gradient(ellipse at center, transparent 20%, rgba(3,1,8,0.5) 55%, rgba(3,1,8,0.95) 100%);
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(5,5,7,0.5) 55%, rgba(5,5,7,0.95) 100%);
   }
 
   .horror-vignette::before {
@@ -60,14 +60,14 @@
     );
   }
 
-  /* ===== SECTION DIVIDER (Cyan/Red gradient) ===== */
-  .horror-divider {
+  /* ===== SECTION DIVIDER ===== */
+  .archive-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 5%, rgba(0,240,255,0.2) 20%, rgba(0,240,255,0.5) 50%, rgba(139,0,0,0.3) 80%, transparent 95%);
-    opacity: 0.7;
+    background: linear-gradient(90deg, transparent 5%, rgba(0,240,255,0.15) 20%, rgba(0,240,255,0.4) 50%, rgba(139,0,0,0.25) 80%, transparent 95%);
+    opacity: 0.6;
   }
 
-  /* ===== INDUSTRIAL CARD (Sci-fi horror style) ===== */
+  /* ===== INDUSTRIAL CARD ===== */
   .ind-card {
     background: linear-gradient(160deg, #0a0a14 0%, #060610 100%);
     border: 1px solid rgba(0,240,255,0.1);
@@ -81,7 +81,7 @@
     transform: translateY(-2px);
   }
 
-  /* Corner brackets - neon cyan */
+  /* Corner brackets */
   .ind-card::before, .ind-card::after {
     content: '';
     position: absolute;
@@ -99,7 +99,7 @@
     @apply font-mono text-[9px] uppercase tracking-[0.3em] text-rift-neon/50;
   }
 
-  /* ===== SECTION HEADING (Glowing) ===== */
+  /* ===== SECTION HEADING ===== */
   .section-heading {
     @apply text-4xl md:text-5xl lg:text-6xl font-display text-center uppercase;
     letter-spacing: 0.08em;
@@ -107,7 +107,7 @@
     text-shadow: 0 0 20px rgba(0,240,255,0.3), 0 2px 10px rgba(0,0,0,0.8);
   }
 
-  /* ===== NEON INDICATOR DOT ===== */
+  /* ===== NEON DOT ===== */
   .neon-dot {
     @apply w-1.5 h-1.5 rounded-full;
     background: #00f0ff;
@@ -115,7 +115,6 @@
     animation: pulse-neon 3s ease-in-out infinite;
   }
 
-  /* Keep amber-dot for backwards compat but restyle to cyan */
   .amber-dot {
     @apply w-1.5 h-1.5 rounded-full;
     background: #00f0ff;
@@ -123,8 +122,7 @@
     animation: pulse-neon 3s ease-in-out infinite;
   }
 
-  /* ===== BUTTON STYLES ===== */
-  /* Primary - Cyan glowing */
+  /* ===== PRIMARY BUTTON - Cyan Glowing ===== */
   .btn-industrial {
     @apply inline-flex items-center gap-2 px-6 py-3 font-nav font-semibold uppercase tracking-[0.18em] text-xs md:text-sm transition-all duration-300;
     background: linear-gradient(135deg, rgba(0,240,255,0.08) 0%, rgba(0,240,255,0.02) 100%);
@@ -155,7 +153,7 @@
 
   .btn-industrial:hover::after { left: 100%; }
 
-  /* Secondary - Dark outlined with red accents */
+  /* ===== SECONDARY BUTTON - Dark outlined with red ===== */
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-6 py-3 font-nav font-semibold uppercase tracking-[0.18em] text-xs md:text-sm transition-all duration-300;
     background: linear-gradient(135deg, rgba(139,0,0,0.05) 0%, transparent 100%);
@@ -198,7 +196,7 @@
     box-shadow: 0 0 12px rgba(0,240,255,0.1), inset 0 0 10px rgba(0,240,255,0.02);
   }
 
-  /* ===== GLITCH TITLE (Glowing cyan) ===== */
+  /* ===== GLITCH TITLE ===== */
   .glitch-title {
     position: relative;
     animation: glitch-idle 8s infinite, glow-title 3s ease-in-out infinite alternate;
@@ -249,21 +247,14 @@
 
   /* ===== POSTER GLOW ===== */
   .poster-glow {
-    box-shadow: 0 0 30px rgba(0,240,255,0.15), 0 0 60px rgba(0,240,255,0.05), 0 0 80px rgba(139,0,0,0.1);
-    border: 1px solid rgba(0,240,255,0.2);
+    box-shadow: 0 0 30px rgba(0,240,255,0.2), 0 0 60px rgba(0,240,255,0.08), 0 0 80px rgba(139,0,0,0.1);
+    border: 1px solid rgba(0,240,255,0.25);
     transition: all 0.7s ease;
   }
 
   .poster-glow:hover {
-    box-shadow: 0 0 40px rgba(0,240,255,0.25), 0 0 80px rgba(0,240,255,0.1), 0 0 100px rgba(139,0,0,0.15);
-    border-color: rgba(0,240,255,0.4);
-  }
-
-  /* ===== ARCHIVE DIVIDER (keep for compat, restyle) ===== */
-  .archive-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent 5%, rgba(0,240,255,0.15) 20%, rgba(0,240,255,0.4) 50%, rgba(139,0,0,0.25) 80%, transparent 95%);
-    opacity: 0.6;
+    box-shadow: 0 0 40px rgba(0,240,255,0.3), 0 0 80px rgba(0,240,255,0.12), 0 0 100px rgba(139,0,0,0.15);
+    border-color: rgba(0,240,255,0.45);
   }
 }
 
@@ -302,6 +293,11 @@
 @keyframes scan-line {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* ===== STAGGER REVEAL ===== */

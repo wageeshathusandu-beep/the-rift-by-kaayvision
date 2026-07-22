@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-rift-darker overflow-x-hidden horror-vignette relative">
+    <div className="min-h-screen bg-[#050507] overflow-x-hidden horror-vignette relative">
       {/* Main content - Hollywood movie website flow */}
       <Navbar />
       <Hero />

@@ -20,7 +20,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#030108]/97 shadow-[0_2px_20px_rgba(0,240,255,0.05)]' : 'bg-[#030108]/80'} border-b border-rift-neon/10 backdrop-blur-sm`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#050507]/97 shadow-[0_2px_20px_rgba(0,240,255,0.05)]' : 'bg-[#050507]/80'} border-b border-rift-neon/10 backdrop-blur-sm`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}

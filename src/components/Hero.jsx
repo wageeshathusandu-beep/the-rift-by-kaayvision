@@ -7,11 +7,11 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-[#030108]"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#050507]"></div>
       <div className="absolute inset-0 scanlines"></div>
 
-      {/* Ambient glow effects - blue and red */}
+      {/* Ambient glow effects */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-rift-blue/5 rounded-full blur-[180px] animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-rift-red/8 rounded-full blur-[150px] animate-pulse"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rift-neon/3 rounded-full blur-[200px]"></div>
@@ -41,17 +41,15 @@ export default function Hero() {
         <div className="relative inline-block mb-10 group">
           <div className="absolute -inset-3 border border-rift-neon/10 transition-all duration-700 group-hover:border-rift-neon/20"></div>
           <div className="absolute -inset-1 border border-rift-neon/5"></div>
-          {/* Poster glow background */}
           <div className="absolute -inset-4 bg-rift-neon/3 blur-xl rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           <img src="https://i.imgur.com/162JyPV.jpeg" alt="The Rift Official Poster"
             className="relative w-full max-w-sm rounded-none poster-glow transition-all duration-700" />
           <span className="absolute -top-5 left-2 tech-label">RECOVERED MEDIA</span>
           <span className="absolute -bottom-5 right-2 tech-label">RES: 1080x1920</span>
-          {/* Scanlines on poster */}
           <div className="absolute inset-0 scanlines pointer-events-none"></div>
         </div>
 
-        {/* Title - Glowing "THE RIFT" */}
+        {/* Title */}
         <h1 className="glitch-title font-display text-6xl md:text-8xl lg:text-9xl tracking-[0.06em] text-rift-offwhite mb-4" data-text="THE RIFT"
           style={{ textShadow: '0 0 20px rgba(0,240,255,0.5), 0 0 40px rgba(0,240,255,0.3), 0 0 80px rgba(0,240,255,0.1), 0 4px 20px rgba(0,0,0,0.9)' }}>
           THE RIFT
@@ -63,13 +61,14 @@ export default function Hero() {
           <span className="text-rift-blood-light"> Some doors were never meant to be opened.</span>
         </p>
 
-        {/* Buttons - Cyan primary + Red secondary */}
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a href="#trailer" className="btn-industrial">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             Watch Trailer
           </a>
           <a href="#" className="btn-secondary">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 0A1.125 1.125 0 014.5 4.5h15a1.125 1.125 0 011.125 1.125m-17.25 0h17.25m0 0v12.75M20.625 5.625v12.75m0 0a1.125 1.125 0 01-1.125 1.125m1.125-1.125h-1.5m-15 0h15" /></svg>
             Watch Now <span className="text-rift-blood-light/50 ml-1">(Coming Soon)</span>
           </a>
         </div>
@@ -77,8 +76,16 @@ export default function Hero() {
         <p className="font-mono text-[10px] text-rift-neon/30 tracking-[0.3em] uppercase">AI SCI-FI HORROR &bull; 2026</p>
       </div>
 
+      {/* Scroll indicator */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce-slow">
+        <span className="tech-label">SCROLL</span>
+        <svg className="w-5 h-5 text-rift-neon/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030108] to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050507] to-transparent"></div>
     </section>
   )
 }

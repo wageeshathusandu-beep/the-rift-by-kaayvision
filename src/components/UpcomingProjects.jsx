@@ -23,7 +23,7 @@ export default function UpcomingProjects() {
 
   return (
     <section id="upcoming" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030108] via-[#060610] to-[#030108]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#060610] to-[#050507]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
 
       {/* Ambient glows */}

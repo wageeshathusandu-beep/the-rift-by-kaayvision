@@ -1,14 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="py-10 relative overflow-hidden bg-[#020106]">
-      {/* Top divider */}
+    <footer className="py-10 relative overflow-hidden bg-[#040406]">
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
             <div className="amber-dot"></div>
-            <span className="font-display text-sm tracking-[0.12em] text-rift-offwhite" style={{ textShadow: '0 0 8px rgba(0,240,255,0.3)' }}>THE RIFT</span>
+            <span className="font-display text-sm tracking-[0.12em] text-rift-offwhite"
+              style={{ textShadow: '0 0 8px rgba(0,240,255,0.3)' }}>THE RIFT</span>
             <span className="text-rift-neon/20">|</span>
             <span className="text-rift-metal/60 text-xs font-body">A KAAY VISION Film</span>
           </div>
@@ -19,7 +19,8 @@ export default function Footer() {
             <a href="#" className="hover:text-rift-neon transition-colors">Press Kit</a>
           </div>
 
-          <p className="text-rift-metal/40 text-xs font-mono">&copy; 2026 KAAY VISION Productions. All rights reserved.</p>
+          <p className="text-rift-metal/40 text-xs font-mono">
+            &copy; 2026 KAAY VISION Productions. All rights reserved.</p>
         </div>
 
         <div className="mt-6 h-px bg-gradient-to-r from-transparent via-rift-neon/10 to-transparent"></div>

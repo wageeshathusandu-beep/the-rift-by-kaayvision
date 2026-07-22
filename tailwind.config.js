@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'rift-black': '#050505',
-        'rift-darker': '#030108',
+        'rift-black': '#050507',
+        'rift-darker': '#050507',
         'rift-dark': '#0a0a12',
         'rift-charcoal': '#111118',
         'rift-metal': '#7a8a9e',
@@ -41,6 +41,7 @@ export default {
         'pulse-blood': 'pulse-blood 4s ease-in-out infinite',
         'glow-title': 'glow-title 3s ease-in-out infinite alternate',
         'scan': 'scan 8s linear infinite',
+        'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
       },
       keyframes: {
         'pulse-neon': {
@@ -58,6 +59,10 @@ export default {
         'scan': {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100vh)' },
+        },
+        'bounce-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(6px)' },
         },
       },
     },
