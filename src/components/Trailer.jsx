@@ -12,8 +12,13 @@ export default function Trailer() {
 
   return (
     <section id="trailer" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-[#050505]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030108] via-[#060610] to-[#030108]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+
+      {/* Ambient glows */}
+      <div className="absolute top-1/3 right-0 w-[350px] h-[350px] bg-rift-blue/4 rounded-full blur-[140px]"></div>
+      <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] bg-rift-red/5 rounded-full blur-[120px]"></div>
+
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 002 // TRANSMISSION</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label">PLAYBACK</span>
 
@@ -24,9 +29,9 @@ export default function Trailer() {
 
         {/* Video frame */}
         <div className={`transition-all duration-[1.2s] ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`} style={{ transitionDelay: '0.2s' }}>
-          <div className="ind-card p-0 overflow-hidden">
+          <div className="ind-card p-0 overflow-hidden shadow-[0_0_40px_rgba(0,240,255,0.05)]">
             {/* Top bar */}
-            <div className="h-7 bg-[#0a0a0a] border-b border-rift-metal/10 flex items-center justify-between px-3">
+            <div className="h-7 bg-[#060610] border-b border-rift-neon/10 flex items-center justify-between px-3">
               <div className="flex items-center gap-2">
                 <span className="amber-dot"></span>
                 <span className="tech-label">TRANSMISSION PLAYBACK</span>
@@ -43,7 +48,7 @@ export default function Trailer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="h-6 bg-[#0a0a0a] border-t border-rift-metal/10 flex items-center justify-between px-3">
+            <div className="h-6 bg-[#060610] border-t border-rift-neon/10 flex items-center justify-between px-3">
               <span className="tech-label">4K ULTRA HD</span>
               <span className="tech-label">OFFICIAL TEASER</span>
             </div>

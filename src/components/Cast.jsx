@@ -28,14 +28,14 @@ const crewMembers = [
 
 function PersonCard({ name, role, index, highlighted }) {
   return (
-    <div className={`ind-card group p-5 text-center ${highlighted ? 'border-rift-amber/20' : ''}`}>
+    <div className={`ind-card group p-5 text-center ${highlighted ? 'border-rift-neon/20' : ''}`}>
       <p className="tech-label mb-3">FILE #{String(index + 1).padStart(3, '0')}</p>
-      <div className={`w-14 h-14 mx-auto mb-3 rounded-none bg-[#0d0d0d] border flex items-center justify-center ${highlighted ? 'border-rift-amber/25' : 'border-rift-metal/15'} group-hover:border-rift-amber/40 transition-colors duration-400`}>
-        <svg className="w-6 h-6 text-rift-metal/30 group-hover:text-rift-amber/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className={`w-14 h-14 mx-auto mb-3 rounded-none bg-[#060610] border flex items-center justify-center ${highlighted ? 'border-rift-neon/25' : 'border-rift-neon/10'} group-hover:border-rift-neon/40 transition-colors duration-400`}>
+        <svg className="w-6 h-6 text-rift-metal/30 group-hover:text-rift-neon/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
         </svg>
       </div>
-      {role && <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rift-amber/60 mb-1">{role}</p>}
+      {role && <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rift-neon/60 mb-1">{role}</p>}
       {!role && <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rift-metal/40 mb-1">Sub Role</p>}
       <h4 className="font-display text-lg md:text-xl text-rift-offwhite tracking-wide">{name}</h4>
     </div>
@@ -62,8 +62,13 @@ export default function Cast() {
 
   return (
     <section id="cast" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-[#050505]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030108] via-[#060610] to-[#030108]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+
+      {/* Ambient glows */}
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-rift-red/4 rounded-full blur-[100px]"></div>
+
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 004 // SUBJECT DATA</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label flex items-center gap-1.5"><span className="amber-dot"></span> RESTRICTED</span>
 
@@ -76,7 +81,7 @@ export default function Cast() {
         <div className="text-center mb-4">
           <p className="tech-label mb-2">Primary Subject</p>
           <h3 className="font-display text-2xl tracking-[0.08em] text-rift-offwhite">Main Role</h3>
-          <div className="w-12 h-px bg-rift-amber/30 mx-auto mt-3"></div>
+          <div className="w-12 h-px bg-rift-neon/40 mx-auto mt-3"></div>
         </div>
         <div className={`flex justify-center mb-14 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '0.15s' }}>
           <div className="w-full max-w-xs">
@@ -101,7 +106,7 @@ export default function Cast() {
           <div className="text-center mb-8">
             <p className="tech-label mb-2">Operations Team</p>
             <h3 className="font-display text-2xl tracking-[0.08em] text-rift-offwhite">Film Crew</h3>
-            <div className="w-12 h-px bg-rift-amber/30 mx-auto mt-3"></div>
+            <div className="w-12 h-px bg-rift-neon/30 mx-auto mt-3"></div>
           </div>
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children ${crewVisible ? 'revealed' : ''}`}>
             {crewMembers.map((m, i) => (
