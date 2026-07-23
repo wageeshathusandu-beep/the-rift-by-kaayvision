@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-void overflow-x-hidden cinema-vignette scan-overlay">
+    <div className="min-h-screen bg-void overflow-x-hidden cinema-vignette scan-line">
       <Navbar />
       <Hero />
       <Trailer />
