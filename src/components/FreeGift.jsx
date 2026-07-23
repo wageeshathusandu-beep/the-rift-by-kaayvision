@@ -1,17 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function FreeGift() {
   const [mobileImgError, setMobileImgError] = useState(false)
   const [pcImgError, setPcImgError] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setIsVisible(true) }, { threshold: 0.1 })
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
+  }, [])
 
   return (
-    <section id="free-gift" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="free-gift" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-[#050505]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+
+      {/* Ambient orbs */}
+      <div className="orb-amber w-[350px] h-[350px] top-[15%] right-[-5%] opacity-30"></div>
+      <div className="orb-purple w-[300px] h-[300px] bottom-[20%] left-[-8%] opacity-25"></div>
+
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 005 // RECOVERED MEDIA</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label flex items-center gap-1.5"><span className="amber-dot"></span> DOWNLOAD READY</span>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-[1.2s] ease-smooth ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Section Header */}
         <div className="text-center mb-14">
           <p className="tech-label mb-3">Free Gift</p>
@@ -23,7 +36,7 @@ export default function FreeGift() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
 
           {/* ===== MOBILE WALLPAPER ===== */}
-          <div className="flex flex-col items-center">
+          <div className={`flex flex-col items-center transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
             <p className="tech-label mb-4">Mobile Wallpaper</p>
             <h3 className="font-display text-xl md:text-2xl tracking-[0.08em] text-rift-offwhite mb-6 text-center">MOBILE WALLPAPER</h3>
             <p className="text-rift-metal font-body text-sm tracking-wide mb-6 text-center">Download an exclusive mobile wallpaper from The Rift.</p>
@@ -51,7 +64,7 @@ export default function FreeGift() {
                     </div>
                   ) : (
                     <img src="/free-gift/mobile-wallpaper-preview.jpg" alt="The Rift mobile wallpaper preview"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.04]"
                       onError={() => setMobileImgError(true)} />
                   )}
                 </div>
@@ -83,7 +96,7 @@ export default function FreeGift() {
           </div>
 
           {/* ===== PC WALLPAPER ===== */}
-          <div className="flex flex-col items-center">
+          <div className={`flex flex-col items-center transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '0.4s' }}>
             <p className="tech-label mb-4">Desktop Wallpaper</p>
             <h3 className="font-display text-xl md:text-2xl tracking-[0.08em] text-rift-offwhite mb-6 text-center">PC WALLPAPERS</h3>
             <p className="text-rift-metal font-body text-sm tracking-wide mb-6 text-center">Download exclusive desktop wallpapers from The Rift.</p>
@@ -111,7 +124,7 @@ export default function FreeGift() {
                     </div>
                   ) : (
                     <img src="/free-gift/pc-wallpaper-preview.jpg" alt="The Rift PC wallpaper preview"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.04]"
                       onError={() => setPcImgError(true)} />
                   )}
                 </div>

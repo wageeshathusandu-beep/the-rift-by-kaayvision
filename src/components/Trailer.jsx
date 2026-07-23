@@ -14,17 +14,23 @@ export default function Trailer() {
     <section id="trailer" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-[#050505]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+
+      {/* Ambient orbs */}
+      <div className="orb-amber w-[400px] h-[400px] top-[10%] right-[-10%] opacity-50"></div>
+      <div className="orb-red w-[300px] h-[300px] bottom-[5%] left-[-5%] opacity-40"></div>
+      <div className="orb-cyan w-[250px] h-[250px] top-[40%] left-[5%] opacity-30"></div>
+
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 002 // TRANSMISSION</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label">PLAYBACK</span>
 
-      <div className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-[1.2s] ease-smooth ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <p className="tech-label text-center mb-2">Experience The Terror</p>
         <h2 className="section-heading mb-4">Official Trailer</h2>
         <p className="text-center text-rift-metal mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Watch the first look in stunning high definition</p>
 
         {/* Video frame */}
-        <div className={`transition-all duration-[1.2s] ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`} style={{ transitionDelay: '0.2s' }}>
-          <div className="ind-card p-0 overflow-hidden">
+        <div className={`transition-all duration-[1.5s] ease-smooth ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.96]'}`} style={{ transitionDelay: '0.3s' }}>
+          <div className="ind-card p-0 overflow-hidden hover:shadow-amber-glow-lg">
             {/* Top bar */}
             <div className="h-7 bg-[#0a0a0a] border-b border-rift-metal/10 flex items-center justify-between px-3">
               <div className="flex items-center gap-2">

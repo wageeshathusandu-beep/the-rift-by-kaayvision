@@ -15,16 +15,20 @@ export default function About() {
       <div className="absolute inset-0 bg-[#050505]"></div>
       <div className="absolute top-0 left-0 right-0 archive-divider"></div>
 
+      {/* Ambient orbs */}
+      <div className="orb-purple w-[400px] h-[400px] top-[20%] right-[-10%] opacity-40"></div>
+      <div className="orb-amber w-[350px] h-[350px] bottom-[10%] left-[-8%] opacity-35"></div>
+
       {/* Decorative */}
       <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 003 // SYNOPSIS</span>
       <span className="absolute top-6 right-4 md:right-8 tech-label">CLASSIFIED</span>
 
-      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-[1.2s] ease-smooth ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Director credit */}
         <div className="text-center mb-10">
           <p className="tech-label mb-3">Subject: Director</p>
           <h3 className="font-display text-3xl md:text-4xl tracking-[0.08em] text-rift-offwhite">A Sisara Sanal Film</h3>
-          <div className="w-16 h-px bg-rift-amber/40 mx-auto mt-4"></div>
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-rift-amber/50 to-transparent mx-auto mt-4"></div>
         </div>
 
         <p className="tech-label text-center mb-2">The Story</p>
@@ -33,7 +37,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Image placeholder */}
-          <div className={`ind-card p-1 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`} style={{ transitionDelay: '0.2s' }}>
+          <div className={`ind-card p-1 transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="w-full h-80 md:h-96 bg-[#090909] flex items-center justify-center relative scanlines">
               <div className="text-center">
                 <svg className="w-14 h-14 mx-auto text-rift-metal/20 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +49,7 @@ export default function About() {
           </div>
 
           {/* Content */}
-          <div className={`space-y-5 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'}`} style={{ transitionDelay: '0.3s' }}>
+          <div className={`space-y-5 transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '0.4s' }}>
             <h3 className="font-display text-2xl md:text-3xl tracking-wide text-rift-offwhite">
               Beyond the boundaries of <span className="text-rift-amber">artificial intelligence</span>
             </h3>

@@ -14,9 +14,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-5 text-[10px] font-mono uppercase tracking-[0.15em] text-rift-metal/50">
-            <a href="#" className="hover:text-rift-amber transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-rift-amber transition-colors">Terms</a>
-            <a href="#" className="hover:text-rift-amber transition-colors">Press Kit</a>
+            <a href="#" className="hover:text-rift-amber transition-colors duration-300">Privacy Policy</a>
+            <a href="#" className="hover:text-rift-amber transition-colors duration-300">Terms</a>
+            <a href="#" className="hover:text-rift-amber transition-colors duration-300">Press Kit</a>
           </div>
 
           <p className="text-rift-metal/40 text-xs font-mono">&copy; 2026 KAAY VISION Productions. All rights reserved.</p>
