@@ -17,7 +17,9 @@ export default function Gallery() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true)
+      },
       { threshold: 0.1 }
     )
     if (ref.current) observer.observe(ref.current)
@@ -25,49 +27,46 @@ export default function Gallery() {
   }, [])
 
   return (
-    <section id="gallery" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-sci-black via-sci-darker to-sci-black"></div>
-      <div className="absolute top-0 left-0 right-0 glow-divider"></div>
+    <section id="gallery" className="py-24 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#060610] to-rift-darker"></div>
 
-      {/* Ambient */}
-      <div className="orb-cyan w-[400px] h-[400px] top-[30%] left-[-10%] opacity-25"></div>
-      <div className="orb-blue w-[500px] h-[500px] bottom-[5%] right-[-15%] opacity-20"></div>
+      {/* Static ambient */}
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
+
+      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <p className="tech-label text-center mb-3 text-sci-cyan/70">Visual Archive</p>
-        <h2 className="section-heading mb-4">Gallery</h2>
-        <p className="text-center text-sci-muted mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
+        <h2 className="section-heading">Gallery</h2>
+        <p className="text-center text-gray-300 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, index) => (
+          {galleryItems.map((item) => (
             <div
               key={item.title}
-              className={`group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 ${item.featured ? 'sm:col-span-2 lg:col-span-1' : ''}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer border border-rift-blood/15 hover:border-rift-blood-light/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(139,0,0,0.2)] ${item.featured ? 'sm:col-span-2 lg:col-span-1 ring-1 ring-rift-blood/20' : ''}`}
             >
-              <div className="glass-card p-0 overflow-hidden rounded-2xl">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-60 group-hover:brightness-75"
-                  />
+              <div className="aspect-[4/3] bg-gradient-to-br from-[#0a0a12] to-rift-darker flex items-center justify-center relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
+                />
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-sci-black/90 via-sci-black/30 to-sci-cyan/5 opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+                {/* Dark horror overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-rift-darker/80 via-transparent to-rift-blood/10 opacity-60 group-hover:opacity-30 transition-opacity duration-500"></div>
 
-                  {/* Hover content */}
-                  <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div>
-                      <h4 className="text-sci-white font-heading text-sm uppercase tracking-wider mb-1">{item.title}</h4>
-                      <p className="text-sci-cyan/80 text-xs font-body">{item.description}</p>
-                    </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-rift-darker via-rift-darker/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                  <div>
+                    <h4 className="text-white font-heading text-2xl uppercase tracking-wider">{item.title}</h4>
+                    <p className="text-rift-blood-light text-sm font-body">{item.description}</p>
                   </div>
-
-                  {/* Corner accents on hover */}
-                  <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-sci-cyan/40 rounded-tl-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-sci-cyan/40 rounded-br-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
+
+                {/* Corner blood accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-rift-blood/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-rift-blood/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             </div>
           ))}
