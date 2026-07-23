@@ -28,16 +28,16 @@ const crewMembers = [
 
 function PersonCard({ name, role, index, highlighted }) {
   return (
-    <div className={`ind-card group p-5 text-center ${highlighted ? 'border-rift-amber/20' : ''}`}>
-      <p className="tech-label mb-3">FILE #{String(index + 1).padStart(3, '0')}</p>
-      <div className={`w-14 h-14 mx-auto mb-3 rounded-none bg-[#0d0d0d] border flex items-center justify-center ${highlighted ? 'border-rift-amber/25' : 'border-rift-metal/15'} group-hover:border-rift-amber/40 transition-colors duration-400`}>
-        <svg className="w-6 h-6 text-rift-metal/30 group-hover:text-rift-amber/50 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className={`glass-card group p-6 text-center ${highlighted ? 'border-sci-cyan/25' : ''}`}>
+      <p className="tech-label mb-3 text-sci-muted/50">#{String(index + 1).padStart(3, '0')}</p>
+      <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-400 ${highlighted ? 'bg-sci-cyan/10 border border-sci-cyan/30' : 'bg-sci-navy/60 border border-sci-dim/30'} group-hover:border-sci-cyan/40 group-hover:bg-sci-cyan/10`}>
+        <svg className="w-7 h-7 text-sci-muted/40 group-hover:text-sci-cyan/70 transition-colors duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
         </svg>
       </div>
-      {role && <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rift-amber/60 mb-1">{role}</p>}
-      {!role && <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-rift-metal/40 mb-1">Sub Role</p>}
-      <h4 className="font-display text-lg md:text-xl text-rift-offwhite tracking-wide">{name}</h4>
+      {role && <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-sci-cyan/70 mb-2">{role}</p>}
+      {!role && <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-sci-muted/40 mb-2">Sub Role</p>}
+      <h4 className="font-display text-lg md:text-xl text-sci-white tracking-wide">{name}</h4>
     </div>
   )
 }
@@ -62,23 +62,24 @@ export default function Cast() {
 
   return (
     <section id="cast" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-[#050505]"></div>
-      <div className="absolute top-0 left-0 right-0 archive-divider"></div>
-      <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 004 // SUBJECT DATA</span>
-      <span className="absolute top-6 right-4 md:right-8 tech-label flex items-center gap-1.5"><span className="amber-dot"></span> RESTRICTED</span>
+      <div className="absolute inset-0 bg-gradient-to-b from-sci-black via-sci-darker to-sci-black"></div>
+      <div className="absolute top-0 left-0 right-0 glow-divider"></div>
+
+      {/* Ambient */}
+      <div className="orb-blue w-[500px] h-[500px] top-[5%] right-[-10%] opacity-25"></div>
+      <div className="orb-cyan w-[400px] h-[400px] bottom-[20%] left-[-10%] opacity-20"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <p className="tech-label text-center mb-2">Personnel Files</p>
+        <p className="tech-label text-center mb-3 text-sci-cyan/70">Personnel Files</p>
         <h2 className="section-heading mb-4">Cast & Crew</h2>
-        <p className="text-center text-rift-metal mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
+        <p className="text-center text-sci-muted mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">The visionaries behind The Rift</p>
 
         {/* Main Role */}
-        <div className="text-center mb-4">
-          <p className="tech-label mb-2">Primary Subject</p>
-          <h3 className="font-display text-2xl tracking-[0.08em] text-rift-offwhite">Main Role</h3>
-          <div className="w-12 h-px bg-rift-amber/30 mx-auto mt-3"></div>
+        <div className="text-center mb-6">
+          <p className="tech-label mb-2 text-sci-cyan/60">Lead Role</p>
+          <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-sci-cyan/50 to-transparent mx-auto mt-3"></div>
         </div>
-        <div className={`flex justify-center mb-14 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '0.15s' }}>
+        <div className={`flex justify-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '0.15s' }}>
           <div className="w-full max-w-xs">
             <PersonCard name={mainRole.name} role={mainRole.role} index={0} highlighted={true} />
           </div>
@@ -86,11 +87,10 @@ export default function Cast() {
 
         {/* Sub Roles */}
         <div className="text-center mb-8">
-          <p className="tech-label mb-2">Secondary Subjects</p>
-          <h3 className="font-display text-2xl tracking-[0.08em] text-rift-offwhite">Sub Roles</h3>
-          <div className="w-12 h-px bg-rift-red/40 mx-auto mt-3"></div>
+          <p className="tech-label mb-2 text-sci-electric/60">Supporting Cast</p>
+          <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-sci-blue/40 to-transparent mx-auto mt-3"></div>
         </div>
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 stagger-children ${isVisible ? 'revealed' : ''}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20 stagger-children ${isVisible ? 'revealed' : ''}`}>
           {subRoles.map((actor, i) => (
             <PersonCard key={actor.name} name={actor.name} index={i + 1} />
           ))}
@@ -99,11 +99,11 @@ export default function Cast() {
         {/* Crew */}
         <div ref={crewRef}>
           <div className="text-center mb-8">
-            <p className="tech-label mb-2">Operations Team</p>
-            <h3 className="font-display text-2xl tracking-[0.08em] text-rift-offwhite">Film Crew</h3>
-            <div className="w-12 h-px bg-rift-amber/30 mx-auto mt-3"></div>
+            <p className="tech-label mb-2 text-sci-cyan/60">Behind The Scenes</p>
+            <h3 className="font-display text-2xl tracking-[0.08em] text-sci-white">Film Crew</h3>
+            <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-sci-cyan/50 to-transparent mx-auto mt-3"></div>
           </div>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children ${crewVisible ? 'revealed' : ''}`}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children ${crewVisible ? 'revealed' : ''}`}>
             {crewMembers.map((m, i) => (
               <PersonCard key={m.name} name={m.name} role={m.role} index={i + 10} highlighted={m.highlighted} />
             ))}

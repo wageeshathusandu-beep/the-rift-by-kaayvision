@@ -1,25 +1,20 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Cast from './components/Cast'
-import FreeGift from './components/FreeGift'
 import Trailer from './components/Trailer'
-import UpcomingProjects from './components/UpcomingProjects'
-import Contact from './components/Contact'
+import Synopsis from './components/Synopsis'
+import Cast from './components/Cast'
+import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-rift-darker overflow-x-hidden horror-vignette">
-      {/* Main content - Hollywood movie website flow */}
+    <div className="min-h-screen bg-sci-black overflow-x-hidden cinema-vignette">
       <Navbar />
       <Hero />
       <Trailer />
-      <About />
+      <Synopsis />
       <Cast />
-      <FreeGift />
-      <UpcomingProjects />
-      <Contact />
+      <Gallery />
       <Footer />
     </div>
   )
