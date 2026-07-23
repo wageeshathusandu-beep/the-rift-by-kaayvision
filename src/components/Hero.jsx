@@ -18,7 +18,7 @@ export default function Hero() {
       <div className={`relative z-10 max-w-6xl mx-auto px-4 text-center transition-all duration-[2.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
 
         {/* Production Credit Block */}
-        <div className="mb-10">
+        <div className="mt-10 md:mt-12 mb-10">
           <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-c-white/70 font-mono mb-3">A Production By</p>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-black tracking-[0.15em] mb-3">
             <span className="text-c-white">KAAY</span>{' '}
