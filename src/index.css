@@ -182,7 +182,7 @@
 
   /* ===== FORM INPUTS ===== */
   .input-terminal {
-    @apply w-full px-4 py-3 font-body text-rift-offwhite placeholder-rift-metal/40 transition-all duration-400;
+    @apply w-full px-4 py-3 font-body text-rift-offwhite placeholder-rift-metal/40 transition-all duration-300;
     background: #080808;
     border: 1px solid rgba(94,100,104,0.2);
     outline: none;
@@ -227,7 +227,7 @@
 
   /* ===== NAV LINK ===== */
   .nav-link-ind {
-    @apply relative font-nav font-semibold uppercase text-[10px] tracking-[0.2em] text-rift-metal transition-all duration-400;
+    @apply relative font-nav font-semibold uppercase text-[10px] tracking-[0.2em] text-rift-metal transition-all duration-300;
   }
 
   .nav-link-ind:hover {

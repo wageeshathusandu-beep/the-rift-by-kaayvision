@@ -54,8 +54,8 @@ export default function Contact() {
               <div className="flex flex-wrap justify-center gap-3">
                 {socials.map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="w-11 h-11 flex items-center justify-center bg-[#0a0a0a] border border-rift-metal/15 hover:border-rift-amber/40 hover:shadow-amber-glow transition-all duration-400 group">
-                    <svg className="w-5 h-5 text-rift-metal/50 group-hover:text-rift-amber/80 transition-colors duration-400" fill="currentColor" viewBox="0 0 24 24"><path d={s.d}/></svg>
+                    className="w-11 h-11 flex items-center justify-center bg-[#0a0a0a] border border-rift-metal/15 hover:border-rift-amber/40 hover:shadow-amber-glow transition-all duration-300 group">
+                    <svg className="w-5 h-5 text-rift-metal/50 group-hover:text-rift-amber/80 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d={s.d}/></svg>
                   </a>
                 ))}
               </div>
