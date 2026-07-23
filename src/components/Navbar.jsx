@@ -20,7 +20,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className={`fixed top-0 w-full z-[9999] transition-all duration-700 ease-out ${scrolled ? 'bg-void/60 backdrop-blur-2xl border-b border-c-cyan/8 shadow-[0_0_30px_rgba(0,229,255,0.04),0_4px_20px_rgba(0,0,0,0.4)]' : 'bg-void/10 backdrop-blur-md border-b border-white/[0.03] shadow-[0_0_15px_rgba(0,229,255,0.02)]'}`}>
+    <nav className={`fixed top-0 w-full z-[9999] transition-all duration-700 ease-out ${scrolled ? 'bg-void/50 backdrop-blur-xl border-b border-c-cyan/8 shadow-[0_4px_20px_rgba(0,0,0,0.3)]' : 'bg-transparent border-b border-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#home" className="flex items-center gap-3 group">
