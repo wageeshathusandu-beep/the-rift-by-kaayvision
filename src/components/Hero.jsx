@@ -16,7 +16,22 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-void via-void/80 to-transparent"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 text-center transition-all duration-[2.5s] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <p className="tech-label mb-6">KAAY VISION PRODUCTIONS</p>
+
+        {/* Production Credit Block */}
+        <div className="mb-10">
+          <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-c-white/70 font-mono mb-3">A Production By</p>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-black tracking-[0.15em] mb-3">
+            <span className="text-c-white">KAAY</span>{' '}
+            <span className="text-c-cyan" style={{ textShadow: '0 0 15px rgba(0,229,255,0.6), 0 0 30px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.15)' }}>VISION</span>
+          </h2>
+          <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-c-white/70 font-mono mb-5">Presents</p>
+          {/* Decorative line with glowing dot */}
+          <div className="flex items-center justify-center gap-3 max-w-xs mx-auto">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-c-cyan/30"></div>
+            <div className="w-2 h-2 rounded-full bg-c-cyan shadow-neon-cyan animate-pulse-slow"></div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-c-cyan/30"></div>
+          </div>
+        </div>
 
         {/* Poster with rainbow border */}
         <div className="relative inline-block mb-10 animate-float-slow">
