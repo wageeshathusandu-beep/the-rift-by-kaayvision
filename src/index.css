@@ -202,6 +202,13 @@
   }
 
   .nav-link-ind:hover::after { width: 100%; }
+
+  /* ===== HORROR DIVIDER ===== */
+  .horror-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 5%, #333 20%, #7A1717 50%, #333 80%, transparent 95%);
+    opacity: 0.5;
+  }
 }
 
 /* ===== KEYFRAMES ===== */

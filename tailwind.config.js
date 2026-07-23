@@ -17,6 +17,9 @@ export default {
         'rift-red': '#7A1717',
         'rift-green': '#46513A',
         'rift-grey': '#1a1a1a',
+        'rift-blood': '#8B0000',
+        'rift-blood-light': '#CC3333',
+        'rift-neon': '#D89A2B',
       },
       fontFamily: {
         display: ['Bebas Neue', 'sans-serif'],
@@ -24,6 +27,7 @@ export default {
         body: ['Rajdhani', 'sans-serif'],
         nav: ['Exo 2', 'sans-serif'],
         mono: ['IBM Plex Mono', 'monospace'],
+        cinematic: ['Bebas Neue', 'sans-serif'],
       },
     },
   },

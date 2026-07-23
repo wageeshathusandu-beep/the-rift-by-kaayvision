@@ -27,46 +27,55 @@ export default function Gallery() {
   }, [])
 
   return (
-    <section id="gallery" className="py-24 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-rift-darker via-[#060610] to-rift-darker"></div>
-
-      {/* Static ambient */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-rift-blood/4 rounded-full blur-[150px]"></div>
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-rift-neon/3 rounded-full blur-[120px]"></div>
-
-      <div className="absolute top-0 left-0 right-0 horror-divider"></div>
+    <section id="gallery" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-[#050505]"></div>
+      <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+      <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 008 // VISUAL DATA</span>
+      <span className="absolute top-6 right-4 md:right-8 tech-label">GALLERY</span>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <h2 className="section-heading">Gallery</h2>
-        <p className="text-center text-gray-300 mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
+        <p className="tech-label text-center mb-2">Visual Archive</p>
+        <h2 className="section-heading mb-4">Gallery</h2>
+        <p className="text-center text-rift-metal mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Exclusive stills from the production</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {galleryItems.map((item, index) => (
             <div
               key={item.title}
-              className={`group relative overflow-hidden rounded-2xl cursor-pointer border border-rift-blood/15 hover:border-rift-blood-light/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(139,0,0,0.2)] ${item.featured ? 'sm:col-span-2 lg:col-span-1 ring-1 ring-rift-blood/20' : ''}`}
+              className={`group ind-card p-0 overflow-hidden ${item.featured ? 'border-rift-amber/20' : ''}`}
+              style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(20px)', transition: `all 0.6s ease ${index * 0.1}s` }}
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#0a0a12] to-rift-darker flex items-center justify-center relative overflow-hidden">
+              {/* Top bar */}
+              <div className="h-6 bg-[#0a0a0a] border-b border-rift-metal/10 flex items-center justify-between px-3">
+                <div className="flex items-center gap-2">
+                  <span className="amber-dot"></span>
+                  <span className="tech-label">{item.title.toUpperCase()}</span>
+                </div>
+                <span className="tech-label">IMG</span>
+              </div>
+
+              <div className="aspect-[4/3] relative overflow-hidden bg-[#080808] scanlines">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
                 />
 
-                {/* Dark horror overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-rift-darker/80 via-transparent to-rift-blood/10 opacity-60 group-hover:opacity-30 transition-opacity duration-500"></div>
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500"></div>
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-rift-darker via-rift-darker/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                   <div>
-                    <h4 className="text-white font-heading text-2xl uppercase tracking-wider">{item.title}</h4>
-                    <p className="text-rift-blood-light text-sm font-body">{item.description}</p>
+                    <h4 className="text-rift-offwhite font-display text-xl uppercase tracking-wider">{item.title}</h4>
+                    <p className="text-rift-amber/70 text-sm font-body">{item.description}</p>
                   </div>
                 </div>
+              </div>
 
-                {/* Corner blood accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-rift-blood/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-rift-blood/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Bottom bar */}
+              <div className="h-5 bg-[#0a0a0a] border-t border-rift-metal/10 flex items-center justify-center">
+                <span className="tech-label">{item.description}</span>
               </div>
             </div>
           ))}
