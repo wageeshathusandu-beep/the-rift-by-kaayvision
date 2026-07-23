@@ -20,8 +20,8 @@ export default function FreeGift() {
 
         <div className="flex justify-center">
           <div className={`flex flex-col items-center transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.2s' }}>
-            <p className="tech-label mb-4">MOBILE // 9:16</p>
-            <div className="group w-full max-w-[260px] mb-8 rainbow-border rounded-2xl">
+            <p className="tech-label mb-5">MOBILE // 9:16</p>
+            <div className="group w-full max-w-[320px] sm:max-w-[340px] mb-10 rainbow-border rounded-2xl">
               <div className="bg-abyss rounded-2xl overflow-hidden">
                 <div className="aspect-[9/16] relative bg-abyss">
                   {mErr ? <div className="absolute inset-0 flex items-center justify-center"><p className="tech-label">SIGNAL LOST</p></div> :
@@ -29,7 +29,7 @@ export default function FreeGift() {
                 </div>
               </div>
             </div>
-            <a href="https://drive.google.com/drive/folders/161kz6guAHXy49lCeqrRccabNDi3yEp0U?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs">Download Mobile</a>
+            <a href="https://drive.google.com/drive/folders/161kz6guAHXy49lCeqrRccabNDi3yEp0U?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary">Download Mobile Wallpaper</a>
           </div>
         </div>
       </div>
