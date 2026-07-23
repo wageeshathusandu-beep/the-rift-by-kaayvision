@@ -18,59 +18,56 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-[#050505]"></div>
-      <div className="absolute top-0 left-0 right-0 archive-divider"></div>
+    <section id="contact" className="py-28 md:py-36 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-b from-deep via-abyss to-void"></div>
+      <div className="absolute top-0 left-0 right-0 alien-divider"></div>
+      <div className="orb orb-cyan w-[350px] h-[350px] top-[10%] left-[-8%] opacity-35"></div>
+      <div className="orb orb-blue w-[300px] h-[300px] bottom-[10%] right-[-5%] opacity-30"></div>
 
-      {/* Ambient orbs */}
-      <div className="orb-amber w-[350px] h-[350px] top-[10%] left-[-8%] opacity-30"></div>
-      <div className="orb-cyan w-[300px] h-[300px] bottom-[10%] right-[-5%] opacity-25"></div>
 
-      <span className="absolute top-6 left-4 md:left-8 tech-label">ARCHIVE FILE 007 // ENCRYPTED CHANNEL</span>
-
-      <div className={`relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-[1.2s] ease-smooth ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <p className="tech-label text-center mb-2">Secure Transmission</p>
-        <h2 className="section-heading mb-4">Get In Touch</h2>
-        <p className="text-center text-rift-metal mb-12 max-w-xl mx-auto font-body text-lg tracking-wide">Connect with us for press inquiries, partnerships, and updates</p>
+      <div className={`relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-[1.5s] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <p className="tech-label text-center mb-3">ENCRYPTED CHANNEL</p>
+        <h2 className="section-title mb-4">Get In Touch</h2>
+        <p className="text-center text-muted mb-14 max-w-xl mx-auto font-body text-lg tracking-wide">Press inquiries, partnerships, and updates</p>
 
         <div className="grid md:grid-cols-2 gap-10">
           {/* Form */}
-          <div className={`ind-card p-6 md:p-8 transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
-            <p className="tech-label mb-4">Encrypted Message</p>
-            <h3 className="font-display text-xl tracking-wide text-rift-offwhite mb-5">Send a Message</h3>
+          <div className={`glass-card p-6 md:p-8 transition-all duration-[1.2s] ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
+            <p className="tech-label mb-4">SECURE MESSAGE</p>
+            <h3 className="font-display text-xl tracking-widest text-soft-white mb-5">Send a Message</h3>
             <form className="space-y-3">
-              <input type="text" placeholder="Your Name" className="input-terminal" />
-              <input type="email" placeholder="Your Email" className="input-terminal" />
-              <textarea rows="4" placeholder="Your Message" className="input-terminal resize-none"></textarea>
-              <button type="button" className="btn-industrial w-full justify-center">Send Message</button>
+              <input type="text" placeholder="Your Name" className="input-alien" />
+              <input type="email" placeholder="Your Email" className="input-alien" />
+              <textarea rows="4" placeholder="Your Message" className="input-alien resize-none"></textarea>
+              <button type="button" className="btn-primary w-full justify-center text-xs">Transmit Message</button>
             </form>
           </div>
 
           {/* Info */}
-          <div className={`space-y-6 transition-all duration-[1s] ease-smooth ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '0.3s' }}>
-            <div className="ind-card p-6">
-              <p className="tech-label mb-4">Signal Channels</p>
-              <h3 className="font-display text-xl tracking-wide text-rift-offwhite mb-5">Follow Us</h3>
+          <div className={`space-y-6 transition-all duration-[1.2s] ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '0.3s' }}>
+            <div className="glass-card p-6">
+              <p className="tech-label mb-4">SIGNAL CHANNELS</p>
+              <h3 className="font-display text-xl tracking-widest text-soft-white mb-5">Follow Us</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {socials.map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="w-11 h-11 flex items-center justify-center bg-[#0a0a0a] border border-rift-metal/15 hover:border-rift-amber/40 hover:shadow-amber-glow transition-all duration-300 group">
-                    <svg className="w-5 h-5 text-rift-metal/50 group-hover:text-rift-amber/80 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d={s.d}/></svg>
+                    className="w-11 h-11 flex items-center justify-center rounded-lg bg-abyss/80 border border-alien-cyan/10 hover:border-alien-cyan/40 hover:shadow-cyan transition-all duration-300 group">
+                    <svg className="w-5 h-5 text-muted/50 group-hover:text-alien-cyan transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d={s.d}/></svg>
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="ind-card p-6">
-              <p className="tech-label mb-4">Contact Data</p>
-              <h3 className="font-display text-xl tracking-wide text-rift-offwhite mb-4">Contact Info</h3>
+            <div className="glass-card p-6">
+              <p className="tech-label mb-4">CONTACT DATA</p>
+              <h3 className="font-display text-xl tracking-widest text-soft-white mb-4">Info</h3>
               <div className="space-y-3">
-                <p className="flex items-center gap-3 text-rift-metal font-body text-sm">
-                  <svg className="w-4 h-4 text-rift-amber/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                <p className="flex items-center gap-3 text-muted font-body text-sm">
+                  <svg className="w-4 h-4 text-alien-cyan/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                   press@therift-movie.com
                 </p>
-                <p className="flex items-center gap-3 text-rift-metal font-body text-sm">
-                  <svg className="w-4 h-4 text-rift-amber/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                <p className="flex items-center gap-3 text-muted font-body text-sm">
+                  <svg className="w-4 h-4 text-alien-cyan/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
                   Hingurakgoda, Sri Lanka
                 </p>
               </div>
