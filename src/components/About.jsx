@@ -20,27 +20,59 @@ export default function About() {
           <h3 className="font-display text-2xl md:text-3xl tracking-widest text-c-white">SISARA SANAL</h3>
           <div className="w-20 h-px bg-gradient-to-r from-transparent via-c-cyan/40 to-transparent mx-auto mt-4"></div>
 
-          {/* Director's Video Preview */}
-          <div className="mt-8 max-w-md mx-auto">
+          {/* Director's Premium Video Showcase */}
+          <div className="mt-10 max-w-2xl mx-auto">
             <a
               href="https://www.youtube.com/watch?v=yy8F-f687Rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,229,255,0.15),0_0_60px_rgba(0,229,255,0.05)]"
+              className="group relative block rounded-[20px] overflow-hidden cursor-pointer transition-all duration-700 ease-out hover:translate-y-[-6px] hover:shadow-[0_0_40px_rgba(0,229,255,0.2),0_8px_60px_rgba(0,0,0,0.6)] shadow-[0_0_20px_rgba(0,229,255,0.08),0_4px_30px_rgba(0,0,0,0.4)]"
+              style={{ perspective: '1000px' }}
             >
-              <img
-                src="https://img.youtube.com/vi/yy8F-f687Rs/maxresdefault.jpg"
-                alt="Director's Vision"
-                className="w-full aspect-video object-cover rounded-2xl"
-                loading="lazy"
-                onError={(e) => { e.target.onerror = null; e.target.src = 'https://img.youtube.com/vi/yy8F-f687Rs/hqdefault.jpg'; }}
-              />
-              <div className="absolute inset-0 bg-void/30 group-hover:bg-void/10 transition-colors duration-500 rounded-2xl"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-void/60 border border-c-cyan/40 flex items-center justify-center backdrop-blur-sm group-hover:border-c-cyan/80 group-hover:shadow-neon-cyan group-hover:scale-110 transition-all duration-500">
-                  <svg className="w-7 h-7 text-c-cyan/80 group-hover:text-c-cyan ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              {/* Badge */}
+              <div className="absolute top-4 left-4 z-20">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-void/70 backdrop-blur-md border border-c-cyan/20 text-[9px] font-mono uppercase tracking-[0.2em] text-c-cyan/80">
+                  <span className="w-1.5 h-1.5 rounded-full bg-c-cyan animate-pulse-slow"></span>
+                  Director&apos;s Message
+                </span>
+              </div>
+
+              {/* Thumbnail */}
+              <div className="relative aspect-video overflow-hidden rounded-[20px]">
+                <img
+                  src="https://img.youtube.com/vi/yy8F-f687Rs/maxresdefault.jpg"
+                  alt="Director's Message - Sisara Sanal"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  loading="lazy"
+                  onError={(e) => { e.target.onerror = null; e.target.src = 'https://img.youtube.com/vi/yy8F-f687Rs/hqdefault.jpg'; }}
+                />
+
+                {/* Cinematic gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-void/20 to-void/10 group-hover:from-void/70 group-hover:via-void/10 group-hover:to-transparent transition-all duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-void/30 via-transparent to-void/30"></div>
+
+                {/* Animated play button */}
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="relative flex items-center justify-center">
+                    {/* Pulse ring */}
+                    <div className="absolute w-24 h-24 rounded-full border border-c-cyan/20 animate-ping opacity-20 group-hover:opacity-40"></div>
+                    <div className="absolute w-20 h-20 rounded-full border border-c-cyan/10 animate-pulse-slow"></div>
+                    {/* Glass play button */}
+                    <div className="relative w-18 h-18 md:w-20 md:h-20 rounded-full bg-void/40 backdrop-blur-xl border border-c-white/15 flex items-center justify-center group-hover:bg-void/50 group-hover:border-c-cyan/50 group-hover:shadow-[0_0_30px_rgba(0,229,255,0.3),inset_0_0_20px_rgba(0,229,255,0.05)] transition-all duration-500 group-hover:scale-110" style={{ width: '72px', height: '72px' }}>
+                      <svg className="w-8 h-8 text-c-white/90 group-hover:text-c-cyan ml-1 transition-all duration-500 group-hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.6)]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom title area */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                  <p className="font-heading text-sm md:text-base font-medium text-c-white/90 tracking-wide group-hover:text-c-white transition-colors duration-300">Watch the Director&apos;s Message</p>
+                  <p className="font-mono text-[10px] text-c-muted/60 uppercase tracking-widest mt-1">YouTube &bull; HD</p>
                 </div>
               </div>
+
+              {/* Bottom edge glow line */}
+              <div className="absolute bottom-0 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-c-cyan/30 to-transparent group-hover:via-c-cyan/60 transition-all duration-700"></div>
             </a>
           </div>
         </div>
