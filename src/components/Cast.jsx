@@ -11,7 +11,7 @@ const crew = [
   { name: 'Sisara SD', role: 'Cinematography', image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
   { name: 'H.R.W.T. Dahamsara', role: 'Clapper Loader', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
   { name: 'Namina Deemantha', role: 'Boom Operator', image: 'https://lh3.googleusercontent.com/d/1x0OkdwIlhRwY7H-Y9YDib0ytLGWsVd6z' },
-  { name: 'Widuranga & Sajith', role: 'Characters Coordinator' },
+  { name: 'Widuranga & Sajith' },
   { name: 'H.R.W Thusandu', role: 'Production Manager', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
 ]
 
