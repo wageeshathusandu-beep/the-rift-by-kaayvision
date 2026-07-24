@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
-const subRoles = ['Sachith Sahan','Nipun Nethmal','Geeshan Randunu','Inuki Akithra','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
+const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
 const crew = [
-  { name: 'Sisara Sanal', role: 'Director', hl: true },
-  { name: 'Visal Damsith', role: 'Asst. Director' },
-  { name: 'Wageesha Thusandu', role: 'Production Mgr' },
-  { name: 'SS Dissanayake', role: 'Writer' },
+  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true },
+  { name: 'Visal Damsith', role: 'Assistant Director' },
+  { name: 'Wageesha Thusandu', role: 'FPV Pilot' },
+  { name: 'SS Dissanayake', role: 'Editor' },
   { name: 'Sisara SD', role: 'Cinematography' },
   { name: 'H.R.W.T. Dahamsara', role: 'Clapper Loader' },
-  { name: 'Namina Deemantha', role: 'Boom' },
-  { name: 'Widuranga & Sajith', role: 'Coordinator' },
-  { name: 'W. Thusandu', role: 'FPV Pilot' },
+  { name: 'Namina Deemantha', role: 'Boom Operator' },
+  { name: 'Widuranga & Sajith', role: 'Characters Coordinator' },
+  { name: 'H.R.W Thusandu', role: 'Production Manager' },
 ]
 
 function Card({ name, role, hl }) {
