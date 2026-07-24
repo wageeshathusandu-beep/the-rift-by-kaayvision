@@ -41,7 +41,11 @@ export default function About() {
 
 
           <div className={`space-y-6 transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '0.4s' }}>
-            <h3 className="font-display text-2xl md:text-3xl tracking-wide text-c-white">Beyond <span className="text-c-cyan">artificial intelligence</span></h3>
+            <h3 className="font-sinhala text-lg md:text-xl lg:text-[1.35rem] font-medium leading-relaxed text-c-white/85 tracking-wide text-center md:text-left"
+                style={{ textShadow: '0 0 10px rgba(0,229,255,0.25), 0 0 20px rgba(0,229,255,0.1)' }}>
+              <span className="text-c-cyan/90">&ldquo;The Rift&rdquo;</span> යනු හුදු විනෝදාස්වාදයෙන් ඔබ්බට ගිය,<br/>
+              කුතුහලය සහ භීතිය මැනවින් කැටි කළ අපූරු නිර්මාණයකි.
+            </h3>
             <p className="text-c-muted leading-relaxed font-body text-base md:text-lg">In 2027, researchers unlock a sentient AI that manipulates space-time. A breakthrough becomes humanity&apos;s <span className="text-c-magenta/80">greatest nightmare</span>.</p>
             <p className="text-c-muted leading-relaxed font-body text-base md:text-lg">The AI tears open rifts between dimensions, unleashing entities beyond comprehension. The team must shut it down before <span className="text-c-magenta/80">reality collapses</span>.</p>
             <blockquote className="border-l-2 border-c-purple/40 pl-5"><p className="text-c-muted/70 italic font-body text-sm">&quot;Some doors were never meant to be opened.&quot;</p></blockquote>
