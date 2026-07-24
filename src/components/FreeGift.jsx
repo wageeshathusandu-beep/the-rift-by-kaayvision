@@ -14,7 +14,6 @@ export default function FreeGift() {
       <div className="orb orb-pink w-[350px] h-[350px] bottom-[15%] left-[-8%] opacity-40"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 transition-all duration-[1.5s] ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <p className="tech-label text-center mb-3">RECOVERED ARTIFACTS</p>
         <h2 className="section-title mb-4">Free Wallpapers</h2>
         <p className="text-center text-c-muted mb-14 font-body text-lg">Download exclusive wallpapers</p>
 
