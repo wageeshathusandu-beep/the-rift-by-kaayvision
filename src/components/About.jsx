@@ -78,7 +78,7 @@ export default function About() {
         </div>
         <p className="tech-label text-center mb-3">INTEL BRIEFING</p>
         <h2 className="section-title mb-4">About The Film</h2>
-        <p className="text-center text-c-muted mb-16 font-body text-lg">A new chapter in AI horror</p>
+        <p className="text-center text-c-muted mb-16 font-body text-lg">A New Chapter in Sinhala Cinema</p>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className={`transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
