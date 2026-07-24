@@ -28,7 +28,7 @@ export default function About() {
           <div className={`transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="rainbow-border rounded-2xl">
               <div className="relative w-full h-80 md:h-96 bg-abyss rounded-2xl overflow-hidden">
-                <img src="https://i.imgur.com/162JyPV.jpeg" alt="The Rift" className="absolute inset-0 w-full h-full object-cover opacity-40"/>
+                <img src="https://lh3.googleusercontent.com/d/1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL" alt="The Rift" className="absolute inset-0 w-full h-full object-cover opacity-40"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-void/95 via-void/40 to-c-emerald/5"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full border border-c-cyan/25 flex items-center justify-center animate-pulse-slow">
