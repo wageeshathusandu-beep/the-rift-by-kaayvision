@@ -28,13 +28,8 @@ export default function About() {
           <div className={`transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="rainbow-border rounded-2xl">
               <div className="relative w-full h-80 md:h-96 bg-abyss rounded-2xl overflow-hidden">
-                <img src="https://lh3.googleusercontent.com/d/1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL" alt="The Rift" className="absolute inset-0 w-full h-full object-cover opacity-40"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-void/95 via-void/40 to-c-emerald/5"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full border border-c-cyan/25 flex items-center justify-center animate-pulse-slow">
-                    <svg className="w-8 h-8 text-c-cyan/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
-                  </div>
-                </div>
+                <img src="https://drive.google.com/uc?export=view&id=1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL" alt="The Rift" className="absolute inset-0 w-full h-full object-cover"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-void/30"></div>
               </div>
             </div>
           </div>
