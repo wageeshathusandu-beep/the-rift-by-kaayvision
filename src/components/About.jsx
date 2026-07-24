@@ -52,7 +52,7 @@ export default function About() {
             </p>
             <blockquote className="border-l-2 border-c-purple/40 pl-5"><p className="text-c-muted/70 italic font-body text-sm">&quot;Some doors were never meant to be opened.&quot;</p></blockquote>
             <div className="grid grid-cols-2 gap-3 pt-4">
-              {[['2026','Release'],['2h 15m','Runtime'],['R','Rating'],['AI','Sci-Fi Horror']].map(([v,l]) => (
+              {[['2026','Release'],['2h 15m','Runtime'],['N/A','Rating'],['A+','Sci-Fi Horror']].map(([v,l]) => (
                 <div key={l} className="glass-card p-4 text-center"><p className="text-c-cyan font-display text-xl">{v}</p><p className="tech-label mt-1">{l}</p></div>
               ))}
             </div>
