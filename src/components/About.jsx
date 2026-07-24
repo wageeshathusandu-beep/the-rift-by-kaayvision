@@ -19,6 +19,30 @@ export default function About() {
           <p className="tech-label mb-3">DIRECTED BY</p>
           <h3 className="font-display text-2xl md:text-3xl tracking-widest text-c-white">SISARA SANAL</h3>
           <div className="w-20 h-px bg-gradient-to-r from-transparent via-c-cyan/40 to-transparent mx-auto mt-4"></div>
+
+          {/* Director's Video Preview */}
+          <div className="mt-8 max-w-md mx-auto">
+            <a
+              href="https://www.youtube.com/watch?v=yy8F-f687Rs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,229,255,0.15),0_0_60px_rgba(0,229,255,0.05)]"
+            >
+              <img
+                src="https://img.youtube.com/vi/yy8F-f687Rs/maxresdefault.jpg"
+                alt="Director's Vision"
+                className="w-full aspect-video object-cover rounded-2xl"
+                loading="lazy"
+                onError={(e) => { e.target.onerror = null; e.target.src = 'https://img.youtube.com/vi/yy8F-f687Rs/hqdefault.jpg'; }}
+              />
+              <div className="absolute inset-0 bg-void/30 group-hover:bg-void/10 transition-colors duration-500 rounded-2xl"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-void/60 border border-c-cyan/40 flex items-center justify-center backdrop-blur-sm group-hover:border-c-cyan/80 group-hover:shadow-neon-cyan group-hover:scale-110 transition-all duration-500">
+                  <svg className="w-7 h-7 text-c-cyan/80 group-hover:text-c-cyan ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
         <p className="tech-label text-center mb-3">INTEL BRIEFING</p>
         <h2 className="section-title mb-4">About The Film</h2>
