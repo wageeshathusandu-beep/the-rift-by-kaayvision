@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
 const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
 const crew = [
-  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1_T4wO7nBIKmhmDkAb_livvEpCHX6oG1Q' },
+  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs' },
   { name: 'Visal Damsith', role: 'Assistant Director' },
   { name: 'Wageesha Thusandu', role: 'FPV Pilot' },
   { name: 'SS Dissanayake', role: 'Editor' },
@@ -29,7 +29,7 @@ function Card({ name, role, hl, image, index = 0, isVisible }) {
             src={image}
             alt={name}
             className="w-full h-full object-cover"
-            onError={(e) => { e.target.onerror = null; e.target.src = `https://drive.google.com/uc?export=view&id=1_T4wO7nBIKmhmDkAb_livvEpCHX6oG1Q`; }}
+            onError={(e) => { e.target.onerror = null; e.target.src = `https://drive.google.com/uc?export=view&id=1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs`; }}
           />
         </div>
       ) : (
