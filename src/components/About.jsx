@@ -28,7 +28,12 @@ export default function About() {
           <div className={`transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
             <div className="gold-border rounded-2xl">
               <div className="relative w-full h-80 md:h-96 bg-abyss rounded-2xl overflow-hidden">
-                <img src="https://drive.google.com/uc?export=view&id=1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL" alt="The Rift" className="absolute inset-0 w-full h-full object-cover"/>
+                <img
+                  src="https://lh3.googleusercontent.com/d/1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL"
+                  alt="The Rift"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/api/image?id=1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL'; }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent"></div>
               </div>
             </div>
