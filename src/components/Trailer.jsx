@@ -16,7 +16,10 @@ export default function Trailer() {
       <div className={`relative z-10 max-w-5xl mx-auto px-4 transition-all duration-[1.5s] ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
         <p className="tech-label text-center mb-3">TRANSMISSION RECEIVED</p>
         <h2 className="section-title mb-4">Official Trailer</h2>
-        <p className="text-center text-c-muted mb-14 font-body text-lg">First contact. No survivors.</p>
+        <p className="text-center mb-14 font-heading font-light text-base md:text-lg uppercase tracking-[0.2em] text-c-white/70 animate-fade-in-slow"
+           style={{ animationDelay: '0.4s', opacity: 0, textShadow: '0 0 10px rgba(0,229,255,0.2), 0 0 20px rgba(124,77,255,0.1)' }}>
+          A New Chapter in Sri Lanka Cinema
+        </p>
 
         <div className={`transition-all duration-[1.8s] ease-out ${vis ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '0.3s' }}>
           <div className="rainbow-border rounded-2xl">
