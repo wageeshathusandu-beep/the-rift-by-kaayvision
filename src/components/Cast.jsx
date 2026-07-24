@@ -43,7 +43,7 @@ export default function Cast() {
       <div className="orb orb-pink w-[400px] h-[400px] bottom-[10%] right-[-8%] opacity-40"></div>
 
       <div className={`relative z-10 max-w-6xl mx-auto px-4 transition-all duration-[1.5s] ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <p className="tech-label text-center mb-3">PERSONNEL DATABASE</p>
+        <p className="tech-label text-center mb-3">Film Database</p>
         <h2 className="section-title mb-4">Cast & Crew</h2>
         <p className="text-center text-c-muted mb-16 font-body text-lg">The visionaries behind The Rift</p>
 
