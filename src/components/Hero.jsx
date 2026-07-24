@@ -95,7 +95,7 @@ export default function Hero() {
           </p>
           <p className="font-display text-[11px] md:text-xs uppercase tracking-[0.3em] text-c-cyan/70 mt-4"
              style={{ textShadow: '0 0 8px rgba(0,229,255,0.25)' }}>
-            Artificial Sci-Fi Horror Sinhala Film
+            Sci-Fi Horror Sinhala Film
           </p>
         </motion.div>
 
