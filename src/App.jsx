@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Trailer from './components/Trailer'
@@ -7,20 +8,36 @@ import FreeGift from './components/FreeGift'
 import UpcomingProjects from './components/UpcomingProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Loader from './components/Loader'
+import Particles from './components/Particles'
+import { ScrollProgressBar, BackToTop } from './components/ScrollProgress'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2200)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <div className="min-h-screen bg-void overflow-x-hidden cinema-vignette scan-line">
-      <Navbar />
-      <Hero />
-      <Trailer />
-      <About />
-      <Cast />
-      <FreeGift />
-      <UpcomingProjects />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <Loader isLoading={isLoading} />
+      <div className={`min-h-screen bg-void overflow-x-hidden cinema-vignette scan-line ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+        <ScrollProgressBar />
+        <Particles />
+        <Navbar />
+        <Hero />
+        <Trailer />
+        <About />
+        <Cast />
+        <FreeGift />
+        <UpcomingProjects />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </div>
+    </>
   )
 }
 

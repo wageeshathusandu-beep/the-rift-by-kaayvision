@@ -138,6 +138,22 @@
 .stagger.revealed > *:nth-child(9) { transition-delay: 0.61s; opacity: 1; transform: translateY(0); }
 .stagger.revealed > *:nth-child(n+10) { transition-delay: 0.68s; opacity: 1; transform: translateY(0); }
 
+/* Button press animations */
+.btn-primary:active, .btn-secondary:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 100ms;
+}
+
+/* Enhanced input focus glow */
+.input-field:focus {
+  border-color: rgba(0,229,255,0.5);
+  box-shadow: 0 0 15px rgba(0,229,255,0.1), 0 0 30px rgba(0,229,255,0.05), inset 0 0 5px rgba(0,229,255,0.02);
+}
+
+/* Smooth anchor scroll */
+html { scroll-behavior: smooth; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
 }

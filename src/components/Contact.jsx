@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
 const socials = [
   { href: 'https://www.tiktok.com/@theriftofficial0', label: 'TikTok', d: 'M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.1V9.4a6.33 6.33 0 00-.82-.05A6.34 6.34 0 003.15 15.7a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.42a8.16 8.16 0 004.76 1.52V7.5a4.85 4.85 0 01-1-.81z' },
@@ -19,29 +20,55 @@ export default function Contact() {
       <div className="orb orb-cyan w-[400px] h-[400px] top-[10%] left-[-8%] opacity-40"></div>
       <div className="orb orb-emerald w-[350px] h-[350px] bottom-[10%] right-[-5%] opacity-35"></div>
 
-
-      <div className={`relative z-10 max-w-4xl mx-auto px-4 transition-all duration-[1.5s] ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <h2 className="section-title mb-4">Get In Touch</h2>
-        <p className="text-center text-c-muted mb-14 font-body text-lg">Press, partnerships, updates</p>
+      <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={vis ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h2 className="section-title mb-4">Get In Touch</h2>
+          <p className="text-center text-c-muted mb-14 font-body text-lg">Press, partnerships, updates</p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          <div className={`glass-card p-6 md:p-8 transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`} style={{ transitionDelay: '0.2s' }}>
+          <motion.div
+            className="glass-card p-6 md:p-8"
+            initial={{ opacity: 0, x: -30 }}
+            animate={vis ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          >
             <p className="tech-label mb-4">SECURE MESSAGE</p>
             <form className="space-y-3">
               <input type="text" placeholder="Your Name" className="input-field" />
               <input type="email" placeholder="Your Email" className="input-field" />
               <textarea rows="4" placeholder="Your Message" className="input-field resize-none"></textarea>
-              <button type="button" className="btn-primary w-full justify-center text-xs">Transmit</button>
+              <button type="button" className="btn-primary w-full justify-center text-xs active:scale-[0.97] transition-transform duration-150">Transmit</button>
             </form>
-          </div>
-          <div className={`space-y-6 transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '0.3s' }}>
+          </motion.div>
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 30 }}
+            animate={vis ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          >
             <div className="glass-card p-6">
               <p className="tech-label mb-4">FOLLOW US</p>
               <div className="flex flex-wrap justify-center gap-3">
-                {socials.map(s => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-xl bg-abyss/80 border border-c-purple/10 hover:border-c-cyan/40 hover:shadow-neon-cyan transition-all duration-300 group">
+                {socials.map((s, i) => (
+                  <motion.a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-abyss/80 border border-c-purple/10 hover:border-c-cyan/40 hover:shadow-neon-cyan transition-all duration-300 group"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={vis ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 + i * 0.05, duration: 0.4 }}
+                  >
                     <svg className="w-5 h-5 text-c-muted/50 group-hover:text-c-cyan transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d={s.d}/></svg>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -64,7 +91,7 @@ export default function Contact() {
                 Hingurakgoda, Sri Lanka
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
