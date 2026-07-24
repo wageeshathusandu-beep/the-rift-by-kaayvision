@@ -14,8 +14,9 @@ export default function Navbar() {
     { label: 'Home', href: '#home' },
     { label: 'Trailer', href: '#trailer' },
     { label: 'About', href: '#about' },
-    { label: 'Cast', href: '#cast' },
+    { label: 'Crew & Cast', href: '#cast' },
     { label: 'Free Gift', href: '#free-gift' },
+    { label: 'Upcoming Projects', href: '#upcoming' },
     { label: 'Contact', href: '#contact' },
   ]
 
