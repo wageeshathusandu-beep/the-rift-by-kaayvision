@@ -21,7 +21,6 @@ export default function Contact() {
 
 
       <div className={`relative z-10 max-w-4xl mx-auto px-4 transition-all duration-[1.5s] ease-out ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <p className="tech-label text-center mb-3">ENCRYPTED CHANNEL</p>
         <h2 className="section-title mb-4">Get In Touch</h2>
         <p className="text-center text-c-muted mb-14 font-body text-lg">Press, partnerships, updates</p>
 
