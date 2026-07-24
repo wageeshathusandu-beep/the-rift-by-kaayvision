@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
 const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
 const crew = [
-  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1PeckAVgmBKmLKX3__574W_93_vMvHXR_' },
-  { name: 'Visal Damsith', role: 'Assistant Director' },
-  { name: 'Wageesha Thusandu', role: 'FPV Pilot' },
-  { name: 'SS Dissanayake', role: 'Editor' },
-  { name: 'Sisara SD', role: 'Cinematography' },
-  { name: 'H.R.W.T. Dahamsara', role: 'Clapper Loader' },
-  { name: 'Namina Deemantha', role: 'Boom Operator' },
+  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
+  { name: 'Visal Damsith', role: 'Assistant Director', image: 'https://lh3.googleusercontent.com/d/1pCdZis39cmnPBDkntPpvIxvNza7_nsjq' },
+  { name: 'Wageesha Thusandu', role: 'FPV Pilot', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
+  { name: 'SS Dissanayake', role: 'Editor', image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
+  { name: 'Sisara SD', role: 'Cinematography', image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
+  { name: 'H.R.W.T. Dahamsara', role: 'Clapper Loader', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
+  { name: 'Namina Deemantha', role: 'Boom Operator', image: 'https://lh3.googleusercontent.com/d/1x0OkdwIlhRwY7H-Y9YDib0ytLGWsVd6z' },
   { name: 'Widuranga & Sajith', role: 'Characters Coordinator' },
-  { name: 'H.R.W Thusandu', role: 'Production Manager' },
+  { name: 'H.R.W Thusandu', role: 'Production Manager', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
 ]
 
 function Card({ name, role, hl, image, index = 0, isVisible }) {
@@ -29,7 +29,7 @@ function Card({ name, role, hl, image, index = 0, isVisible }) {
             src={image}
             alt={name}
             className="w-full h-full object-cover"
-            onError={(e) => { e.target.onerror = null; e.target.src = `https://drive.google.com/uc?export=view&id=1PeckAVgmBKmLKX3__574W_93_vMvHXR_`; }}
+            onError={(e) => { e.target.onerror = null; e.target.src = image.replace('https://lh3.googleusercontent.com/d/', 'https://drive.google.com/uc?export=view&id='); }}
           />
         </div>
       ) : (
