@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const projects = [
   { id: '01', title: 'Project 01', status: 'Classified', color: 'text-c-red', href: 'https://youtu.be/y3_Ll8mhzPw?si=qR8u0N-hSNcH6SJi', videoId: 'y3_Ll8mhzPw' },
   { id: '02', title: 'Project 02', status: 'In Development', color: 'text-c-cyan', href: 'https://youtu.be/oZ0AEXVQNdA?si=GnGMPZZBouu1gA03', videoId: 'oZ0AEXVQNdA' },
-  { id: '03', title: 'Project 03', status: 'Coming Soon', color: 'text-c-muted' },
+  { id: '03', title: 'Project 03', status: 'Coming Soon', color: 'text-c-muted', coverImage: 'https://lh3.googleusercontent.com/d/1cNwCn-r075gufwKLe4DP4MuwXyBpwEzF' },
 ]
 
 export default function UpcomingProjects() {
@@ -34,14 +34,14 @@ export default function UpcomingProjects() {
           {projects.map((p, i) => {
             const content = (
               <>
-                {p.videoId && (
+                {(p.videoId || p.coverImage) && (
                   <div className="relative w-full h-40 -mt-8 -mx-8 mb-4 overflow-hidden rounded-t-2xl" style={{ width: 'calc(100% + 4rem)' }}>
                     <img
-                      src={`https://img.youtube.com/vi/${p.videoId}/maxresdefault.jpg`}
+                      src={p.videoId ? `https://img.youtube.com/vi/${p.videoId}/maxresdefault.jpg` : p.coverImage}
                       alt={p.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
-                      onError={(e) => { e.target.onerror = null; e.target.src = `https://img.youtube.com/vi/${p.videoId}/hqdefault.jpg`; }}
+                      onError={(e) => { e.target.onerror = null; e.target.src = p.videoId ? `https://img.youtube.com/vi/${p.videoId}/hqdefault.jpg` : `https://drive.google.com/uc?export=view&id=1cNwCn-r075gufwKLe4DP4MuwXyBpwEzF`; }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent"></div>
                   </div>
