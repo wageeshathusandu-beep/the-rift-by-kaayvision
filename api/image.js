@@ -1,7 +1,16 @@
-export default async function handler(req, res) {
-  const fileId = req.query.id;
+export const config = {
+  runtime: 'edge',
+};
+
+export default async function handler(request) {
+  const { searchParams } = new URL(request.url);
+  const fileId = searchParams.get('id');
+
   if (!fileId) {
-    return res.status(400).json({ error: 'Missing file id' });
+    return new Response(JSON.stringify({ error: 'Missing file id' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   try {
@@ -9,16 +18,26 @@ export default async function handler(req, res) {
     const response = await fetch(url, { redirect: 'follow' });
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: 'Failed to fetch image' });
+      return new Response(JSON.stringify({ error: 'Failed to fetch image' }), {
+        status: response.status,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     const contentType = response.headers.get('content-type') || 'image/jpeg';
-    const buffer = Buffer.from(await response.arrayBuffer());
+    const body = await response.arrayBuffer();
 
-    res.setHeader('Content-Type', contentType);
-    res.setHeader('Cache-Control', 'public, max-age=86400, s-maxage=86400');
-    res.send(buffer);
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      },
+    });
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }
