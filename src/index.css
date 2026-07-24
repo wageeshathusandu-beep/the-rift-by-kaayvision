@@ -44,6 +44,18 @@
     animation: border-flow 6s linear infinite;
   }
   .rainbow-border > * { border-radius: 14px; }
+  .gold-border {
+    position: relative; border-radius: 16px; padding: 2px;
+    background: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B, #D4AF37, #FFD700);
+    background-size: 300% 300%;
+    animation: border-flow 6s linear infinite;
+    box-shadow: 0 0 15px rgba(255,215,0,0.25), 0 0 30px rgba(212,175,55,0.15), 0 0 50px rgba(184,134,11,0.08);
+    transition: box-shadow 0.5s ease;
+  }
+  .gold-border:hover {
+    box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 40px rgba(212,175,55,0.25), 0 0 60px rgba(184,134,11,0.12);
+  }
+  .gold-border > * { border-radius: 14px; }
   .section-title {
     @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center uppercase tracking-wider;
     color: #eef2ff;

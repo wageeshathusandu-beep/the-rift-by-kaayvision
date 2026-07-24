@@ -26,10 +26,10 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className={`transition-all duration-[1.2s] ${vis ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
-            <div className="rainbow-border rounded-2xl">
+            <div className="gold-border rounded-2xl">
               <div className="relative w-full h-80 md:h-96 bg-abyss rounded-2xl overflow-hidden">
                 <img src="https://drive.google.com/uc?export=view&id=1SgpuqqOzQe_MrCMid5tSpq4Kq5NB1uDL" alt="The Rift" className="absolute inset-0 w-full h-full object-cover"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-void/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent"></div>
               </div>
             </div>
           </div>
