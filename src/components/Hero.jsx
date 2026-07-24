@@ -55,7 +55,10 @@ export default function Hero() {
             Artificial Sci-Fi Horror Sinhala Film
           </p>
         </div>
-        <p className="text-sm text-c-magenta/70 font-mono tracking-widest mb-10 uppercase">Some doors were never meant to be opened</p>
+        <p className="text-sm font-heading font-light tracking-[0.25em] mb-10 uppercase text-c-white/60 animate-fade-in-slow"
+           style={{ animationDelay: '1.2s', opacity: 0, textShadow: '0 0 10px rgba(0,229,255,0.2), 0 0 20px rgba(0,229,255,0.08)' }}>
+          Some places are never meant to be explored.
+        </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <a href="#trailer" className="btn-primary">
