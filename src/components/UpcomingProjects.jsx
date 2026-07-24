@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 const projects = [
-  { id: '01', title: 'Project 01', status: 'Classified', color: 'text-c-red', href: 'https://youtu.be/y3_Ll8mhzPw?si=qR8u0N-hSNcH6SJi' },
-  { id: '02', title: 'Project 02', status: 'In Development', color: 'text-c-cyan', href: 'https://youtu.be/oZ0AEXVQNdA?si=GnGMPZZBouu1gA03' },
+  { id: '01', title: 'Project 01', status: 'Classified', color: 'text-c-red', href: 'https://youtu.be/y3_Ll8mhzPw?si=qR8u0N-hSNcH6SJi', videoId: 'y3_Ll8mhzPw' },
+  { id: '02', title: 'Project 02', status: 'In Development', color: 'text-c-cyan', href: 'https://youtu.be/oZ0AEXVQNdA?si=GnGMPZZBouu1gA03', videoId: 'oZ0AEXVQNdA' },
   { id: '03', title: 'Project 03', status: 'Coming Soon', color: 'text-c-muted' },
 ]
 
@@ -27,13 +27,24 @@ export default function UpcomingProjects() {
           {projects.map(p => {
             const content = (
               <>
+                {p.videoId && (
+                  <div className="relative w-full h-40 -mt-8 -mx-8 mb-4 overflow-hidden rounded-t-2xl" style={{ width: 'calc(100% + 4rem)' }}>
+                    <img
+                      src={`https://img.youtube.com/vi/${p.videoId}/maxresdefault.jpg`}
+                      alt={p.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => { e.target.onerror = null; e.target.src = `https://img.youtube.com/vi/${p.videoId}/hqdefault.jpg`; }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent"></div>
+                  </div>
+                )}
                 <span className="text-5xl font-display text-c-muted/10 group-hover:text-c-purple/10 transition-colors duration-500">{p.id}</span>
                 <h3 className="font-display text-xl tracking-widest text-c-white mt-2 mb-3">{p.title}</h3>
                 <span className={`font-mono text-[10px] uppercase tracking-widest ${p.color}`}>{p.status}</span>
               </>
             )
             return p.href ? (
-              <a key={p.id} href={p.href} target="_blank" rel="noopener noreferrer" className="glass-card p-8 text-center group cursor-pointer block">
+              <a key={p.id} href={p.href} target="_blank" rel="noopener noreferrer" className="glass-card p-8 text-center group cursor-pointer block overflow-hidden">
                 {content}
               </a>
             ) : (
