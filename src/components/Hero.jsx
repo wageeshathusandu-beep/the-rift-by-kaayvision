@@ -24,7 +24,7 @@ export default function Hero() {
             <span className="text-c-white">KAAY</span>{' '}
             <span className="text-c-cyan" style={{ textShadow: '0 0 15px rgba(0,229,255,0.6), 0 0 30px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.15)' }}>VISION</span>
           </h2>
-          <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-c-white/70 font-mono mb-5">Presents</p>
+
           {/* Decorative line with glowing dot */}
           <div className="flex items-center justify-center gap-3 max-w-xs mx-auto">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent to-c-cyan/30"></div>
