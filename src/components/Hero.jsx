@@ -41,9 +41,20 @@ export default function Hero() {
         </div>
 
         <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-black tracking-wider text-c-white mb-4 animate-glow">THE RIFT</h1>
-        <p className="text-lg md:text-xl text-c-muted max-w-2xl mx-auto mb-4 font-body tracking-wide">
-          When artificial intelligence tears open reality, <span className="text-c-cyan">humanity faces extinction.</span>
-        </p>
+        <div className="max-w-2xl mx-auto mb-4 animate-fade-in-slow" style={{ animationDelay: '0.8s', opacity: 0 }}>
+          <p className="font-sinhala text-xl md:text-2xl lg:text-[1.7rem] font-medium leading-relaxed text-c-white/90 tracking-wide"
+             style={{ textShadow: '0 0 12px rgba(0,229,255,0.35), 0 0 25px rgba(0,229,255,0.15)' }}>
+            ගවේෂණය අවසන්...
+          </p>
+          <p className="font-sinhala text-xl md:text-2xl lg:text-[1.7rem] font-medium leading-relaxed text-c-white/90 tracking-wide mt-1"
+             style={{ textShadow: '0 0 12px rgba(0,229,255,0.35), 0 0 25px rgba(0,229,255,0.15)' }}>
+            දැන් ඇත්තේ ජීවිතය බේරා ගැනීමේ සටනක් පමණයි!
+          </p>
+          <p className="font-display text-[11px] md:text-xs uppercase tracking-[0.3em] text-c-cyan/70 mt-4"
+             style={{ textShadow: '0 0 8px rgba(0,229,255,0.25)' }}>
+            Artificial Sci-Fi Horror Sinhala Film
+          </p>
+        </div>
         <p className="text-sm text-c-magenta/70 font-mono tracking-widest mb-10 uppercase">Some doors were never meant to be opened</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
