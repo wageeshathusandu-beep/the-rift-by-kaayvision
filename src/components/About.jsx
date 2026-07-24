@@ -106,7 +106,6 @@ export default function About() {
                style={{ textShadow: '0 0 8px rgba(0,229,255,0.15), 0 0 16px rgba(0,229,255,0.06)' }}>
               දේශීය සිනමාවට නවමු අත්දැකීමක් එක් කරමින්, ප්‍රේක්ෂක ඔබව අතිශය ත්‍රාසජනක ගමනක් රැගෙන යාමට සූදානම් වන නවතම ලාංකේය විද්‍යා ප්‍රබන්ධ සහ ත්‍රාසජනක සිනමා සිත්තම වන <span className="text-c-cyan/90">&ldquo;The Rift&rdquo;</span> හි පූර්ව ප්‍රචාරක පටය (Trailer) මේ වන විට නිල වශයෙන් නිකුත් කර තිබෙනවා.
             </p>
-            <blockquote className="border-l-2 border-c-purple/40 pl-5"><p className="text-c-muted/70 italic font-body text-sm">&quot;Some doors were never meant to be opened.&quot;</p></blockquote>
             <div className="grid grid-cols-2 gap-3 pt-4">
               {[['2026','Release'],['2h 15m','Runtime'],['N/A','Rating'],['A+','Sci-Fi Horror']].map(([v,l]) => (
                 <div key={l} className="glass-card p-4 text-center"><p className="text-c-cyan font-display text-xl">{v}</p><p className="tech-label mt-1">{l}</p></div>
