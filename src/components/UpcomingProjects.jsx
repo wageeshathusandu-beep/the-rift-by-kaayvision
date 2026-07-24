@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 const projects = [
-  { id: '01', title: 'Project 01', status: 'Classified', color: 'text-c-red' },
-  { id: '02', title: 'Project 02', status: 'In Development', color: 'text-c-cyan' },
+  { id: '01', title: 'Project 01', status: 'Classified', color: 'text-c-red', href: 'https://youtu.be/y3_Ll8mhzPw?si=qR8u0N-hSNcH6SJi' },
+  { id: '02', title: 'Project 02', status: 'In Development', color: 'text-c-cyan', href: 'https://youtu.be/oZ0AEXVQNdA?si=GnGMPZZBouu1gA03' },
   { id: '03', title: 'Project 03', status: 'Coming Soon', color: 'text-c-muted' },
 ]
 
@@ -24,13 +24,24 @@ export default function UpcomingProjects() {
         <p className="text-center text-c-muted mb-14 font-body text-lg">Collaborations welcome. <span className="text-c-cyan">Contact KAAY VISION.</span></p>
 
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 mb-14 stagger ${vis ? 'revealed' : ''}`}>
-          {projects.map(p => (
-            <div key={p.id} className="glass-card p-8 text-center group">
-              <span className="text-5xl font-display text-c-muted/10 group-hover:text-c-purple/10 transition-colors duration-500">{p.id}</span>
-              <h3 className="font-display text-xl tracking-widest text-c-white mt-2 mb-3">{p.title}</h3>
-              <span className={`font-mono text-[10px] uppercase tracking-widest ${p.color}`}>{p.status}</span>
-            </div>
-          ))}
+          {projects.map(p => {
+            const content = (
+              <>
+                <span className="text-5xl font-display text-c-muted/10 group-hover:text-c-purple/10 transition-colors duration-500">{p.id}</span>
+                <h3 className="font-display text-xl tracking-widest text-c-white mt-2 mb-3">{p.title}</h3>
+                <span className={`font-mono text-[10px] uppercase tracking-widest ${p.color}`}>{p.status}</span>
+              </>
+            )
+            return p.href ? (
+              <a key={p.id} href={p.href} target="_blank" rel="noopener noreferrer" className="glass-card p-8 text-center group cursor-pointer block">
+                {content}
+              </a>
+            ) : (
+              <div key={p.id} className="glass-card p-8 text-center group">
+                {content}
+              </div>
+            )
+          })}
         </div>
         <div className="text-center">
           <a href="#contact" className="btn-secondary">Contact For Producing</a>
