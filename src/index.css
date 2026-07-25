@@ -159,87 +159,171 @@ html { scroll-behavior: smooth; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   Contact For Producing – Premium Enhanced Button
+   Contact For Producing – Premium Cinematic Heading
+   Gold gradient · Neon accents · Holographic sweep · 60fps
    ═══════════════════════════════════════════════════════════════ */
 
-.contact-producing-btn {
-  color: #eef2ff;
-  background: rgba(10, 10, 30, 0.6);
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  text-shadow:
-    0 0 8px rgba(0, 229, 255, 0.4),
-    0 0 16px rgba(124, 77, 255, 0.2);
-  box-shadow:
-    0 0 15px rgba(0, 229, 255, 0.08),
-    0 0 30px rgba(124, 77, 255, 0.05),
-    inset 0 0 20px rgba(255, 215, 0, 0.03);
-  animation: cfpGlow 4s ease-in-out infinite;
-  will-change: box-shadow, text-shadow;
+/* Wrapper with floating animation */
+.contact-producing-heading {
+  padding: 16px 32px;
+  animation: cfpFloat 6s ease-in-out infinite;
+  will-change: transform;
 }
 
-.contact-producing-btn:hover {
-  border-color: rgba(0, 229, 255, 0.6);
-  color: #ffffff;
-  text-shadow:
-    0 0 10px rgba(0, 229, 255, 0.7),
-    0 0 20px rgba(0, 229, 255, 0.4),
-    0 0 40px rgba(124, 77, 255, 0.25);
-  box-shadow:
-    0 0 20px rgba(0, 229, 255, 0.2),
-    0 0 40px rgba(124, 77, 255, 0.12),
-    0 0 60px rgba(255, 215, 0, 0.06),
-    inset 0 0 25px rgba(255, 215, 0, 0.05);
-  transform: translateY(-3px);
-}
-
-.contact-producing-btn:active {
-  transform: translateY(0) scale(0.97);
-  transition-duration: 100ms;
-}
-
-/* Sweep light effect */
-.contact-producing-btn::after {
-  content: '';
+/* Soft bloom glow behind text */
+.cfp-bloom {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 400%;
+  transform: translate(-50%, -50%) translateZ(0);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 215, 0, 0.08) 0%,
+    rgba(0, 229, 255, 0.05) 25%,
+    rgba(139, 92, 246, 0.04) 45%,
+    transparent 65%
+  );
+  filter: blur(20px);
+  animation: cfpBloomPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Main heading text – gold gradient with cyan highlights */
+.cfp-text {
+  background: linear-gradient(
+    135deg,
+    #FFD700 0%,
+    #E6C35C 20%,
+    #ffffff 45%,
+    #00E5FF 55%,
+    #E6C35C 75%,
+    #FFD700 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    cfpGradientShift 8s ease-in-out infinite,
+    cfpTextGlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.3)) drop-shadow(0 0 12px rgba(0, 229, 255, 0.15));
+  will-change: filter, background-position;
+  z-index: 1;
+}
+
+/* Holographic light sweep across heading */
+.cfp-text::before {
+  content: 'CONTACT FOR PRODUCING';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
-    transparent,
-    rgba(0, 229, 255, 0.08),
-    rgba(255, 215, 0, 0.06),
-    transparent
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.85) 50%,
+    transparent 65%,
+    transparent 100%
   );
-  transition: left 0.7s ease;
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cfpSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }
 
-.contact-producing-btn:hover::after {
-  left: 100%;
+/* Subtitle styling */
+.cfp-subtitle {
+  color: rgba(0, 229, 255, 0.6);
+  text-shadow:
+    0 0 6px rgba(0, 229, 255, 0.2),
+    0 0 12px rgba(139, 92, 246, 0.1);
+  animation: cfpSubtitlePulse 5s ease-in-out infinite;
+  z-index: 1;
 }
 
-/* Breathing glow animation */
-@keyframes cfpGlow {
+/* ── Keyframes ─────────────────────────────────────── */
+
+/* Gentle vertical float (3px) */
+@keyframes cfpFloat {
   0%, 100% {
-    box-shadow:
-      0 0 12px rgba(0, 229, 255, 0.06),
-      0 0 24px rgba(124, 77, 255, 0.04),
-      inset 0 0 15px rgba(255, 215, 0, 0.02);
-    text-shadow:
-      0 0 6px rgba(0, 229, 255, 0.3),
-      0 0 12px rgba(124, 77, 255, 0.15);
+    transform: translateY(0px) translateZ(0);
   }
   50% {
-    box-shadow:
-      0 0 18px rgba(0, 229, 255, 0.12),
-      0 0 36px rgba(124, 77, 255, 0.08),
-      0 0 50px rgba(255, 215, 0, 0.04),
-      inset 0 0 20px rgba(255, 215, 0, 0.04);
+    transform: translateY(-3px) translateZ(0);
+  }
+}
+
+/* Bloom glow pulsing */
+@keyframes cfpBloomPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1) translateZ(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05) translateZ(0);
+  }
+}
+
+/* Gold gradient position shift */
+@keyframes cfpGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Text glow breathing – gold core + cyan + purple ambient */
+@keyframes cfpTextGlow {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 4px rgba(255, 215, 0, 0.25))
+      drop-shadow(0 0 8px rgba(0, 229, 255, 0.12))
+      drop-shadow(0 0 16px rgba(139, 92, 246, 0.06));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 215, 0, 0.45))
+      drop-shadow(0 0 16px rgba(0, 229, 255, 0.25))
+      drop-shadow(0 0 32px rgba(139, 92, 246, 0.12))
+      drop-shadow(0 0 48px rgba(255, 215, 0, 0.06));
+  }
+}
+
+/* Light sweep across text */
+@keyframes cfpSweep {
+  0%, 18% {
+    background-position: -60% 0;
+  }
+  58%, 100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Subtitle subtle pulse */
+@keyframes cfpSubtitlePulse {
+  0%, 100% {
+    opacity: 0.7;
     text-shadow:
-      0 0 10px rgba(0, 229, 255, 0.5),
-      0 0 20px rgba(124, 77, 255, 0.25),
-      0 0 30px rgba(255, 215, 0, 0.08);
+      0 0 4px rgba(0, 229, 255, 0.15),
+      0 0 8px rgba(139, 92, 246, 0.08);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px rgba(0, 229, 255, 0.3),
+      0 0 16px rgba(139, 92, 246, 0.15),
+      0 0 24px rgba(255, 215, 0, 0.05);
   }
 }
 

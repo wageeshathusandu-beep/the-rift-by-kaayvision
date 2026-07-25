@@ -85,13 +85,19 @@ export default function UpcomingProjects() {
         </div>
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 15, scale: 0.95 }}
+          initial={{ opacity: 0, y: 20, scale: 0.92 }}
           animate={vis ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a href="#contact" className="contact-producing-btn inline-flex items-center gap-3 px-10 py-5 font-display font-bold uppercase tracking-[0.2em] text-base md:text-lg rounded-xl transition-all duration-500 relative overflow-hidden">
-            Contact For Producing
-          </a>
+          <div className="contact-producing-heading inline-block relative">
+            <div className="cfp-bloom"></div>
+            <h3 className="cfp-text font-display font-extrabold uppercase tracking-[0.22em] text-xl md:text-2xl lg:text-[1.7rem] text-center relative">
+              Contact For Producing
+            </h3>
+            <p className="cfp-subtitle font-mono text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-center mt-3 relative">
+              Press, partnerships, updates
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
