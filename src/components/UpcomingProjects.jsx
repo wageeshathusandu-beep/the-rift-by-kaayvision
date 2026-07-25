@@ -85,11 +85,13 @@ export default function UpcomingProjects() {
         </div>
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 15 }}
-          animate={vis ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          initial={{ opacity: 0, y: 15, scale: 0.95 }}
+          animate={vis ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a href="#contact" className="btn-secondary">Contact For Producing</a>
+          <a href="#contact" className="contact-producing-btn inline-flex items-center gap-3 px-10 py-5 font-display font-bold uppercase tracking-[0.2em] text-base md:text-lg rounded-xl transition-all duration-500 relative overflow-hidden">
+            Contact For Producing
+          </a>
         </motion.div>
       </div>
     </section>
