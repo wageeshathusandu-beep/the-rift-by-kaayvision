@@ -50,13 +50,14 @@ export default function UpcomingProjects() {
                 <h3 className="font-display text-xl tracking-widest text-c-white mt-2 mb-3">{p.title}</h3>
                 {p.status === 'Coming Soon' ? (
                   <motion.div
-                    className="coming-soon-wrapper relative inline-block"
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    className="coming-soon-wrapper relative inline-flex items-center justify-center"
+                    initial={{ opacity: 0, scale: 0.88 }}
                     animate={vis ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 1.2, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                    transition={{ duration: 1.4, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <span className="coming-soon-text font-mono text-[7px] uppercase tracking-[0.35em] inline-block relative">
-                      {p.status}
+                    <div className="coming-soon-glow-bg"></div>
+                    <span className="coming-soon-text font-display font-bold text-sm md:text-base uppercase tracking-[0.25em] inline-block relative">
+                      COMING SOON
                     </span>
                   </motion.div>
                 ) : (

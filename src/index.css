@@ -158,139 +158,206 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
 }
 
-/* ═══════════════════════════════════════════════════
-   COMING SOON – Premium Sci-Fi Cinematic Animation
-   GPU-accelerated, 60fps smooth
-   ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════
+   COMING SOON – Next-Level Holographic Sci-Fi Cinematic Animation
+   GPU-accelerated · 60fps · Premium Hollywood quality
+   ═══════════════════════════════════════════════════════════════════════ */
 
+/* Wrapper – centers content and enables GPU layer */
 .coming-soon-wrapper {
   will-change: transform;
-}
-
-.coming-soon-text {
-  color: rgba(0, 229, 255, 0.9);
-  animation:
-    comingSoonBreathe 5s ease-in-out infinite,
-    comingSoonFloat 6s ease-in-out infinite,
-    comingSoonFlicker 8s ease-in-out infinite;
-  will-change: transform, opacity, text-shadow;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
 }
 
+/* Animated radial glow background behind text */
+.coming-soon-glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 300%;
+  transform: translate(-50%, -50%) translateZ(0);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 229, 255, 0.12) 0%,
+    rgba(124, 77, 255, 0.08) 30%,
+    rgba(224, 64, 251, 0.04) 50%,
+    transparent 70%
+  );
+  filter: blur(12px);
+  animation: csGlowBgShift 8s ease-in-out infinite;
+  pointer-events: none;
+  will-change: opacity, background;
+}
+
+/* Main text – bright white core with neon gradient */
+.coming-soon-text {
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(0, 229, 255, 0.6),
+    0 0 12px rgba(0, 229, 255, 0.3),
+    0 0 24px rgba(124, 77, 255, 0.2),
+    0 0 48px rgba(124, 77, 255, 0.1);
+  animation:
+    csBreathe 5s ease-in-out infinite,
+    csFloat 7s ease-in-out infinite,
+    csGlitch 12s step-end infinite;
+  will-change: transform, text-shadow, opacity;
+  position: relative;
+  z-index: 1;
+}
+
+/* Light sweep – holographic scanner traveling L→R every 4s */
 .coming-soon-text::before {
   content: 'COMING SOON';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 229, 255, 0.0) 35%,
-    rgba(255, 255, 255, 0.7) 50%,
-    rgba(0, 229, 255, 0.0) 65%,
+    transparent 30%,
+    rgba(0, 229, 255, 0.15) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(124, 77, 255, 0.15) 60%,
+    transparent 70%,
     transparent 100%
   );
-  background-size: 200% 100%;
+  background-size: 250% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: comingSoonSweep 3.5s ease-in-out infinite;
+  animation: csSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   font: inherit;
+  font-weight: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
 }
 
+/* Holographic shimmer underline accent */
 .coming-soon-text::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: -10%;
-  width: 120%;
+  bottom: -4px;
+  left: 10%;
+  width: 80%;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 229, 255, 0.3),
-    rgba(124, 77, 255, 0.2),
+    rgba(0, 229, 255, 0.5),
+    rgba(124, 77, 255, 0.4),
+    rgba(224, 64, 251, 0.3),
     transparent
   );
-  transform: translateY(-50%);
-  opacity: 0;
-  animation: comingSoonLine 4s ease-in-out infinite 1.5s;
+  background-size: 200% 100%;
+  animation: csShimmerLine 3s linear infinite;
+  opacity: 0.6;
   pointer-events: none;
 }
 
-/* Breathing glow – cyan core with purple outer halo */
-@keyframes comingSoonBreathe {
+/* ── Keyframes ─────────────────────────────────────── */
+
+/* Breathing pulse – scales 100% → 103%, glow intensifies */
+@keyframes csBreathe {
   0%, 100% {
     text-shadow:
-      0 0 4px rgba(0, 229, 255, 0.4),
-      0 0 8px rgba(0, 229, 255, 0.2),
-      0 0 16px rgba(124, 77, 255, 0.1);
-    opacity: 0.85;
+      0 0 6px rgba(0, 229, 255, 0.5),
+      0 0 12px rgba(0, 229, 255, 0.25),
+      0 0 24px rgba(124, 77, 255, 0.15),
+      0 0 40px rgba(124, 77, 255, 0.05);
+    transform: scale(1) translateY(0px) translateZ(0);
   }
   50% {
     text-shadow:
-      0 0 6px rgba(0, 229, 255, 0.7),
-      0 0 14px rgba(0, 229, 255, 0.4),
-      0 0 28px rgba(0, 229, 255, 0.2),
-      0 0 40px rgba(124, 77, 255, 0.15),
-      0 0 60px rgba(124, 77, 255, 0.08);
-    opacity: 1;
+      0 0 8px rgba(0, 229, 255, 0.8),
+      0 0 18px rgba(0, 229, 255, 0.5),
+      0 0 36px rgba(0, 229, 255, 0.25),
+      0 0 56px rgba(124, 77, 255, 0.2),
+      0 0 80px rgba(224, 64, 251, 0.08);
+    transform: scale(1.03) translateY(0px) translateZ(0);
   }
 }
 
-/* Gentle floating – 1.5px vertical movement */
-@keyframes comingSoonFloat {
+/* Gentle vertical float – 2px movement */
+@keyframes csFloat {
   0%, 100% {
-    transform: translateY(0px) translateZ(0);
+    transform: translateY(0px) scale(1) translateZ(0);
+  }
+  25% {
+    transform: translateY(-1px) scale(1.015) translateZ(0);
   }
   50% {
-    transform: translateY(-1.5px) translateZ(0);
+    transform: translateY(-2px) scale(1.03) translateZ(0);
+  }
+  75% {
+    transform: translateY(-1px) scale(1.015) translateZ(0);
   }
 }
 
-/* Subtle flicker – tiny opacity dip at varied intervals */
-@keyframes comingSoonFlicker {
-  0%, 18%, 20%, 50%, 52%, 78%, 80%, 100% {
-    opacity: 1;
+/* Subtle cinematic glitch – very brief, very rare */
+@keyframes csGlitch {
+  0%, 100% { opacity: 1; transform: translate(0, 0) scale(1) translateZ(0); }
+  27% { opacity: 1; }
+  27.3% { opacity: 0.85; transform: translate(-1px, 0) scale(1) translateZ(0); }
+  27.6% { opacity: 1; transform: translate(1px, 0) scale(1) translateZ(0); }
+  27.9% { opacity: 1; transform: translate(0, 0) scale(1) translateZ(0); }
+  64% { opacity: 1; }
+  64.2% { opacity: 0.9; transform: translate(0.5px, -0.5px) scale(1) translateZ(0); }
+  64.5% { opacity: 1; transform: translate(0, 0) scale(1) translateZ(0); }
+  89% { opacity: 1; }
+  89.2% { opacity: 0.88; transform: translate(-0.5px, 0) scale(1) translateZ(0); }
+  89.4% { opacity: 1; transform: translate(0, 0) scale(1) translateZ(0); }
+}
+
+/* Holographic light sweep – travels smoothly L→R */
+@keyframes csSweep {
+  0%, 15% {
+    background-position: -80% 0;
   }
-  19% {
-    opacity: 0.88;
+  55%, 100% {
+    background-position: 220% 0;
   }
-  51% {
-    opacity: 0.92;
+}
+
+/* Shimmer line – holographic color shifting */
+@keyframes csShimmerLine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* Background glow color shift – cyan → purple → blue */
+@keyframes csGlowBgShift {
+  0%, 100% {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 229, 255, 0.12) 0%,
+      rgba(124, 77, 255, 0.06) 35%,
+      transparent 65%
+    );
+    opacity: 0.7;
   }
-  79% {
+  33% {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(124, 77, 255, 0.14) 0%,
+      rgba(224, 64, 251, 0.06) 35%,
+      transparent 65%
+    );
     opacity: 0.9;
   }
-}
-
-/* Light sweep across text */
-@keyframes comingSoonSweep {
-  0%, 20% {
-    background-position: -100% 0;
-  }
-  60%, 100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Horizontal line accent */
-@keyframes comingSoonLine {
-  0%, 30% {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-100%) translateZ(0);
-  }
-  50% {
-    opacity: 0.6;
-  }
-  70%, 100% {
-    opacity: 0;
-    transform: translateY(-50%) translateX(100%) translateZ(0);
+  66% {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(41, 121, 255, 0.12) 0%,
+      rgba(0, 229, 255, 0.06) 35%,
+      transparent 65%
+    );
+    opacity: 0.8;
   }
 }
