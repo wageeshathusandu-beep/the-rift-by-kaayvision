@@ -7,10 +7,13 @@ export default function TicketBooking() {
   const ref = useRef(null)
   useEffect(() => { const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true) }, { threshold: 0.15 }); if (ref.current) o.observe(ref.current); return () => o.disconnect() }, [])
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll when modal is open + Escape key handler
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden'
+      const handleEsc = (e) => { if (e.key === 'Escape') setModalOpen(false) }
+      window.addEventListener('keydown', handleEsc)
+      return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', handleEsc) }
     } else {
       document.body.style.overflow = ''
     }
@@ -34,7 +37,7 @@ export default function TicketBooking() {
             <p className="tech-label text-center mb-3">NOW SHOWING</p>
             <h2 className="section-title mb-4">Online Ticket Booking</h2>
             <p className="text-center text-c-muted mb-12 font-body text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Reserve your movie tickets quickly and securely. Choose your preferred cinema, date, and time, then complete your booking online.
+              Reserve your movie tickets online. Our official booking platform will be available soon.
             </p>
           </motion.div>
 
@@ -103,23 +106,17 @@ export default function TicketBooking() {
               {/* Message */}
               <p className="text-c-muted font-body text-sm md:text-base leading-relaxed mb-8">
                 Our online ticket booking system is currently under development.
-                <br />Ticket reservations will be available soon.
-                <br />Stay tuned for updates!
+                <br />Ticket reservations will be available very soon.
+                <br />Thank you for your patience.
               </p>
 
-              {/* Buttons */}
-              <div className="flex items-center justify-center gap-3">
+              {/* Button */}
+              <div className="flex items-center justify-center">
                 <button
                   onClick={() => setModalOpen(false)}
-                  className="px-6 py-2.5 rounded-xl font-display font-bold uppercase tracking-[0.12em] text-xs text-c-muted border border-c-muted/20 bg-abyss/50 hover:border-c-cyan/40 hover:text-c-cyan transition-all duration-300"
+                  className="px-8 py-2.5 rounded-xl font-display font-bold uppercase tracking-[0.12em] text-xs text-c-muted border border-c-muted/20 bg-abyss/50 hover:border-c-cyan/40 hover:text-c-cyan hover:shadow-[0_0_12px_rgba(0,229,255,0.15)] transition-all duration-300"
                 >
                   Close
-                </button>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="px-6 py-2.5 rounded-xl font-display font-bold uppercase tracking-[0.12em] text-xs text-white bg-gradient-to-r from-c-cyan/20 to-c-purple/20 border border-c-cyan/30 hover:border-c-cyan/60 hover:shadow-[0_0_15px_rgba(0,229,255,0.2)] transition-all duration-300"
-                >
-                  OK
                 </button>
               </div>
             </motion.div>
