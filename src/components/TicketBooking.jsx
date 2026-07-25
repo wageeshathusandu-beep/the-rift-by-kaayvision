@@ -34,10 +34,10 @@ export default function TicketBooking() {
             animate={vis ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
-            <p className="tech-label text-center mb-3">NOW SHOWING</p>
-            <h2 className="section-title mb-4">Online Ticket Booking</h2>
+            <p className="tech-label text-center mb-3">OFFICIAL TICKETS</p>
+            <h2 className="section-title mb-4">Book Your Tickets</h2>
             <p className="text-center text-c-muted mb-12 font-body text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Reserve your movie tickets online. Our official booking platform will be available soon.
+              Experience the film on the big screen. Our official online ticket booking platform will be available soon. Stay tuned for the launch.
             </p>
           </motion.div>
 
