@@ -19,7 +19,6 @@ export default function Trailer() {
           animate={vis ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
-          <p className="tech-label text-center mb-3">TRANSMISSION RECEIVED</p>
           <h2 className="section-title mb-4">Official Trailer</h2>
           <p className="text-center mb-14 font-heading font-light text-base md:text-lg uppercase tracking-[0.2em] text-c-white/70"
              style={{ textShadow: '0 0 10px rgba(0,229,255,0.2), 0 0 20px rgba(124,77,255,0.1)' }}>

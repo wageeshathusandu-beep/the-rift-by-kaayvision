@@ -34,7 +34,6 @@ export default function Footer() {
           <p className="text-c-muted/40 text-xs font-mono">&copy; 2026 KAAY VISION</p>
         </div>
         <div className="mt-8 h-px bg-gradient-to-r from-transparent via-c-purple/10 to-transparent"></div>
-        <p className="text-center mt-5 tech-label">END TRANSMISSION</p>
       </motion.div>
     </footer>
   )
