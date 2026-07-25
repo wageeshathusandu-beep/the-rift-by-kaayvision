@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
 const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
 const crew = [
-  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
+  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://drive.google.com/uc?export=view&id=1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs' },
   { name: 'Visal Damsith', role: 'Assistant Director', image: 'https://lh3.googleusercontent.com/d/1pCdZis39cmnPBDkntPpvIxvNza7_nsjq' },
   { name: 'Wageesha Thusandu', role: 'FPV Pilot', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
   { name: 'SS Dissanayake', role: 'Editor', image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
@@ -23,12 +23,13 @@ function Card({ name, role, hl, image, index = 0, isVisible }) {
       transition={{ duration: 0.5, delay: index * 0.06, ease: [0.4, 0, 0.2, 1] }}
     >
       {image ? (
-        <div className="w-14 h-14 mx-auto mb-4 rounded-full overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_15px_rgba(255,215,0,0.35),0_0_30px_rgba(212,175,55,0.2)]" style={{ boxShadow: '0 0 10px rgba(255,215,0,0.2), 0 0 20px rgba(212,175,55,0.1)' }}>
+        <div className="w-14 h-14 mx-auto mb-4 rounded-full overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_15px_rgba(255,215,0,0.45),0_0_30px_rgba(212,175,55,0.3),0_0_45px_rgba(255,215,0,0.15)]" style={{ boxShadow: '0 0 10px rgba(255,215,0,0.25), 0 0 20px rgba(212,175,55,0.15), 0 0 35px rgba(255,215,0,0.08)' }}>
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover"
-            onError={(e) => { e.target.onerror = null; e.target.src = image.replace('https://lh3.googleusercontent.com/d/', 'https://drive.google.com/uc?export=view&id='); }}
+            className="w-full h-full object-cover object-center"
+            style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }}
+            onError={(e) => { e.target.onerror = null; e.target.src = `https://drive.google.com/uc?export=view&id=1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs`; }}
           />
         </div>
       ) : (

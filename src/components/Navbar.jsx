@@ -35,7 +35,7 @@ export default function Navbar() {
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Crew & Cast', href: '#cast', id: 'cast' },
     { label: 'Free Gift', href: '#free-gift', id: 'free-gift' },
-    { label: 'Upcoming Projects', href: '#upcoming', id: 'upcoming' },
+    { label: 'Our Projects', href: '#upcoming', id: 'upcoming' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ]
 

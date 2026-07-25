@@ -26,7 +26,7 @@ export default function UpcomingProjects() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <p className="tech-label text-center mb-3">FUTURE OPERATIONS</p>
-          <h2 className="section-title mb-4">Upcoming Projects</h2>
+          <h2 className="section-title mb-4">Our Projects</h2>
           <p className="text-center text-c-muted mb-14 font-body text-lg">Collaborations welcome. <span className="text-c-cyan">Contact KAAY VISION.</span></p>
         </motion.div>
 
