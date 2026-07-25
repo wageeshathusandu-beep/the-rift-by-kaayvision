@@ -22,18 +22,18 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-c-cyan animate-pulse-slow"></div>
-            <span className="font-display text-sm tracking-widest text-c-white">THE RIFT</span>
-            <span className="text-c-muted/30">|</span>
-            <span className="text-c-muted/60 text-xs font-body">A KAAY VISION Film</span>
+            <span className="font-display text-sm tracking-widest text-c-white" style={{ textShadow: '0 0 8px rgba(0,229,255,0.15)' }}>THE RIFT</span>
+            <span className="text-c-white/30">|</span>
+            <span className="text-c-white/60 text-xs font-body">A KAAY VISION Film</span>
           </div>
-          <div className="flex gap-5 text-[10px] font-mono uppercase tracking-widest text-c-muted/50">
+          <div className="flex gap-5 text-[10px] font-mono uppercase tracking-widest text-c-white/60">
             {['Privacy', 'Terms', 'Press Kit'].map((item) => (
               <a key={item} href="#" className="hover:text-c-cyan hover:shadow-[0_0_8px_rgba(0,229,255,0.3)] transition-all duration-300">{item}</a>
             ))}
           </div>
-          <p className="text-c-muted/40 text-xs font-mono">&copy; 2026 KAAY VISION</p>
+          <p className="text-c-white/50 text-xs font-mono">&copy; 2026 KAAY VISION</p>
         </div>
-        <div className="mt-8 h-px bg-gradient-to-r from-transparent via-c-purple/10 to-transparent"></div>
+        <div className="mt-8 h-px bg-gradient-to-r from-transparent via-c-purple/20 to-transparent"></div>
       </motion.div>
     </footer>
   )
