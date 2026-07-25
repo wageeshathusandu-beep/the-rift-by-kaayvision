@@ -503,6 +503,73 @@ html { scroll-behavior: smooth; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   Ticket Booking Modal – Premium Glassmorphism
+   ═══════════════════════════════════════════════════════════════ */
+
+.ticket-modal {
+  background: rgba(6, 6, 18, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #FFD700, #D4AF37, rgba(0, 229, 255, 0.4), #D4AF37, #FFD700) 1;
+  border-radius: 16px;
+  border-image: none;
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.1),
+    0 0 40px rgba(0, 229, 255, 0.05),
+    0 0 60px rgba(124, 77, 255, 0.03),
+    inset 0 0 30px rgba(0, 0, 0, 0.3),
+    0 25px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold gradient border overlay */
+.ticket-modal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, #FFD700, #D4AF37, rgba(0, 229, 255, 0.5), #D4AF37, #FFD700);
+  background-size: 300% 300%;
+  animation: ticketModalBorder 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Soft ambient glow */
+.ticket-modal::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 229, 255, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  animation: ticketModalGlow 5s ease-in-out infinite;
+}
+
+@keyframes ticketModalBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ticketModalGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    COMING SOON – Next-Level Holographic Sci-Fi Cinematic Animation
    GPU-accelerated · 60fps · Premium Hollywood quality
