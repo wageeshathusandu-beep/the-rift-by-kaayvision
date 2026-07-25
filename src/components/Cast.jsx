@@ -70,17 +70,17 @@ export default function Cast() {
           <p className="text-center text-c-muted mb-16 font-body text-lg">The visionaries behind The Rift</p>
         </motion.div>
 
-        <div className="text-center mb-6"><p className="tech-label">PRIMARY SUBJECT</p></div>
-        <div className="flex justify-center mb-16">
-          <div className="w-full max-w-xs">
-            <Card name={mainRole.name} role={mainRole.role} hl={true} isVisible={vis} index={0}/>
-          </div>
-        </div>
-
         <div ref={crewRef}>
           <div className="text-center mb-8"><p className="tech-label">FILM CREW</p></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
             {crew.map((m, i) => <Card key={m.name} name={m.name} role={m.role} hl={m.hl} image={m.image} isVisible={crewVis} index={i}/>)}
+          </div>
+        </div>
+
+        <div className="text-center mb-6"><p className="tech-label">PRIMARY SUBJECT</p></div>
+        <div className="flex justify-center mb-16">
+          <div className="w-full max-w-xs">
+            <Card name={mainRole.name} role={mainRole.role} hl={true} isVisible={vis} index={0}/>
           </div>
         </div>
 
