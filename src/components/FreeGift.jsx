@@ -28,7 +28,7 @@ export default function FreeGift() {
                 </div>
               </div>
             </div>
-            <a href="https://drive.google.com/drive/folders/161kz6guAHXy49lCeqrRccabNDi3yEp0U?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary">Download Mobile Wallpaper</a>
+            <a href="https://drive.google.com/drive/folders/161kz6guAHXy49lCeqrRccabNDi3yEp0U?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary">Download More Mobile Wallpapers</a>
           </div>
         </div>
       </div>
