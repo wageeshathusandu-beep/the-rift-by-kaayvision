@@ -327,6 +327,94 @@ html { scroll-behavior: smooth; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   Contact Producer WhatsApp CTA – Premium Gold Pill Button
+   ═══════════════════════════════════════════════════════════════ */
+
+.cfp-whatsapp-btn {
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #FFD700 100%);
+  background-size: 200% 200%;
+  color: #ffffff;
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.2),
+    0 0 24px rgba(0, 229, 255, 0.08),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation:
+    cfpBtnPulse 4s ease-in-out infinite,
+    cfpBtnShimmer 5s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+.cfp-whatsapp-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2),
+    0 0 60px rgba(0, 229, 255, 0.15),
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cfp-whatsapp-btn:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+/* Shimmer sweep across button */
+.cfp-whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  animation: cfpBtnSweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Subtle pulse – outer glow breathing */
+@keyframes cfpBtnPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(0, 229, 255, 0.15),
+      0 0 20px rgba(0, 229, 255, 0.06),
+      0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 16px rgba(0, 229, 255, 0.3),
+      0 0 32px rgba(0, 229, 255, 0.12),
+      0 0 48px rgba(255, 215, 0, 0.06),
+      0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Shimmer light sweep */
+@keyframes cfpBtnSweep {
+  0%, 20% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* Gold gradient shift for shimmer effect */
+@keyframes cfpBtnShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    COMING SOON – Next-Level Holographic Sci-Fi Cinematic Animation
    GPU-accelerated · 60fps · Premium Hollywood quality
