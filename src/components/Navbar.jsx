@@ -13,7 +13,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = ['home', 'trailer', 'about', 'cast', 'free-gift', 'upcoming', 'contact']
+    const sections = ['home', 'trailer', 'about', 'cast', 'free-gift', 'upcoming', 'ticket-booking', 'contact']
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -36,6 +36,7 @@ export default function Navbar() {
     { label: 'Crew & Cast', href: '#cast', id: 'cast' },
     { label: 'Free Gift', href: '#free-gift', id: 'free-gift' },
     { label: 'Our Projects', href: '#upcoming', id: 'upcoming' },
+    { label: 'Tickets', href: '#ticket-booking', id: 'ticket-booking' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ]
 
