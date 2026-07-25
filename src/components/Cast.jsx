@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
 const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
 const crew = [
-  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://drive.google.com/uc?export=view&id=1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs' },
+  { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
   { name: 'Visal Damsith', role: 'Assistant Director', image: 'https://lh3.googleusercontent.com/d/1pCdZis39cmnPBDkntPpvIxvNza7_nsjq' },
   { name: 'Wageesha Thusandu', role: 'FPV Pilot', image: 'https://lh3.googleusercontent.com/d/1glH4mUgbMaFnKhQI8oJSP92jWucJyQBG' },
   { name: 'SS Dissanayake', role: 'Editor', image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
@@ -29,7 +29,7 @@ function Card({ name, role, hl, image, index = 0, isVisible }) {
             alt={name}
             className="w-full h-full object-cover object-center"
             style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }}
-            onError={(e) => { e.target.onerror = null; e.target.src = `https://drive.google.com/uc?export=view&id=1QmPnVA0HFdM8ciRPkgT0VEIXxuvfzdQs`; }}
+            onError={(e) => { e.target.onerror = null; e.target.src = `https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu`; }}
           />
         </div>
       ) : (
