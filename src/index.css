@@ -157,3 +157,140 @@ html { scroll-behavior: smooth; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ═══════════════════════════════════════════════════
+   COMING SOON – Premium Sci-Fi Cinematic Animation
+   GPU-accelerated, 60fps smooth
+   ═══════════════════════════════════════════════════ */
+
+.coming-soon-wrapper {
+  will-change: transform;
+}
+
+.coming-soon-text {
+  color: rgba(0, 229, 255, 0.9);
+  animation:
+    comingSoonBreathe 5s ease-in-out infinite,
+    comingSoonFloat 6s ease-in-out infinite,
+    comingSoonFlicker 8s ease-in-out infinite;
+  will-change: transform, opacity, text-shadow;
+  position: relative;
+}
+
+.coming-soon-text::before {
+  content: 'COMING SOON';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 229, 255, 0.0) 35%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(0, 229, 255, 0.0) 65%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: comingSoonSweep 3.5s ease-in-out infinite;
+  pointer-events: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.coming-soon-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 229, 255, 0.3),
+    rgba(124, 77, 255, 0.2),
+    transparent
+  );
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: comingSoonLine 4s ease-in-out infinite 1.5s;
+  pointer-events: none;
+}
+
+/* Breathing glow – cyan core with purple outer halo */
+@keyframes comingSoonBreathe {
+  0%, 100% {
+    text-shadow:
+      0 0 4px rgba(0, 229, 255, 0.4),
+      0 0 8px rgba(0, 229, 255, 0.2),
+      0 0 16px rgba(124, 77, 255, 0.1);
+    opacity: 0.85;
+  }
+  50% {
+    text-shadow:
+      0 0 6px rgba(0, 229, 255, 0.7),
+      0 0 14px rgba(0, 229, 255, 0.4),
+      0 0 28px rgba(0, 229, 255, 0.2),
+      0 0 40px rgba(124, 77, 255, 0.15),
+      0 0 60px rgba(124, 77, 255, 0.08);
+    opacity: 1;
+  }
+}
+
+/* Gentle floating – 1.5px vertical movement */
+@keyframes comingSoonFloat {
+  0%, 100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-1.5px) translateZ(0);
+  }
+}
+
+/* Subtle flicker – tiny opacity dip at varied intervals */
+@keyframes comingSoonFlicker {
+  0%, 18%, 20%, 50%, 52%, 78%, 80%, 100% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0.88;
+  }
+  51% {
+    opacity: 0.92;
+  }
+  79% {
+    opacity: 0.9;
+  }
+}
+
+/* Light sweep across text */
+@keyframes comingSoonSweep {
+  0%, 20% {
+    background-position: -100% 0;
+  }
+  60%, 100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Horizontal line accent */
+@keyframes comingSoonLine {
+  0%, 30% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%) translateZ(0);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%) translateZ(0);
+  }
+}

@@ -49,24 +49,16 @@ export default function UpcomingProjects() {
                 <span className="text-5xl font-display text-c-muted/10 group-hover:text-c-purple/10 transition-colors duration-500">{p.id}</span>
                 <h3 className="font-display text-xl tracking-widest text-c-white mt-2 mb-3">{p.title}</h3>
                 {p.status === 'Coming Soon' ? (
-                  <motion.span
-                    className="font-mono text-[8px] uppercase tracking-widest text-c-muted inline-block"
-                    animate={{
-                      opacity: [0.5, 1, 0.5],
-                      textShadow: [
-                        '0 0 4px rgba(148,163,184,0.0), 0 0 8px rgba(148,163,184,0.0)',
-                        '0 0 6px rgba(148,163,184,0.4), 0 0 12px rgba(148,163,184,0.2), 0 0 20px rgba(148,163,184,0.1)',
-                        '0 0 4px rgba(148,163,184,0.0), 0 0 8px rgba(148,163,184,0.0)',
-                      ],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
+                  <motion.div
+                    className="coming-soon-wrapper relative inline-block"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={vis ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 1.2, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    {p.status}
-                  </motion.span>
+                    <span className="coming-soon-text font-mono text-[7px] uppercase tracking-[0.35em] inline-block relative">
+                      {p.status}
+                    </span>
+                  </motion.div>
                 ) : (
                   <span className={`font-mono text-[10px] uppercase tracking-widest ${p.color}`}>{p.status}</span>
                 )}
