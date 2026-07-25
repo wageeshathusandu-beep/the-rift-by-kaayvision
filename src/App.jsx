@@ -6,6 +6,7 @@ import About from './components/About'
 import Cast from './components/Cast'
 import FreeGift from './components/FreeGift'
 import UpcomingProjects from './components/UpcomingProjects'
+import TicketBooking from './components/TicketBooking'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
@@ -33,6 +34,7 @@ function App() {
         <Cast />
         <FreeGift />
         <UpcomingProjects />
+        <TicketBooking />
         <Contact />
         <Footer />
         <BackToTop />
