@@ -66,7 +66,7 @@ export default function Cast() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <p className="tech-label text-center mb-3">Film Database</p>
-          <h2 className="section-title mb-4">Cast & Crew</h2>
+          <h2 className="section-title mb-4">Crew & Cast</h2>
           <p className="text-center text-c-muted mb-16 font-body text-lg">The visionaries behind The Rift</p>
         </motion.div>
 
@@ -77,16 +77,16 @@ export default function Cast() {
           </div>
         </div>
 
-        <div className="text-center mb-8"><p className="tech-label">SUPPORTING CAST</p></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
-          {subRoles.map((n, i) => <Card key={n} name={n} isVisible={vis} index={i + 1}/>)}
-        </div>
-
         <div ref={crewRef}>
           <div className="text-center mb-8"><p className="tech-label">FILM CREW</p></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
             {crew.map((m, i) => <Card key={m.name} name={m.name} role={m.role} hl={m.hl} image={m.image} isVisible={crewVis} index={i}/>)}
           </div>
+        </div>
+
+        <div className="text-center mb-8"><p className="tech-label">SUPPORTING CAST</p></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {subRoles.map((n, i) => <Card key={n} name={n} isVisible={vis} index={i + 1}/>)}
         </div>
       </div>
     </section>
