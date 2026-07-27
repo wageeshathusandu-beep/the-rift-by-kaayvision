@@ -1,8 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-const mainRole = { name: 'Saduni Amaya', role: 'Main Role' }
-const subRoles = ['Nipun Nethmal','Inuki Akithra','Sachith Sahan','Geeshan Randunu','Suraj Chanuka','Chenuthi Nulinsa','Reshani Thadisha','Yonali Vihangi','Ranuki Akithma']
+const mainRole = { name: 'Saduni Amaya', role: 'Main Role', image: 'https://drive.google.com/thumbnail?id=121nkLytbYDRrPUKbCv2RJ1QBeTYXqvQl&sz=w500' }
+const subRoles = [
+  { name: 'Nipun Nethmal', image: 'https://drive.google.com/thumbnail?id=1z-_pSMMoK8F3rlzs7YG21-RIBnUikwLm&sz=w500' },
+  { name: 'Inuki Akithra', image: 'https://drive.google.com/thumbnail?id=1ZrFLo2osQPH-k8E5EWvzz6jC_wy9y4sk&sz=w500' },
+  { name: 'Sachith Sahan', image: 'https://drive.google.com/thumbnail?id=1eouh_6BnB0piWm5bgYUzdPBEVizOijLK&sz=w500' },
+  { name: 'Geeshan Randunu', image: 'https://drive.google.com/thumbnail?id=1zI_0rcw8ULXFE1skYzc0Av2DlDOmAQM8&sz=w500' },
+  { name: 'Suraj Chanuka' },
+  { name: 'Chenuthi Nulinsa' },
+  { name: 'Reshani Thadisha' },
+  { name: 'Yonali Vihangi' },
+  { name: 'Ranuki Akithma' },
+]
 const crew = [
   { name: 'Sisara Sanal', role: 'Director / Writer', hl: true, image: 'https://lh3.googleusercontent.com/d/1UfzVe74bG6jG7rAqNt7SpX9I_QNrmTfu' },
   { name: 'Visal Damsith', role: 'Assistant Director', image: 'https://lh3.googleusercontent.com/d/1pCdZis39cmnPBDkntPpvIxvNza7_nsjq' },
@@ -80,13 +90,13 @@ export default function Cast() {
         <div className="text-center mb-6"><p className="tech-label">PRIMARY SUBJECT</p></div>
         <div className="flex justify-center mb-16">
           <div className="w-full max-w-xs">
-            <Card name={mainRole.name} role={mainRole.role} hl={true} isVisible={vis} index={0}/>
+            <Card name={mainRole.name} role={mainRole.role} hl={true} image={mainRole.image} isVisible={vis} index={0}/>
           </div>
         </div>
 
         <div className="text-center mb-8"><p className="tech-label">SUPPORTING CAST</p></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {subRoles.map((n, i) => <Card key={n} name={n} isVisible={vis} index={i + 1}/>)}
+          {subRoles.map((m, i) => <Card key={m.name} name={m.name} image={m.image} isVisible={vis} index={i + 1}/>)}
         </div>
       </div>
     </section>
