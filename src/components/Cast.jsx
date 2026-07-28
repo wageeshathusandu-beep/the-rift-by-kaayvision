@@ -7,7 +7,7 @@ const subRoles = [
   { name: 'Inuki Akithra', image: 'https://drive.google.com/thumbnail?id=1ZrFLo2osQPH-k8E5EWvzz6jC_wy9y4sk&sz=w500' },
   { name: 'Sachith Sahan', image: 'https://drive.google.com/thumbnail?id=1eouh_6BnB0piWm5bgYUzdPBEVizOijLK&sz=w500' },
   { name: 'Geeshan Randunu', image: 'https://drive.google.com/thumbnail?id=1zI_0rcw8ULXFE1skYzc0Av2DlDOmAQM8&sz=w500' },
-  { name: 'Suraj Chanuka' },
+  { name: 'Suraj Chanuka', image: 'https://drive.google.com/thumbnail?id=1d7_4BPS2nsrg8JBCFHErTQ2k0Uywou-i&sz=w500' },
   { name: 'Chenuthi Nulinsa' },
   { name: 'Reshani Thadisha' },
   { name: 'Yonali Vihangi' },
